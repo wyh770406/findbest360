@@ -1,3 +1,0 @@
-class PromoteDiscount
-
-end
