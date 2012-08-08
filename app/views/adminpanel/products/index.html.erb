@@ -1,0 +1,68 @@
+<%= render 'base' %>
+<div id="search">
+  <%if params[:from]=="merchant"%>
+    <%= form_tag search_adminpanel_merchant_products_path(@merchant_id,:from=>"merchant") do%>
+      <%=text_field_tag "search_key","搜索关键字"%>
+
+      <%=submit_tag "搜索"%>
+    <% end %>
+  <%elsif params[:from]=="end_product"%>
+    <%= form_tag search_adminpanel_top_product_middle_product_end_product_products_path(@top_product,@middle_product,@end_product,:from=>"end_product") do%>
+      <%=text_field_tag "search_key","搜索关键字"%>
+
+      <%=submit_tag "搜索"%>
+    <% end %>
+  <%end%>
+</div>
+<div id="total" align="right">
+  共<%=@products.count if @products.present?%>条记录
+</div>
+<div id="adminpanel_products">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+
+        <th><%if params[:from]=="merchant"%>商家名称
+          <%elsif params[:from]=="end_product"%>商家名称
+          <%end%></th>
+
+        <th>商品名称</th>
+        <th>时间</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= @products.count.to_s%>
+     <%@products.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+          <%if params[:from]=="merchant"%>
+            <td width="20%"><%= @merchant.name %></td>
+            <td width="20%"><%= item.title %></td>
+
+            <td width="20%"><%= l item.created_at.getlocal, :format => :short %></td>
+            <td width="20%">
+
+              <%= link_to '修改', edit_adminpanel_merchant_product_path(@merchant.id,item.id,:from=>"merchant") %>&nbsp;&nbsp;
+              <%= link_to image_tag("/images/wice_grid/delete.png", :style => "margin-bottom:-4px;border:0"), adminpanel_merchant_product_path(@merchant_id,item.id,:from=>"merchant"), :method => :delete, :confirm => '确定要删除吗?' %>
+            </td>
+          <%elsif params[:from]=="end_product"%>
+            <td width="20%"><%= item.merchant.name %></td>
+            <td width="20%"><%= item.title %></td>
+
+            <td width="20%"><%= l item.created_at.getlocal, :format => :short %></td>
+            <td width="20%">
+
+                <%= link_to '修改', edit_adminpanel_top_product_middle_product_end_product_product_path(@top_product,@middle_product,@end_product,item.id,:from=>"end_product") %>&nbsp;&nbsp;
+                <%= link_to image_tag("/images/wice_grid/delete.png", :style => "margin-bottom:-4px;border:0"), adminpanel_top_product_middle_product_end_product_product_path(@top_product,@middle_product,@end_product,item.id,:from=>"end_product"), :method => :delete, :confirm => '确定要删除吗?' %>              
+
+            </td>
+          <%end%>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @products %>
+  <div id="total" align="right">
+    共<%=@products.count if @products.present?%>条记录
+  </div>
+</div>

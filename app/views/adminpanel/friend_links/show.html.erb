@@ -1,0 +1,12 @@
+<%= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_friend_link_path(@friend_link) %> |
+  <%= link_to '返回', adminpanel_friend_links_path %>
+</div>
+<div id="adminpanel_friend_link">
+  <p>
+    <b>Name:</b>
+    <%= @friend_link.name %>
+  </p>
+
+</div>

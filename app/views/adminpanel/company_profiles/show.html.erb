@@ -1,0 +1,12 @@
+<%= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_company_profile_path(@company_profile) %> |
+  <%= link_to '返回', adminpanel_company_profiles_path %>
+</div>
+<div id="adminpanel_company_profile">
+  <p>
+    <b>Name:</b>
+    <%= @company_profile.name %>
+  </p>
+
+</div>

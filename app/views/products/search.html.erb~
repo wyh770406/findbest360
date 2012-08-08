@@ -1,0 +1,245 @@
+<% pagetitle("#{@search_key} - 商品搜索") %>
+
+<div class="main">
+  <div class="search_left">
+    <!--<h1><div class="more"><img src="/images/search_03.jpg" width="7" height="12" /></div><span>资讯<span class="hui" style="margin-left:0">（242356）</span></span></h1>
+    <ul>
+      <li>网页(39169722)</li>
+      <li>论坛帖子(9140787)</li>
+      <li>问答(4672274)</li><div class="more"><img src="/images/search_09.jpg" width="7" height="13" /></div>
+    </ul>-->
+    <h2><span>商品分类</span></h2>
+    <ul>
+      <li>所有分类</li>
+      <%@end_products.each do |middle_product|%>
+        <span>
+          <%=middle_product[:middle_product].name%>
+        </span>
+        <%middle_product[:end_product].each do |end_product|%>
+          <span><img src="/images/search0_13.jpg" width="8" height="10" style="padding-left:10px" />
+            <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+               &price_down=<%=params[:price_sort]%>&brand=<%=params[:brand]%>&merchant=<%=params[:merchant]%>&e_p=<%=end_product.id%>">
+                 <%=end_product.name%>
+            </a>
+          </span>
+        <%end%>
+      <%end%>
+
+    </ul>
+    <!--div class="search_lefta">
+      <div class="more"><img src="/images/search_17.jpg" width="4" height="8" /></div>
+      <span>查看全部分类 </span>
+    </div-->
+    <h3><span>来源商家</span></h3>
+    <ul>
+      <%@merchants.each do |merchant|%>
+        <li>
+          <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+             &price_down=<%=params[:price_sort]%>&brand=<%=params[:brand]%>&merchant=<%=merchant.id%>&e_p=<%=params[:e_p]%>">
+               <%=merchant.name%>
+          </a>
+        </li>
+      <%end%>
+
+      <!-- <table>
+         <tbody><tr>
+             <td><a title="只查看价格在0-100元的商品" href="/search?q=%CA%D6%BB%FA&start_price=0&end_price=100&pi=price_interval:1;pi:lower">0-100元</a></td>
+             <td><span class="progressbar"><span style="width: 70px;" class="min"></span></span></td>
+             <td><em>7%</em></td>
+
+           </tr> <tr >
+             <td><a title="只查看价格在100-600元的商品" href="/search?q=%CA%D6%BB%FA&start_price=100&end_price=600&pi=price_interval:1;pi:main">100-600元</a></td>
+             <td><span class="progressbar"><span style="width:57px;" class="max"></span></span></td>
+             <td><em>57%</em></td>
+
+           </tr> <tr >
+             <td><a title="只查看价格在600-2000元的商品" href="/search?q=%CA%D6%BB%FA&start_price=600&end_price=2000&pi=price_interval:1;pi:higher">600-2000元</a></td>
+             <td><span class="progressbar"><span style="width: 28px;" class="medium"></span></span></td>
+             <td><em>28%</em></td>
+
+           </tr> <tr >
+             <td><a title="只查看价格在2000元以上的商品" href="/search?q=%CA%D6%BB%FA&start_price=2000&end_price=0&pi=price_interval:1;pi:higher">2000元以上</a></td>
+             <td><span class="progressbar"><span style="width: 8px;" class="min"></span></span></td>
+             <td><em>8%</em></td>
+
+           </tr></tbody>
+       </table>-->
+    </ul>
+
+    <h3><span>价格筛选</span></h3>
+    <ul>
+
+      <li><form accept-charset="" method="get" action="/products/search">
+          <input type="hidden" name="search_key" value="<%= params[:search_key] %>"/>
+          <input type="hidden" name="merchant" value="<%= params[:merchant] %>"/>
+          <input type="hidden" name="e_p" value="<%= params[:e_p] %>"/>
+          <input type="hidden" name="price_sort" value="<%= params[:price_sort] %>"/>
+          <input type="text" name="start_price" value="<%= params[:start_price] %>" class="text-inp"/>
+          &mdash;
+          <input type="text" name="end_price" value="<%= params[:end_price] %>" class="text-inp"/>
+          <input type="submit" value="确定"/>
+        </form></li>
+    </ul>
+
+
+  </div>
+
+  <div class="search_right">
+
+    <div class="s_current">　首页>所有分类<%if @end_products.count ==1%><%if @end_products[0][:end_product].count ==1%>><%=@end_products[0][:end_product].first.name%><%end%><%end%>&nbsp;&nbsp;在<%=@merchants.count%>个商家中，找到相关商品<%=@products.count%>件 </div>
+
+    <div class="r0"><div class="search_rightA">
+        <span>品牌：</span>
+        <div class="rA">
+          <ul>
+            <%@brands.each do |brand|%>
+              <li>
+                <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+                   &price_down=<%=params[:price_sort]%>&brand=<%=brand.id%>&merchant=<%=params[:merchant]%>&e_p=<%=params[:e_p]%>">
+                     <%=brand.name%>
+                </a>
+              </li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class=" summary" >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+
+          <td width="81%">&nbsp;</td>
+          <td width="6%"><strong><%= params[:page]||1 %>/<%= @products.num_pages %></strong></td>
+          <td width="3%" align="center">
+            <div class="summaryb" style="width:16px; height:15px; padding:0px;line-height: 15px;">
+              <% if @products.first_page? %>
+                <img src="/images/p_44.png" width="15" height="15" />
+              <% else %>
+                <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+                   &price_down=<%=params[:price_sort]%>&brand=<%=params[:brand]%>&merchant=<%=params[:merchant]%>&e_p=<%=params[:e_p]%>&page=<%=@products.current_page - 1%>">
+                  <img src="/images/p_22.png" width="15" height="15" />
+                </a>
+              <% end %>
+            </div>
+          </td>
+          <td width="4%" align="center">
+            <div class="summaryb" style="width:15px; height:15px;padding:0px;line-height: 15px;">
+              <% if @products.last_page? %>
+                <img src="/images/p_55.png" width="15" height="15" />
+              <% else %>
+                <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+                   &price_down=<%=params[:price_sort]%>&brand=<%=params[:brand]%>&merchant=<%=params[:merchant]%>&e_p=<%=params[:e_p]%>&page=<%=@products.current_page + 1%>">
+                  <img src="/images/p_33.png" width="15" height="15" />
+                </a>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class=" summary" >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%" align="center">排序：</td>
+          <td width="24%">
+            <div class="summaryb">默认</div>
+            <div class="summaryb">
+              <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+                 &price_sort=down&brand=<%=params[:brand]%>&merchant=<%=params[:merchant]%>&e_p=<%=params[:e_p]%>">
+                价格<img src="/images/2Promotions_26.jpg" width="9" height="10" /></a></div>                    
+            <div class="summaryb">
+              <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+                 &price_sort=up&brand=<%=params[:brand]%>&merchant=<%=params[:merchant]%>&e_p=<%=params[:e_p]%>">
+                价格<img src="/images/2Promotions_28.jpg" width="9" height="10" align="baseline" />
+              </a>
+            </div>
+            <div class="summaryc">
+              <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+                 &price_sort=c_down&brand=<%=params[:brand]%>&merchant=<%=params[:merchant]%>&e_p=<%=params[:e_p]%>">
+                最近销量<img src="/images/2Promotions_26.jpg" width="9" height="10" /></a></div>                    
+            <div class="summaryc">
+              <a href="/products/search?search_key=<%=params[:search_key]%>&start_price=<%=params[:start_price]%>&end_price=<%=params[:end_price]%>
+                 &price_sort=c_up&brand=<%=params[:brand]%>&merchant=<%=params[:merchant]%>&e_p=<%=params[:e_p]%>">
+                最近销量<img src="/images/2Promotions_28.jpg" width="9" height="10" /></a></div>                    
+          </td>
+          <!--<td width="9%" align="left">上市时间：</td>
+          <td width="10%" align="center"><input name="input2" type="text" class="summaryC" size="9" /></td>
+          <td width="3%" align="center">- </td>
+          <td width="9%" align="center"><input name="input" type="text" class="summaryC" size="9" /></td>-->
+          <!-- <td width="20%" align="center"><form name="form" id="form">
+               <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+                 <option>所在地：</option>
+               </select>
+             </form></td>-->
+          <!--<td width="9%" align="right">列表</td>
+          <td width="5%" align="center"><img src="/images/search_28.jpg" width="30" height="13" /></td>
+          <td width="4%" align="left">大图</td>-->
+        </tr>
+      </table>
+    </div>
+    <div class="product">
+      <%if (!@products.present?)&&(!@brand_types.present?)%>
+        对不起，没有搜索到符合条件的商品！
+      <%else%>
+
+        <%
+        if @brand_types.present?
+          if params[:page].nil?
+            curr_page=1
+          else
+            curr_page = params[:page].to_i
+          end
+          if curr_page==1
+            @brand_types.each do |brand_type|
+              #brand_type_products = brand_type.products.where(:price.ne=>nil).asc("price")
+              ##jingdong_product = brand_type.products.asc("created_at").first
+              ##    total_merchant=brand_type_products.map(&:merchant_id).uniq!
+              #total_merchant = (brand_type.products.where(:price.ne=>nil).distinct(:merchant_id)).count
+              #total_click_count = 0
+              #brand_type_products.each do |brand_type_product|
+              #total_click_count = total_click_count + brand_type_product.click_count
+              #end
+              %>
+
+              <dl>
+                <dt><%=link_to image_tag(brand_type.image_url, :size => "168x168"),{:controller=>"products",:action=>"detail",:brand_type=>brand_type.id}, :target => "_blank",:title=>brand_type.name%></dt>
+                <dd><%=link_to truncate(brand_type.name,:length => 20, :omission => '...'),{:controller=>"products",:action=>"detail",:brand_type=>brand_type.id}, :target => "_blank",:title=>brand_type.name %></dd>
+                <h1> 最近销量<%= brand_type.sum_click||0 %>件(共<%=brand_type.merchant_num %>个商家)<!--|<a href="#" style=" text-decoration: underline;">同类排名第2</a>--></h1>
+                <h1>￥<strong><%=brand_type.low_price.to_s%></strong>~￥<strong><%=brand_type.high_price.to_s%></strong>元</h1>
+                <h1><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="center">
+                        <%=link_to image_tag("/images/bj.jpg", :size => "70x20"),{:controller=>"products",:action=>"detail",:brand_type=>brand_type.id}, :target => "_blank"%>
+                      </td>
+                    </tr>
+                  </table>
+                </h1>
+              </dl>
+            <%end
+          end
+        end
+        if @products.present?
+          @products.each do |product|%>
+            <dl>
+              <dt><%=link_to image_tag(product.image_url, :size => "168x168"),record_product_path(product), :target => "_blank",:title=>product.title%></dt>
+              <dd><%=link_to truncate(product.title,:length => 20, :omission => '...'),record_product_path(product), :target => "_blank",:title=>product.title %></dd>
+              <h1> 最近销量<%= product.click_count.to_i %>件<!--|<a href="#" style=" text-decoration: underline;">同类排名第2</a>--></h1>
+              <h1>￥<strong><%=product.price.to_s%></strong>元</h1>
+              <h1><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center">
+                      <%=product.merchant.name%>&nbsp;&nbsp;<%=link_to image_tag("/images/gm_14.jpg", :size => "70x20"),record_product_path(product), :target => "_blank"%>
+                    </td>
+                  </tr>
+                </table>
+              </h1>
+            </dl>
+          <%end
+        end
+      end%>
+    </div>
+    <div class="p3"><div class="digg_pagination"><%= paginate @products,:outer_window => 4 %></div></div>
+  </div>
+
+</div>

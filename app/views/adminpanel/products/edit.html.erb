@@ -1,0 +1,122 @@
+<%= render 'base' %>
+<div id="adminpanel_product" class="form">
+  <%if params[:from]=="merchant"%>
+    <%= simple_form_for(@product,
+      :url =>  adminpanel_merchant_product_path(@merchant,@product,:from=>"merchant") ) do |f| %>
+
+      <%= render "/shared/error_messages", :target => @product %>
+
+      <div class="inputs">
+        <%= f.label :title,"商品名称" %><br/>
+        <%= f.text_field :title %><br/>
+
+        <%= f.label :desc,"商品简介" %><br/>
+        <%= f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+        <%= f.label :price,"价格" %><br/>
+        <%= f.text_field :price %><br/>
+
+        <%= f.label :image_url,"商品图片地址" %><br/>
+        <%= f.text_field :image_url %><br/>
+
+        <%= f.label :product_url,"商品链接" %><br/>
+        <%if @product.product_url%>
+          <%= link_to @product.product_url.url ,@product.product_url.url  %><br/>
+        <%end%>
+
+        <%= f.label :product_code,"商品代码" %><br/>
+        <%= f.text_field :product_code %><br/>
+
+        <%= f.label :top_product,"一级分类" %><br/>
+        <%= collection_select( :top_product,:top_product,@top_products,:id,:name ,{:selected=>(@product.end_product.nil? ? "":@product.end_product.middle_product.top_product.id)},{:onchange=>"javascript:filter_middle_product(this.value)"})%><br/>
+    <%#=@product.end_product.order_num%>
+
+        <%= f.label :middle_product,"二级分类" %><br/>
+        <%= collection_select( :middle_product,:top_product,@middle_products,:id,:name ,{:selected=>(@product.end_product.nil? ? "":@product.end_product.middle_product.id)},{:onchange=>"javascript:filter_end_product($('#top_product_top_product').find('option:selected').val(),this.value)"})%><br/>
+
+    <%#= f.label :merchant,"二级分类" %><br/>
+    <%#= collection_select( :merchant,:top_product,@merchants,:id,:name , {:include_blank => '请选择'},{:onchange=>"javascript:filter_product('"+@top_product_id+"',this.value)"})%><br/>
+
+        <%= f.label :product,"三级分类" %><br/>
+        <%= f.collection_select( :end_product,@end_products,:id,:name ,{:selected=>(@product.end_product.nil? ? "":@product.end_product.id)}, {:include_blank => '请选择'})%><br/>
+
+        <%= f.label :brand,"品牌" %><br/>
+        <%= f.collection_select( :brand,@brands,:id,:name ,{:selected=>(@product.brand.nil? ? "":@product.brand.id) }, {:include_blank => '请选择'})%><br/>
+
+        <%= f.label :brand,"品牌款型" %><br/>
+        <%= f.collection_select( :brand_type,@brand_types,:id,:name ,{:selected=>(@product.brand_type.nil? ? "":@product.brand_type.id) }, {:include_blank => '请选择'})%><br/>
+
+      </div>
+      <div class="actions">
+        <button type="submit">提交</button>
+        或者
+
+        <%= link_to '返回', adminpanel_merchant_products_path(@merchant) %>
+
+      </div>
+    <%end%>
+  <%elsif params[:from]=="end_product"%>
+    <%= simple_form_for(@product,
+      :url =>  adminpanel_top_product_middle_product_end_product_product_path(@top_product,@middle_product,@end_product,@product,:from=>"end_product") ) do |f| %>
+
+      <%= render "/shared/error_messages", :target => @product %>
+
+      <div class="inputs">
+        <%= f.label :title,"商品名称" %><br/>
+        <%= f.text_field :title %><br/>
+
+        <%= f.label :order_num,"排序号" %><br/>
+        <%= f.text_field :order_num %><br/>
+
+        <%= f.label :desc,"商品简介" %><br/>
+        <%= f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+        <%= f.label :price,"价格" %><br/>
+        <%= f.text_field :price %><br/>
+
+        <%= f.label :image_url,"商品图片地址" %><br/>
+        <%= f.text_field :image_url %><br/>
+
+        <%= f.label :product_url,"商品链接" %><br/>
+        <%if @product.product_url%>
+          <%= link_to @product.product_url.url,@product.product_url.url%><br/>
+        <%end%>
+
+        <%= f.label :product_code,"商品代码" %><br/>
+        <%= f.text_field :product_code %><br/>
+
+    <%#= f.label :top_product,"一级分类" %><br/>
+    <%#= collection_select( :top_product,:top_product,@top_products,:id,:name ,{:selected=>(@product.end_product.nil? ? "":@product.end_product.middle_product.top_product.id)},{:onchange=>"javascript:filter_middle_product(this.value)"})%><br/>
+    <%#=@product.end_product.order_num%>
+
+    <%#= f.label :middle_product,"二级分类" %><br/>
+    <%#= collection_select( :middle_product,:top_product,@middle_products,:id,:name ,{:selected=>(@product.end_product.nil? ? "":@product.end_product.middle_product.id)},{:onchange=>"javascript:filter_end_product($('#top_product_top_product').find('option:selected').val(),this.value)"})%><br/>
+
+    <%#= f.label :merchant,"二级分类" %><br/>
+    <%#= collection_select( :merchant,:top_product,@merchants,:id,:name , {:include_blank => '请选择'},{:onchange=>"javascript:filter_product('"+@top_product_id+"',this.value)"})%><br/>
+
+    <%#= f.label :product,"三级分类" %><br/>
+    <%#= f.collection_select( :end_product,@end_products,:id,:name ,{:selected=>(@product.end_product.nil? ? "":@product.end_product.id)}, {:include_blank => '请选择'})%><br/>
+        <%= f.label :merchant,"商家" %><br/>
+        <%=@product.merchant.name%>
+        <%#= f.collection_select( :merchant,@merchants,:id,:name ,{:selected=>(@product.merchant.nil? ? "":@product.merchant.id) }, {:include_blank => '请选择'})%><br/>
+
+        <%= f.label :brand,"品牌" %><br/>
+        <%= f.text_field :brand %><br/>
+        <%#= f.collection_select( :brand,@brands,:id,:name ,{:selected=>(@product.brand.nil? ? "":@product.brand.id) }, {:include_blank => '请选择'})%><br/>
+
+        <%= f.label :brand,"品牌款型" %><br/>
+        <%= f.text_field :brand_type %><br/>
+        <%#= f.collection_select( :brand_type,@brand_types,:id,:name ,{:selected=>(@product.brand_type.nil? ? "":@product.brand_type.id) }, {:include_blank => '请选择'})%><br/>
+
+      </div>
+      <div class="actions">
+        <button type="submit">提交</button>
+        或者
+
+        <%= link_to '返回', adminpanel_top_product_middle_product_end_product_products_path(@top_product,@middle_product,@end_product) %>
+
+      </div>
+    <% end %>
+  <%end%>
+</div>

@@ -1,0 +1,9 @@
+<% pagetitle("关于易淘比购") %>
+<div align="center"><h2>关于易淘比购</h2></div>
+
+<div class="main">
+  <%if @company_profile.present?%>
+    <%=raw(@company_profile.desc) %>
+  <%end%>
+</div>
+

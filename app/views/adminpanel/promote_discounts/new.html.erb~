@@ -1,0 +1,34 @@
+<%= render 'base' %>
+<div id="adminpanel_promote_discount" class="form">
+
+  <%= simple_form_for(@promote_discount,:url =>  adminpanel_top_product_promote_discounts_path(@top_product_id)) do |f| %>
+
+    <%= render "/shared/error_messages", :target => @promote_discount %>
+
+    <div class="inputs">
+      <%= f.input :title %>
+      <%= f.input :link_to_url %>
+      <%#= f.input :image_url %>
+      <%= f.label :desc,"简介" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+      <%= f.label :is_top,"是否置顶" %>
+      <%= f.check_box :is_top %><br/>
+      <%= f.label :is_home,"是否首页显示" %>
+      <%= f.check_box :is_home %><br/>
+      <%= f.label :is_censored,"是否通过审核" %>
+      <%= f.check_box :is_censored %><br/>
+      <%= f.label :merchant,"商家" %><br/>
+      <%= f.collection_select( :merchant,@merchants,:id,:name , {:include_blank => '请选择'})%><br/>
+      <%= f.label :pdimageurl,"广告图片" %><br/>
+
+      <%= f.file_field :pdimageurl %>
+
+      <%= f.hidden_field :pdimageurl_cache %><br/>
+      <%= f.check_box :remove_pdimageurl %>移除logo<br/>
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_top_product_promote_discounts_path(@top_product_id) %>
+    </div>
+  <% end %>
+</div>

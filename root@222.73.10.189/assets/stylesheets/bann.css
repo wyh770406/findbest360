@@ -1,0 +1,60 @@
+@charset "utf-8";
+IMG {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+.lanrentukubox{margin:0px auto;WIDTH: 640px; HEIGHT:300px;}
+#newsSlider {
+	POSITION: absolute; WIDTH: 640px; HEIGHT:300px;  CLEAR: both;
+}
+* HTML #newsSlider {
+	POSITION: absolute; WIDTH:640px; HEIGHT:300px;  CLEAR: both; 
+}
+
+
+#newsSlider .container {
+	POSITION: relative;WIDTH:640px; HEIGHT:300px; OVERFLOW: hidden
+}
+#newsSlider .container IMG {
+	WIDTH:640px; HEIGHT:300px
+}
+#newsSlider DIV.slides {
+	POSITION: absolute; TOP: 0px; LEFT: 0px
+}
+#newsSlider UL.slides {
+	POSITION: absolute; PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; TOP: 0px; PADDING-TOP: 0px; LEFT: 0px
+}
+#newsSlider UL.slides DL {
+	WIDTH: 584px; FLOAT: left; HEIGHT: 43px; PADDING-TOP: 3px
+}
+#newsSlider UL.slides DT {
+	LINE-HEIGHT: 18px; WIDTH: 640px; FLOAT: left; HEIGHT: 39px; COLOR: #777777; MARGIN-LEFT: 3px
+}
+#newsSlider UL.slides DT A {
+	COLOR: #777777; FONT-SIZE: 12px
+}
+#newsSlider UL.slides DD {
+	TEXT-ALIGN: center; LINE-HEIGHT: 18px; WIDTH: 180px; FONT-FAMILY: "黑体"; FLOAT: left; HEIGHT: 39px; COLOR: #333333; FONT-SIZE: 16px
+}
+#newsSlider UL.slides DD A {
+	FONT-FAMILY: "黑体"; COLOR: #333; FONT-SIZE: 16px; TEXT-DECORATION: none
+}
+#newsSlider UL.slides DD .more {
+	MARGIN-TOP: -22px; WIDTH: 54px; FLOAT: right; HEIGHT: 16px; COLOR: #2a609f; FONT-SIZE: 12px; OVERFLOW: hidden
+}
+#newsSlider UL.slides DD .more A {
+	COLOR: #2a609f
+}
+#newsSlider DIV.slides DIV {
+	POSITION: absolute; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; WIDTH: 584px; PADDING-RIGHT: 0px; DISPLAY: none; TOP: 0px; PADDING-TOP: 0px
+}
+#newsSlider #loopedSlider {
+	POSITION: relative; MARGIN: 0px auto; WIDTH: 416px; CLEAR: both
+}
+
+#newsSlider UL.pagination {POSITION: absolute; BOTTOM: -1px;  _bottom: -1px; width:680px; left:1px;}
+#newsSlider UL.pagination LI {TEXT-ALIGN: center; WIDTH:105px;HEIGHT:30px; FLOAT: left;  MARGIN-RIGHT:1px}
+#newsSlider UL.pagination LI A { WIDTH:105px;HEIGHT:30px; FLOAT: left;  background: #000; filter: Alpha(Opacity=40);font:bold 14px/30px  "����"; color:#fff}
+#newsSlider UL.pagination LI.active A { border-bottom:2px #F36 solid;background: #fff; filter: Alpha(Opacity=80); font:bold 14px/30px  "����"; color:#C33}
+UL.pagination LI A:hover {border-bottom:2px #F36 solid;background: #fff; filter: Alpha(Opacity=80); font:bold 14px/30px  "����"; color:#fff}
+
+/*  www.lanrentuku.com */

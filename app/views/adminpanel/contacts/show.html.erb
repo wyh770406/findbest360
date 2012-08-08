@@ -1,0 +1,12 @@
+<%= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_contact_path(@contact) %> |
+  <%= link_to '返回', adminpanel_contacts_path %>
+</div>
+<div id="adminpanel_contact">
+  <p>
+    <b>Name:</b>
+    <%= @contact.name %>
+  </p>
+
+</div>

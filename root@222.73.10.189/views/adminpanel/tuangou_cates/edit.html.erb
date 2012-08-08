@@ -1,0 +1,17 @@
+<%= render 'base' %>
+<div id="adminpanel_tuangou_cate" class="form">
+<%= simple_form_for(@tuangou_cate,
+  :url =>  adminpanel_tuangou_cate_path(@tuangou_cate.id) ) do |f| %>
+  <%= render "/shared/error_messages", :target => @tuangou_cate %>
+
+  <div class="inputs">
+      <%= f.input :name %>
+
+
+  </div>
+  <div class="actions">
+    <button type="submit">提交</button>
+     或者 <%= link_to '返回', adminpanel_tuangou_cates_path %>
+  </div>
+<% end %>
+</div>

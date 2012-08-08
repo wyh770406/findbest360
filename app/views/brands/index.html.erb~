@@ -1,0 +1,70 @@
+<% pagetitle("品牌大全") %>
+<%= stylesheet_link_tag "c-2" %>
+<style type="text/css">
+  #yd {background:url(http://shared.ydstatic.com/r/1.0/p/gouwu-logo.png);
+       _background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://shared.ydstatic.com/r/1.0/p/gouwu-logo.png", sizingMethod="crop");}
+  .logo_anchor { color:#000;display:block;margin-top:5px;text-align:center;text-decoration:none;width:200px;}
+  .logo_anchor span {color:#000;}
+  .brand_op {display:block;margin-bottom:5px;text-align:center;width:200px;}
+  .brand_hr {display:block; margin:5px 0;}
+  .first_td {border:0 none;padding:10px 0;}
+  .non_first_td {border-color:#CDCDCD -moz-use-text-color -moz-use-text-color;border-style:dotted none none;border-width:1px 0 0;padding:10px 0;}
+  .even_tr {background:transparent url(/images/class_bg.jpg) repeat-x scroll center top;}
+</style>
+<div id="t"> 
+  <div class="content"> 
+    <span id="slogen">品牌列表<span style="font-size:12px; font-weight:normal;">&nbsp;&nbsp;一共<%= Brand.all.size %>个品牌， 排名不分先后</span></span> 
+  </div> 
+</div> 
+<div id="w" class="help"> 
+  <div class="content"> 
+    <div class="left"> 
+      <h4>品牌分类</h4> 
+      <ul class="list01">
+        <% if @product.present? %>
+          <li><%= link_to "综合", brands_path %></li> 
+        <% else %>
+          <li>综合</li> 
+        <% end %>
+        <% @products.each do |product| %>
+          <% if product == @product %>
+            <li><%= product.name %></li> 
+          <% else %>
+            <li><%= link_to product.name, brands_path(:product_id => product.id) %></li> 
+          <% end %>
+        <% end %>
+      </ul> 
+    </div> 
+    <div class="right"> 
+      <div class="content_right"> 
+        <h4 style="margin-top:0px;"><%= @product.present? ? @product.name : "综合" %>—共<%= @brands.total_count %>个品牌</h4> 
+        <table cellspacing=0 cellpadding=0>
+          <% @brands.each_slice(3).each_with_index do |brands, index| %>
+            <tr class="<%= index%2 == 0 ? "" : "even_tr"%>">
+              <% brands.each do |m| %>
+                <td width="10%"  class="<%= index == 0 ? "first_td" : "non_first_td" %>" > 
+                  <a href="<%= m.brandurl %>" class="logo_anchor" target="_blank"> 
+                    <span>
+                      <img src="<%= m.brandlogo %>" width=100 height=40 />
+                    </span> 
+                    <span class="brand_hr"></span> 
+                    <%= m.name %>
+                  </a> 
+                  <span class="brand_hr"></span> 
+                  <span class="brand_op"> 
+                    <a href="<%=m.brandurl%>" target=_blank title="访问该品牌主页">主页</a>&nbsp;&nbsp;
+                    <a href="/products/search?search_key=<%= m.name.split(" ").first %>&brand=<%#= m.id %>" target=_blank title="查看该品牌所有已收录的商品">商品</a>&nbsp;&nbsp;
+                    <a href="/brands/<%=m.id %>/comments" title="评论该品牌" target=_blank>评论</a>
+                  </span> 
+                </td> 
+              <% end %>
+            </tr>
+          <% end %>
+        </table>    
+        <div class="p3"><div class="digg_pagination"><%= paginate @brands,:outer_window => 4 %></div></div>
+      </div> 
+    </div> 
+    <div class="clr"></div> 
+    <div class="hr"></div> 
+  </div> 
+</div> 

@@ -1,0 +1,136 @@
+<% pagetitle("团购社区") %>
+
+<div class="main">
+  <div id=site-nav>
+    <UL class=quick-menu>
+      <LI class=home></LI>
+      <LI class=home><A href="#"><h1>[<%=  @city.name %>]</h1></A> </LI>
+      <LI class="services menu-item last">
+        <div class=menu>
+          <A class=menu-hd href="#" target=_top>切换城市<B></B></A>
+          <div class=menu-bd style="WIDTH: 410px; HEIGHT: 642px;">
+            <div class=menu-bd-panel>
+              <%= render "city" %>
+            </div>
+            <S class=r></S><S class=rt></S><S class=lt></S><S class=b style="WIDTH: 169px"></S><S class="b b2" style="WIDTH: 169px"></S><S class=rb></S><S class=lb></S>
+          </div>
+        </div>
+      </LI>
+    </UL>
+    <h2>
+      <% @categories.each do |c| %>
+        <%= link_to "#{c.name}(#{products_count(c, @city, 'c')})", groupbuy_sites_path(:category => c.id, :city =>  ( @city.id),
+            :price_sort => @price_sort, :sort => @sort), :class => "#{c.id == @category.id ? 'atc' : ''}" %>
+      <% end %>
+    </h2>
+  </div>
+
+
+</div>
+<div class="main">
+  <div class="title2">热门城市</div>
+  <div class="tgsqB">
+    <% if @hot_cities.present? %>
+      <% @hot_cities.each do  |city| %>
+        <%= link_to city.name, groupbuy_sites_path(:city => city.id), :class => "#{city == @city ? 'tc' : ''}" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="main">
+  <div class="title2">易淘比购团购
+    <span class="tb">当前查看： 
+        <%=  @city.name %>
+        <%  if @category %>-> <%= "#{@category.name}(#{products_count(@category, @city, 'c')})" %><% end %>
+        <%  if @sub_cate %> -> <%= "#{@sub_cate.name}(#{products_count(@sub_cate, @city, 's')})" %><% end %>
+        <% if @price_sort != 'all' %> -> <%= price_sort_name(@sort) %><% end %>
+  </div></div>
+<div class="main">
+  <div class="content2">
+    <div class="tgsqD2">
+      <div class="td">
+        <h1><img src="/images/tgtq_11.jpg" /></h1>
+        <div>
+          <%= link_to "全部",
+            groupbuy_sites_path(:category => @category.id, :city => @city.id,
+            :price_sort => @price_sort, :sort => @sort), :class => @sub_cate.present?  ? "red" : "tc"  %>
+          <span class="red">
+            <% @sub_cates.each do |s| %>
+              <%= link_to s.name,
+                groupbuy_sites_path(:sub_cate => s.id, :city => @city.id,
+                :price_sort => @price_sort, :sort => @sort), :class => @sub_cate == s ? "tc" : ""  %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+      <div class="td">
+        <h1 class="blue" style=" text-align:right"><strong>团购价格：</strong></h1>
+        <div>
+          <%= link_to "全部", 
+            groupbuy_sites_path(:city => @city.id, :sub_cate => @sub_cate_name,
+            :category => @category_name, :price_sort => 'all', :sort => @sort), :class => @price_sort == "all" ? "tc" : "red" %>
+          <span> <strong class="red">
+            <%= link_to "<10元", 
+              groupbuy_sites_path(:city => @city.id, :sub_cate => @sub_cate_name,
+              :category => @category_name, :price_sort => '1', :sort => @sort) , :class => @price_sort == "1"  ? "tc" : "" %>
+            <%= link_to "10-50元", 
+              groupbuy_sites_path(:city => @city.id, :sub_cate => @sub_cate_name,
+              :category => @category_name, :price_sort => '2', :sort => @sort), :class => @price_sort == "2"  ? "t_c" : "" %>
+            <%= link_to "50-100元",
+              groupbuy_sites_path(:city =>  ( @city.id), :sub_cate => (@sub_cate_name),
+              :category => (@category_name), :price_sort => '3', :sort => @sort), :class => @price_sort == "3"  ? "t_c" : "" %>
+            <%= link_to ">100元", 
+              groupbuy_sites_path(:city =>  ( @city.id), :sub_cate =>  (@sub_cate_name),
+              :category =>  (@category_name), :price_sort => '4', :sort => @sort), :class => @price_sort == "4"  ? "t_c" : "" %>
+          </strong> </span>
+        </div>
+        </div></div>
+
+    <div class="tgsqD">
+      <div class="tgsqDc top_pagination">
+        <%= paginate @products %>
+      </div>
+      <p>排序：</p>
+      <div class="taaa">
+        <div class=<%= @sort == '1' ? "tgsqDa" : "tgsqDb" %> id="b_1" >
+          <%= link_to "默认", 
+            groupbuy_sites_path(:category =>  (@category_name), :sub_cate =>  (@sub_cate_name),
+            :city =>  ( @city.id), :price_sort => @price_sort, :sort => '1') %>
+        </div>
+        <div class=<%= @sort == '2' ? "tgsqDa" : "tgsqDb" %> id='b_2'>
+          <%= link_to "折扣", 
+            groupbuy_sites_path(:category =>  (@category_name), :sub_cate =>  (@sub_cate_name),
+            :city =>  ( @city.id), :price_sort => @price_sort, :sort => '2') %>
+        </div>
+        <div class=<%= @sort == '3' ? "tgsqDa" : "tgsqDb" %> id="b_3">
+          <%= link_to "销量", groupbuy_sites_path(:category =>  (@category_name), :sub_cate =>  (@sub_cate_name),
+            :city =>  ( @city.id), :price_sort => @price_sort, :sort => '3') %>
+        </div>
+        <div class=<%= @sort == '4' ? "tgsqDa" : "tgsqDb" %> id="b_4">
+          <%= link_to "上架时间", groupbuy_sites_path(:category =>  (@category_name), :sub_cate =>  (@sub_cate_name),
+            :city =>  ( @city.id), :price_sort => @price_sort, :sort => '4') %>
+        </div>
+      </div>
+    </div>
+    <% if @products.present? %>
+      <div class="tgsqE" id="c2_1">
+
+        <% @products.each do |p| %>
+          <dl>
+            <dt>
+            <h1>[<%= p.groupbuy_site.name %>] <%=link_to truncate(p.title, :length => 60), p.url, :target => "_blank" %></h1>
+            <span><%= link_to image_tag(p.img_url, :width => '250px', :height => '153px'), p.url, :target => "_blank" %></span>
+            </dt>
+            <dd>
+              <a href="<%= p.url %>" target="_blank"><div class="te"><strong>￥</strong><strong><%= p.price %></strong></div></a>
+              <div class="te2"><strong><%= p.buyer_num %></strong>人购买 </div>
+              <div class="te3"><span>原价<strong>￥</strong><%= p.orig_price %>(<%= p.discount %>折)</span></div>
+            </dd>
+          </dl>
+        <% end %>
+      </div>
+    <div class="digg_pagination"><%= paginate @products %></div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<%= render 'base' %>
+<div id="adminpanel_keywords">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>大类名称</th>
+        <th>搜索词</th>
+        <th>拼音</th>
+        <th>排序</th>
+        <th>是否热门搜索词</th>
+
+        <th>时间</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @keywords.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+          <td width="10%"><%= item.top_product.name %></td>
+          <td width="10%"><%= item.word %></td>
+          <td width="10%"><%= item.pinyin %></td>
+          <td width="10%"><%= item.order_num %></td>
+          <td width="10%"><%= item.hot %></td>
+
+          <td width="30%"><%= l item.created_at.getlocal, :format => :short %></td>
+          <td width="30%">
+            <%= link_to '修改', edit_adminpanel_top_product_keyword_path(@top_product_id,item.id) %>&nbsp;&nbsp;
+            <%= link_to image_tag("/images/wice_grid/delete.png", :style => "margin-bottom:-4px;border:0"), adminpanel_top_product_keyword_path(@top_product_id,item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @keywords %>
+</div>

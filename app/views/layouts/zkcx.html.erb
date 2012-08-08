@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="alexaVerifyID" content="3X-2eGts5qqtpV06voXx_ca3vY8" />
+    <meta name="keywords" content="易淘比购,B2C,购物,比价,导购,搜索,网购,购物搜索,正品,发票,保障,旗舰,品牌,特卖,服装,女装,男装,外套,牛仔,内衣,配件,鞋,箱包,女包,男包,珠宝,饰品,项链,戒指,手表,眼睛,化妆品,护肤,彩妆,香水,精油,运动,运动鞋,运动服,户外,手机,数码,笔记本,平板电脑,相机,单反,电器,电视,冰箱,空调,厨房,液晶,剃须刀,家具,卫浴,地板,五金,开关,建材,居家,生活,家纺,宠物,居家,食品,零食,茶叶,保健,滋补,粮油,酒水,母婴,童装,孕妇装,玩具,宝宝,汽车,配件,内饰,gps,玩乐,图书,乐器,旅游,鲜花,3X-2eGts5qqtpV06voXx_ca3vY8"/>
+    <%= yield :meta %>
+    <title><%= yield :title %></title>
+    <!-- 3X-2eGts5qqtpV06voXx_ca3vY8 -->
+    <%= stylesheet_link_tag    "application","bann","css", "pagination", "jquery-ui-1.8.2.custom", "brands" %>
+
+    <%= csrf_meta_tags %>
+
+    <%= yield :javascript %>
+    <%= yield :stylesheet_file %>
+    <%= yield :javascript_file %>
+    <script type="text/javascript">
+      function check_login()
+      {
+        if (<%=user_signed_in?%>)
+        {return true}
+        else
+        {alert("请先登录");
+          return false;}
+      }
+
+      function addfavorite()
+      {
+        if (document.all)
+        {
+          window.external.addFavorite("http://www.findbest360.com","易淘比购 - 购物搜索第一站!");
+        }
+        else if (window.sidebar)
+        {
+          window.sidebar.addPanel("易淘比购 - 购物搜索第一站!", "http://www.findbest360.com",  "");
+        }
+      }
+
+      function setHomepage() {　 // 设置首页
+        if (document.all) {
+          document.body.style.behavior = "url(#default#homepage)";
+          document.body.setHomePage("http://www.findbest360.com");
+
+        }
+        else if (window.sidebar) {
+          if (window.netscape) {
+            try {
+              netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            }
+            catch (e) {
+              alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true");
+            }
+          }
+          var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+          prefs.setCharPref("browser.startup.homepage", "http://www.findbest360.com");
+        }
+
+      }
+    </script>
+  </head>
+
+  <body>
+
+
+    <div class="box">
+      <div class="header">
+        <div class="header_left">欢迎光临易淘比购！</div>
+        <div  class="header_right">
+
+          <span style="float:right">
+            <!--img src="/images/top_03.gif" /><a href="#">在线客服 </a-->
+            <img src="/images/top_06.gif" /><a onclick="javascript:setHomepage();" href="">设为首页</a>
+            <img src="/images/top_08.gif" /><a href="javascript:addfavorite()">收藏本站</a></span>
+          <span style="float:left">  <%=link_to "易淘比购商家大全",website_guides_path%>  |   <%= render 'devise/menu/registration_items' %>   |   <%= render 'devise/menu/login_items' %> </span>  </div>
+      </div>
+      <div class="main"><!--div class="tl"></div-->
+        <div class="logo"></div>
+        <div class="menuA">
+          <ul>
+            <li class=<%=(controller_name=='home' ? 'm1':'')%>>
+              <%=link_to "易淘比购首页",'/',:style=>(controller_name=='home'?"color:#FFF":"")%><!--<a href="index.html" ><font style="color:#FFF"></font></a>--></li>
+            <li class=<%=(controller_name=='website_guides' ? 'm1':'')%>><%=link_to "商城大全",website_guides_path,:style=>(controller_name=='website_guides'?"color:#FFF":"")%></li>
+            <li class=<%=(controller_name=='groupbuy_sites' ? 'm1':'')%>><%=link_to "团购大全",groupbuy_sites_path,:style=>(controller_name=='groupbuy_sites'?"color:#FFF":"")%></li>
+            <li class=<%=(controller_name=='brands' ? 'm1':'')%>><%=link_to "品牌大全",brands_path,:style=>(controller_name=='brands'?"color:#FFF":"")%></li>
+            <li class=<%=(controller_name=='promote_discounts' ? 'm1':'')%>><%=link_to "折扣促销",promote_discounts_path,:style=>(controller_name=='promote_discounts'?"color:#FFF":"")%></li>
+          </ul>
+        </div></div>
+      <div class="nav">
+        <div class="nav_left"></div>
+        <div class="nav_content">
+
+          <%= form_tag '/products/search', :method => "post" do%>
+            <%=autocomplete_field_tag "search_key",params[:search_key].present? ? params[:search_key] : "搜索关键字", autocomplete_keyword_word_products_path, :class=>"search", :onclick => "clear_tip()" %>
+            <%=submit_tag "搜索",:class=>"search2"%>
+          <% end %>
+          <!--<input type="text" class="search" value="搜索关键字" /><input type="button" class="search2" value="搜索" />-->
+          <script type="text/javascript">
+            function clear_tip(){
+              if(document.getElementById("search_key").value == "搜索关键字"){
+                document.getElementById("search_key").value = "";
+              }
+            }
+          </script>
+          <div id="autocomplete">
+
+          </div>
+        </div>
+        <div class="nav_right"></div>
+
+      </div>
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "red_center" if msg.is_a?(String) %>
+      <%- end -%>
+      <%= yield %>
+      <div class="main">
+        <div class="footerA">
+          <dl>
+            <dt><img src="/images/food_166.gif" /><span> 便 捷 </span></dt>
+            <dd>搜索导购，精确查找 </dd>
+          </dl>
+          <dl>
+            <dt><img src="/images/food_168.gif" width="26" height="26" /><span> 实 惠 </span></dt>
+            <dd>货比三家，购物返现<br />
+              亿万精选商品 </dd>
+          </dl>
+          <dl>
+            <dt><img src="/images/food_170.gif" width="26" height="29" /><span> 全 网 </span></dt>
+            <dd>精选2000家正品保证商城<br />
+              收录全网折扣信息</dd>
+          </dl>
+          <dl>
+            <dt><img src="/images/food_172.gif" /><span> 权威咨询</span></dt>
+            <dd>汇聚全网2亿条购物资讯<br />
+              易淘比购再加一层保障</dd>
+          </dl>
+          <dl style="border:none">
+            <dt><img src="/images/food_174.gif" /><span> 双重保障</span></dt>
+            <dd>商家保障的基础上</dd>
+          </dl>
+        </div>
+        <!-- Baidu Button BEGIN -->
+        <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=0&amp;uid=222737" ></script>
+        <script type="text/javascript" id="bdshell_js"></script>
+        <script type="text/javascript">
+          document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+        </script>
+        <!-- Baidu Button END -->
+      </div>
+      <div class="main">
+        <div class="footer"><%=link_to "关于易淘比购",company_profiles_path%>|<%=link_to "商城大全",website_guides_path%>|<%=link_to "品牌大全",brands_path%>|<%=link_to "商家入驻",merchant_entries_path%>|<%=link_to "推广合作",cooperations_path%>   |<%=link_to "建议疑问",new_question_advice_path%>|<a href="#">网站地图</a>|<%=link_to "友情链接",friend_links_path%>|<%=link_to "诚聘英才",recruits_path%>|<%=link_to "联系我们",contacts_path%></div>
+        <div class="copyright">
+          <!--<script type="text/javascript" src="http://js.tongji.linezing.com/2593870/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2593870/tongji.gif"/></a></noscript>-->
+          <a href="#"><img src="/images/index_197.gif" width="134" height="48" border="0" /></a><a href="#"><img src="/images/index_184.gif" border="0" /></a><span>copyright@2011-2011 by www.findbest360.com all rights
+            reserved  易淘比购  沪ICP备07001941号
+          </span> <a href="#"><img src="/images/index_202.gif" width="140" height="39" border="0" /></a><a href="#"><img src="/images/index_204.gif" width="125" height="40" border="0" /></a> </div>
+      </div>
+    </div>
+  </body>
+</html>

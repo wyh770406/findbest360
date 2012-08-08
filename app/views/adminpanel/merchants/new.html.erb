@@ -1,0 +1,36 @@
+<%= render 'base' %>
+<div id="adminpanel_merchant" class="form">
+
+  <%= simple_form_for(@merchant,:url =>  adminpanel_merchants_path,:html => {:multipart => true}) do |f| %>
+
+    <%= render "/shared/error_messages", :target => @merchant %>
+
+    <div class="inputs">
+      <%= f.label :name,"商家名称" %><br/>
+      <%= f.text_field :name %><br/>
+      <%= f.input :order_num %>
+      <%= f.label :desc,"商家简介" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+      <%= f.label :service,"商家服务" %><br/>
+      <%=  f.ckeditor :service, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+      <%= f.label :merchanturl,"商家官网地址" %><br/>
+      <%= f.text_field :merchanturl %><br/>
+
+      <%= f.label :merchantlogo,"商家logo" %><br/>
+      <%= f.file_field :merchantlogo %>
+      
+      <%= f.hidden_field :merchantlogo_cache %><br/>
+      
+      <%= f.label :service,"是否知名商家" %>
+      <%= f.check_box :is_known %><br/>
+      <%#= f.label :top_product,"所属产品类别(可以多选)" %><br/>
+      <%#= f.collection_select( :top_product_ids,@top_products,:id,:name , {:include_blank => false},{:multiple => true})%><br/>
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_merchants_path %>
+    </div>
+  <% end %>
+</div>

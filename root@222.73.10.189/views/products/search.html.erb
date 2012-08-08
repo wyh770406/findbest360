@@ -1,0 +1,201 @@
+<% pagetitle("搜索列表") %>
+
+<div class="main">
+  <div class="search_left">
+    <!--<h1><div class="more"><img src="/images/search_03.jpg" width="7" height="12" /></div><span>资讯<span class="hui" style="margin-left:0">（242356）</span></span></h1>
+    <ul>
+      <li>网页(39169722)</li>
+      <li>论坛帖子(9140787)</li>
+      <li>问答(4672274)</li>
+    </ul>-->
+    <h2><div class="more"><img src="/images/search_09.jpg" width="7" height="13" /></div><span>商品(11427695) </span></h2>
+    <ul>
+      <li>所有分类</li>
+      <span><img src="/images/search0_13.jpg" width="8" height="10" />手机</span>
+    </ul>
+    <div class="search_lefta">
+      <div class="more"><img src="/images/search_17.jpg" width="4" height="8" /></div>
+      <span>查看全部分类 </span>
+    </div>
+    <h3><span>来源商家</span></h3>
+    <ul>
+      <li>京东商城</li>
+     <!-- <table>
+        <tbody><tr>
+            <td><a title="只查看价格在0-100元的商品" href="/search?q=%CA%D6%BB%FA&start_price=0&end_price=100&pi=price_interval:1;pi:lower">0-100元</a></td>
+            <td><span class="progressbar"><span style="width: 70px;" class="min"></span></span></td>
+            <td><em>7%</em></td>
+
+          </tr> <tr >
+            <td><a title="只查看价格在100-600元的商品" href="/search?q=%CA%D6%BB%FA&start_price=100&end_price=600&pi=price_interval:1;pi:main">100-600元</a></td>
+            <td><span class="progressbar"><span style="width:57px;" class="max"></span></span></td>
+            <td><em>57%</em></td>
+
+          </tr> <tr >
+            <td><a title="只查看价格在600-2000元的商品" href="/search?q=%CA%D6%BB%FA&start_price=600&end_price=2000&pi=price_interval:1;pi:higher">600-2000元</a></td>
+            <td><span class="progressbar"><span style="width: 28px;" class="medium"></span></span></td>
+            <td><em>28%</em></td>
+
+          </tr> <tr >
+            <td><a title="只查看价格在2000元以上的商品" href="/search?q=%CA%D6%BB%FA&start_price=2000&end_price=0&pi=price_interval:1;pi:higher">2000元以上</a></td>
+            <td><span class="progressbar"><span style="width: 8px;" class="min"></span></span></td>
+            <td><em>8%</em></td>
+
+          </tr></tbody>
+      </table>-->
+    </ul>
+
+    <h3><span>价格筛选</span></h3>
+    <ul>
+
+      <li><form accept-charset="" method="get" action="/search">
+          <input type="hidden" name="q" value="nokia"/>
+          <input type="text" name="start_price" value="" class="text-inp"/>
+          &mdash;
+          <input type="text" name="end_price" value="" class="text-inp"/>
+          <input type="submit" value="确定"/>
+        </form></li>
+    </ul>
+
+
+  </div>
+
+  <div class="search_right">
+
+
+
+    <div class="s_current">　>所有分类> 手机在1383个商家中，找到相关商品11351192件 </div>
+
+    <div class="r0"><div class="search_rightA">
+        <span>品牌：</span>
+        <div class="rA">
+          <ul>
+            <li>Nokia/诺基亚</li>
+            <li>Samsung/三星</li>
+            <li>Motorola/摩托罗拉</li>
+            <li>HTCSony Ericsson/索尼爱立信</li>
+            <li>Apple/苹果Lenovo/联想<li>
+            <li>Dopod/多普达</li>
+            <li>hilips/飞利浦</li>
+            <li><div class="r2">更多品牌 </div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="search_rightA">
+        <span>品牌：</span>
+        <div class="rA">
+          <ul>
+            <li>Nokia/诺基亚</li>
+            <li>Samsung/三星</li>
+            <li>Motorola/摩托罗拉</li>
+            <li>HTCSony Ericsson/索尼爱立信</li>
+            <li>Apple/苹果Lenovo/联想<li>
+            <li>Dopod/多普达</li>
+            <li>hilips/飞利浦</li>
+            <li><div class="r2">更多品牌 </div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="search_rightA">
+        <span>品牌：</span>
+        <div class="rA">
+          <ul>
+            <li>Nokia/诺基亚</li>
+            <li>Samsung/三星</li>
+            <li>Motorola/摩托罗拉</li>
+            <li>HTCSony Ericsson/索尼爱立信</li>
+            <li>Apple/苹果Lenovo/联想<li>
+            <li>Dopod/多普达</li>
+            <li>hilips/飞利浦</li>
+            <li><div class="r2">更多品牌 </div></li>
+          </ul>
+        </div>
+      </div></div>
+    <div class=" summary" >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="17%" height="29" align="right"><input name="input3" type="text" class="summaryC" value="手机" size="15" /></td>
+          <td width="13%" align="center">搜索中排除含</td>
+          <td width="13%" align="left"><input name="input3" type="text" class="summaryC" value="关键字" size="9" /></td>
+          <td width="6%" align="left">的商品</td>
+          <td width="21%" align="left"><input name="button2" type="submit" class="summaryD" id="button2" value="确定" /></td>
+          <td width="11%">&nbsp;</td>
+          <td width="6%"><strong><%= params[:page]||1 %>/<%= @products.num_pages %></strong></td>
+          <td width="3%" align="center"><div class="summaryb" style="width:15px; height:15px; padding:0px;"><img src="/images/2Promotions_34.jpg" width="15" height="15" /></div>
+          </td>
+          <td width="6%" align="center"><a href="#">下一页</a></td>
+          <td width="4%"><div class="summaryb" style="width:15px; height:15px;padding:0px;"><img src="/images/search_23.jpg" width="5" height="10" /></div></td>
+        </tr>
+      </table>
+    </div>
+    <div class=" summary" >
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%" align="center">排序：</td>
+          <td width="24%"><div class="summaryb">默认</div>                    <div class="summaryb">销量<img src="/images/2Promotions_26.jpg" width="9" height="10" /></div>                    <div class="summaryb">价格<img src="/images/2Promotions_28.jpg" width="9" height="10" align="baseline" /></div></td>
+          <td width="9%" align="left">上市时间：</td>
+          <td width="10%" align="center"><input name="input2" type="text" class="summaryC" size="9" /></td>
+          <td width="3%" align="center">- </td>
+          <td width="9%" align="center"><input name="input" type="text" class="summaryC" size="9" /></td>
+          <td width="20%" align="center"><form name="form" id="form">
+              <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+                <option>所在地：</option>
+              </select>
+            </form></td>
+          <td width="9%" align="right">列表</td>
+          <td width="5%" align="center"><img src="/images/search_28.jpg" width="30" height="13" /></td>
+          <td width="4%" align="left">大图</td>
+        </tr>
+      </table>
+    </div>
+    <div class="product">
+      <%if @products.present?%>
+
+        <%@products.each do |product|%>
+          <dl>
+            <dt><%=link_to image_tag(product.image_url, :size => "168x168"),product.product_url.url, :target => "_blank"%></dt>
+            <dd><a href="Product_Details.html" ><%=truncate(product.title,:length => 20, :omission => '...')%></a></dd>
+            <h1> <a href="#">周销量24235件</a>|<a href="#" style=" text-decoration: underline;">同类排名第2</a></h1>
+            <h1>￥<strong>5002</strong>~￥<strong>5002</strong></h1>
+            <h1><table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <%=form_tag "/products/detail" do%>
+                      <%=image_submit_tag "/images/bj.jpg",:size=>"70x20"%>
+                    <%end%>
+                  </td>
+                </tr>
+              </table>
+            </h1>
+          </dl>
+        <%end
+      else%>
+        对不起，没有搜索到符合条件的商品！
+      <%end%>
+    </div>
+    <div class="p3"><div class="digg_pagination"><%= paginate @products,:outer_window => 4 %></div></div>
+    <!--div class="p3">
+      <form id="form1" name="form1" method="post" action="">
+        <div class="summaryE">1</div><div class="summaryb">2</div><div class="summaryb">3</div><div class="summaryb">4</div><div class="summaryb">5</div><div class="summaryb">6</div><div class="summaryb">>></div>
+        <div class="summaryb" style="width:70px; float:left;"><img src="/images/search_23.jpg" width="5" height="10" align="left"  style="margin-top:6px; margin-left:6px;"/><a href="#">下一页</a></div>
+        <div style="float:left; padding-top:8px;"> 共100页  转到第
+          <input name="textfield" type="text" class="summaryC" id="textfield" style="width:40px;" value="1" />
+          页
+          <input name="" type="button" class="summaryD" value="确定"  style="margin-left:6px;" /></div>
+
+      </form>
+    </div-->
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+

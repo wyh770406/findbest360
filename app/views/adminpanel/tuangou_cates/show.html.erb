@@ -1,0 +1,12 @@
+<%#= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_tuangou_cate_path(@tuangou_cate) %> |
+  <%= link_to '返回', adminpanel_tuangou_cates_path %>
+</div>
+<div id="adminpanel_tuangou_cate">
+  <p>
+    <b>Name:</b>
+    <%= @tuangou_cate.name %>
+  </p>
+
+</div>

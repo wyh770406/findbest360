@@ -1,0 +1,32 @@
+<%= render 'base' %>
+<div id="adminpanel_tuangou_site" class="form">
+<%= simple_form_for(@tuangou_site,
+  :url =>  adminpanel_tuangou_cate_tuangou_site_path(@tuangou_cate,@tuangou_site) ) do |f| %>
+  <%= render "/shared/error_messages", :target => @tuangou_site %>
+
+  <div class="inputs">
+      <%= f.label :name,"团购商城名称" %><br/>
+      <%= f.text_field :name %><br/>
+
+      <%= f.label :desc,"团购商城简介" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+      <%= f.label :tuanurl,"团购商城官网地址" %><br/>
+      <%= f.text_field :tuanurl %><br/>
+
+      <%= f.label :tuanlogo,"团购商城logo" %><br/>
+
+      <%= image_tag(@tuangou_site.tuanlogo_url) if @tuangou_site.tuanlogo? %><br/>
+
+      <%= f.file_field :tuanlogo %>
+
+      <%= f.hidden_field :tuanlogo_cache %><br/>
+      <%= f.check_box :remove_tuanlogo %>移除logo
+
+  </div>
+  <div class="actions">
+    <button type="submit">提交</button>
+     或者 <%= link_to '返回', adminpanel_tuangou_cate_tuangou_sites_path(@tuangou_cate) %>
+  </div>
+<% end %>
+</div>

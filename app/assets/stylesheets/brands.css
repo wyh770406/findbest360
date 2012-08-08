@@ -1,0 +1,36 @@
+/* 
+    Document   : brands
+    Created on : 2011-10-21, 21:47:56
+    Author     : xinghu
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#c-body {
+    text-align: center; margin:10px;width:98%;
+}
+.comment {
+    padding:10px;
+}
+.comment-title {
+    background-color:#f0f0f0;padding:10px;height:15px;
+}
+.comment-user {
+    float:left;padding-left: 3px;
+}
+.comment-time {
+    float:right;padding-right: 3px;
+}
+.comment-body {
+    padding: 10px;text-align: left;
+}
+#comment_form {
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+}

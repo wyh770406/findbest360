@@ -1,0 +1,35 @@
+<%= render 'base' %>
+<div id="adminpanel_composite_site" class="form">
+  <%= simple_form_for(@composite_site,
+    :url =>  adminpanel_composite_site_path(@composite_site) ) do |f| %>
+    <%= render "/shared/error_messages", :target => @composite_site %>
+
+    <div class="inputs">
+      <%= f.label :name,"综合商城名称" %><br/>
+      <%= f.text_field :name %><br/>
+      <%= f.input :order_num %>
+      <%= f.label :desc,"综合商城简介" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+      
+      <%= f.label :service,"商家服务" %><br/>
+      <%=  f.ckeditor :service, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+      <%= f.label :compositeurl,"综合商城官网地址" %><br/>
+      <%= f.text_field :compositeurl %><br/>
+
+      <%= f.label :compositelogo,"综合商城logo" %><br/>
+
+      <%= image_tag(@composite_site.compositelogo_url) if @composite_site.compositelogo? %><br/>
+
+      <%= f.file_field :compositelogo %>
+
+      <%= f.hidden_field :compositelogo_cache %><br/>
+      <%= f.check_box :remove_compositelogo %>移除logo
+
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_composite_sites_path %>
+    </div>
+  <% end %>
+</div>

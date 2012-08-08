@@ -1,0 +1,9 @@
+<% pagetitle("商家入驻") %>
+<div align="center"><h2>商家入驻</h2></div>
+
+<div class="main">
+  <%if @merchant_entry.present?%>
+    <%=raw(@merchant_entry.desc) %>
+  <%end%>
+</div>
+

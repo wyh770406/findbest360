@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+
+  <%= link_to('编辑账户', edit_user_registration_path) %>
+
+<% else %>
+
+  <%= link_to('有奖注册', new_user_registration_path,:class=>"red",:style=>"font-weight:bold")  %>
+
+<% end %>

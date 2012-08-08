@@ -1,0 +1,70 @@
+<style type="text/css">
+  #c-body {
+    text-align: center; margin:10px;width:98%;
+  }
+  .comment {
+    padding:10px;
+  }
+  .comment-title {
+    background-color:#f0f0f0;padding:10px;height:15px;
+  }
+  .comment-user {
+    float:left;padding-left: 3px;
+  }
+  .comment-time {
+    float:right;padding-right: 3px;
+  }
+  .comment-body {
+    padding: 10px;text-align: left;
+  }
+  .icomment {
+    padding-left: 15px;font-size: 13px;font-weight: bold;text-align: left;
+  }
+
+  #comment_form {
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+}
+</style>
+<div id="c-body">
+  <h2>关于-<%= @brand.name %>-评价</h2>
+  <p class="icomment">
+    <a href="#">
+      我要评论
+    </a>
+  </p>
+  <% if @comments.present? %>
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <div class="comment-title">
+          <div class="comment-user"><%= comment.user.name if comment.user %></div>
+          <div class="comment-time"><%= comment.created_at.to_s(:db) %></div>
+        </div>
+        <div class="comment-body">
+          <%= comment.content %>
+        </div>
+      </div>
+    <% end %>
+    <div class="p3"><div class="digg_pagination"><%= paginate @comments,:outer_window => 4 %></div></div>
+  <% end %>
+    <div style="clear:both"></div>
+    <hr />
+  <div id="comment_form">
+    <%= form_tag comments_brand_path(@brand), :id => "f" do %>
+      <p><%= text_area_tag "brand_comment[content]","", {:cols => 50, :rows => 12} %></p>
+      <p><%= button_tag "评论",:type => "button", :onclick => "valid_form();return false;" %></p>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+  function valid_form(){
+    var content = jQuery("#brand_comment_content").val();
+    if(content != ""){
+      jQuery("#f").submit();
+    }else{
+      alert("请填写评论内容！");
+      return false;
+     }
+  }
+</script>

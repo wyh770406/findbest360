@@ -1,0 +1,11 @@
+<h2>商家:<%=@merchant.name%></h2><br/>
+<div><h3>已经分配的产品类目：</h3>
+  <%@assigned.each do |topcate|%>
+    <%=topcate.name%>&nbsp;&nbsp;<%=link_to "移除",remove_adminpanel_merchant_path(:id=>@merchant.id,:top_product_id=>topcate.id)%><br/>
+  <%end unless @assigned.nil?%>
+</div><br/>
+<div><h3>等待分配的产品类目：</h3>
+  <%@unassigned.each do |top_cate|%>
+    <%=top_cate.name%>&nbsp;&nbsp;<%=link_to "分配",assign_adminpanel_merchant_path(:id=>@merchant.id,:top_product_id=>top_cate.id)%><br/>
+  <%end unless @unassigned.nil?%>
+</div>

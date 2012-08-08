@@ -1,0 +1,33 @@
+<%= render 'base' %>
+<div id="adminpanel_brands">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+
+        <th>品牌名称</th>
+        <th>品牌服务</th>
+        <th>品牌logo</th>
+        <th>时间</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @brands.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+
+          <td width="20%"><%= item.name %></td>
+          <td width="20%"><%= item.service %></td>
+          <td width="20%"><%= image_tag(item.brandlogo_url) if item.brandlogo? %></td>
+          <td width="10%"><%= l item.created_at.getlocal, :format => :short %></td>
+          <td width="20%">
+            <%= link_to '修改', edit_adminpanel_brand_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to '类目', assign_top_cate_adminpanel_brand_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to '款型', adminpanel_brand_brand_types_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to image_tag("/images/wice_grid/delete.png", :style => "margin-bottom:-4px;border:0"), adminpanel_brand_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @brands %>
+</div>

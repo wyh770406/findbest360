@@ -1,0 +1,390 @@
+<% pagetitle("网站导航") %>
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    function switch_most_used_website(){
+      display_str = $('#most_used_website').css('display')
+      if (display_str == "none")
+      {$('#most_used_website').css('display','block')}
+      else
+      {$('#most_used_website').css('display','none')}
+    }
+    function save_favorite_site(){
+
+
+      var url = "/website_guides/save_favorite_site"
+      title_arr=[]
+      link_arr=[]
+      link_id_arr=[]
+      for (i=1;i<=12;i++)
+      {
+        title_str = $.trim($("#title"+i).val());
+        link_str = $.trim($("#link"+i).val());
+        link_id_str= $.trim($("#link_id"+i).val());
+
+        if (title_str != "" && title_str != "输入网站名称")
+        {
+          title_arr.push(title_str);
+          link_id_arr.push(link_id_str);
+        }
+
+        if (link_str != "" && link_str != "http://")
+        {
+          link_arr.push(link_str);
+        }
+
+      }
+      var title_link_arr=[];
+      for (j=0;j<=title_arr.length;j++)
+      { if (typeof(title_arr[j])!= "undefined" && typeof(link_arr[j])!= "undefined")
+        {
+          if (title_arr[j]!=""&&link_arr[j]!="")
+          {
+            if (link_arr[j].indexOf("http://")==0 || link_arr[j].indexOf("https://")==0)
+            {
+              json_data_str = {"title": title_arr[j], "link": link_arr[j],"link_id":link_id_arr[j]};
+              title_link_arr.push(json_data_str);
+            }
+          }
+        }
+      }
+
+      var arr_json_data = {"title_link":title_link_arr};
+      $.ajax({
+        type: "POST",
+        url: url,
+        data:  arr_json_data,
+        success:   function(data){
+
+        }
+      });
+
+
+    }
+  </script>
+<% end %>
+
+<div class="wzdh">
+  <div style="display:none" id="most_used_website">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="padding-top: 10px;">
+      <tbody><tr>
+          <th>1.</th>
+          <td>
+            <input type="text" value="输入网站名称" id="title1" name="textfield5" class="input_04" style="color: rgb(0, 0, 0);"/>
+          </td>
+          <th>网址:</th>
+          <td>
+            <input type="text" value="http://" id="link1" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id1"/>
+          </td>
+          <td>
+            <%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link1"%>
+
+          </td>
+          <th>7.</th>
+          <td><input type="text" value="输入网站名称" id="title7" name="textfield5" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td>
+            <input type="text" value="http://" id="link7" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id7"/>
+          </td>
+          <td>
+            <%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link7"%></td>
+        </tr>
+        <tr>
+          <th>2.</th>
+          <td><input type="text" value="输入网站名称" id="title2" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link2" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id2"/></td>
+          <td>
+            <%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link2"%>
+          </td>
+          <th>8.</th>
+          <td><input type="text" value="输入网站名称" id="title8" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link8" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id8"/></td>
+          <td>           <%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link8"%></td>
+        </tr>
+        <tr>
+          <th>3.</th>
+          <td><input type="text" value="输入网站名称" id="title3" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link3" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id3"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link3"%></td>
+          <th>9.</th>
+          <td><input type="text" value="输入网站名称" id="title9" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link9" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id9"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link9"%></td>
+        </tr>
+        <tr>
+          <th>4.</th>
+          <td><input type="text" value="输入网站名称" id="title4" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link4" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id4"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link4"%></td>
+          <th>10.</th>
+          <td><input type="text" value="输入网站名称" id="title10" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link10" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id10"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link10"%></td>
+        </tr>
+        <tr>
+          <th>5.</th>
+          <td><input type="text" value="输入网站名称" id="title5" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link5" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id5"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link5"%></td>
+          <th>11.</th>
+          <td><input type="text" value="输入网站名称" id="title11" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link11" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id11"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link11"%></td>
+        </tr>
+        <tr>
+          <th>6.</th>
+          <td><input type="text" value="输入网站名称" id="title6" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link6" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id6"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link6"%></td>
+          <th>12.</th>
+          <td><input type="text" value="输入网站名称" id="title12" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link12" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id12"/></td>
+          <td><%=link_to image_tag("cl01.gif"),"#",:confirm => '你确定吗?',:method=>:delete,:remote=>true,:id=>"del_link12"%></td>
+        </tr>
+      </tbody></table>
+    <div class="btnbar"><span>定制我喜欢的网站</span>
+
+      <input type="button" class="btn_02" onclick="save_favorite_site();" value="保存" name="input"/>
+      <input type="button" value="取消" onclick="switch_most_used_website();" name="" class="btn_02"/>
+
+    </div>
+  </div>
+  <h1>我最常用<!--a href="#" onclick="javascript:switch_most_used_website();">我最常用 [编辑]</a-->
+
+    <%@most_used_websites.each do |site|%>
+      <%=link_to truncate(site.name,:length => 10, :omission => '.'),site.url%>|
+    <%end unless @most_used_websites.nil?%>
+    <%=link_to "编辑",most_used_website_website_guides_path(:format=>:js), :remote => true,:onclick=>"return check_login()"%></h1>
+  <div class="w2">
+    <span>综合商城:</span>
+    <div class="wzdh_left">
+      <%@composite_sites.each do |composite_site|%>
+        <span><%=link_to composite_site.name,composite_site.compositeurl%></span>
+      <%end%>
+      <!--      <span><a href="#">淘宝网</a></span>
+            <span><a href="#">易趣</a></span>
+            <span><a href="#">拍拍网</a></span>
+            <span><a href="#">京东商城</a></span>
+            <span><a href="#">淘宝商城</a></span>
+            <span><a href="#">当当网</a></span>
+            <span><a href="#">亚马逊</a></span>
+            <span><a href="#">麦考林</a></span>
+            <span><a href="#">乐酷天</a></span>
+            <span><a href="#">一号店</a></span>
+            <span><a href="#">凡客</a></span>
+            <span><a href="#">V+ </a></span>
+            <span><a href="#">易新浪商城</a></span>
+            <span><a href="#">易百联E城 </a></span>
+            <span><a href="#">易263商城</a></span>
+            <span><a href="#">365商城</a></span>
+            <span><a href="#">尚帝网</a></span>
+            <span><a href="#"> 金蛋商城</a></span>
+            <span><a href="#">亿家家 </a> </span>
+            <span><a href="#">舍得网</a> </span>
+            <span><a href="#"> 口碑网 </a> </span>
+            <span><a href="#"> 物美网</a></span>-->
+    </div>
+  </div>
+  <%@top_cates.each do |top_cate|%>
+    <dl>
+      <dt>[<%=top_cate.name%>]</dt>
+      <dd><span><a href="#">>>更多</a></span>
+        <%@merchants = top_cate.merchants.all.limit(10)
+        @merchants.each do |merchant|%>
+          <%=link_to merchant.name, merchant.merchanturl%>
+        <%end%></dd>
+    </dl>
+  <%end%>
+
+  <!--<dl>
+    <dt>[折扣]</dt>
+    <dd><span><a href="#">>>更多</a></span> <a href="#">唯品会</a>   <a href="#">聚尚网</a>   <a href="#">易趣特价</a>  <a href="#">V+</a><a href="#">上品折扣</a>  <a href="#"> 名品打折网</a>   <a href="#">奥特莱斯商城</a>  <a href="#">淘宝品牌折扣</a>  <a href="#">俏物悄语网</a>  <a href="#">奥特莱斯1号</a>   <a href="#">凡客V+</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[奢侈品]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">尚品网</a><a href="#">魅力惠</a>  <a href="#">美西时尚</a><a href="#">全球优品</a>  优众</a><a href="#">雅品特</a><a href="#">第五大道</a><a href="#">奢华街</a><a href="#">聚风尚 </a> <a href="#">鸿运商城</a>  <a href="#">e品味网 </a> <a href="#">雅品特免税店</a>  <a href="#">银泰奢侈品</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[全球购]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">美国代购</a><a href="#">韩国品牌</a><a href="#">日本商品</a><a href="#">台湾品牌 </a><a href="#">东京pretty</a> <a href="#"> 美国购物网 </a><a href="#">加拿大代购</a> <a href="#">淘宝海外 </a> <a href="#">澳大利亚代购</a>  <a href="#">日本代购</a><a href="#">过家家 </a></dd>
+  </dl>
+  <dl>
+    <dt>[服装] </dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">麦网</a><a href="#">凡客诚品</a><a href="#">梦芭莎</a><a href="#">衣服网</a><a href="#">时尚起义</a><a href="#">玛萨玛索</a>  <a href="#">淘秀网</a><a href="#">兰缪</a>  <a href="#">梦露时尚</a>  <a href="#">逛街网</a>  <a href="#">第九大道品</a><a href="#">佐丹奴 </a><a href="#">歌莉娅</a>  <a href="#">邦购商城</a> </dd>
+  </dl>
+  <dl>
+    <dt>[鞋子]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">乐淘网</a>  <a href="#">淘鞋网</a>  <a href="#">好乐买</a>  <a href="#">名鞋库</a>  <a href="#">拍鞋网</a>  <a href="#">鞋子网</a>  <a href="#">秀足网</a> <a href="#">封面网 </a> <a href="#">卡路里</a>  <a href="#">鞋包世界网 </a> <a href="#">维思诺 </a> <a href="#">美国骆驼 </a></dd>
+  </dl>
+  <dl>
+    <dt>[数码]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">京东商城 </a> <a href="#">新蛋商城</a>  <a href="#">苏宁易购</a>  <a href="#">国美电器</a>  <a href="#">库巴网</a> <a href="#"> 新七天电器网</a> <a href="#"> 永乐电器网</a> <a href="#"> 中关村在线</a> <a href="#">爱派商城</a>  <a href="#">易迅网</a>  <a href="#">绿森数码</a> </dd>
+  </dl>
+  <dl>
+    <dt>[美妆]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">千色网</a><a href="#">  名品SHOW </a> <a href="#">天天购物网</a>  <a href="#">丝芙兰 </a> <a href="#">抢鲜网</a>  <a href="#">D1优尚网 </a> <a href="#">牛尔娜露可 </a> <a href="#">No.5时尚广场</a> <a href="#">左岸女人</a>  <a href="#">美易商城 </a> <a href="#">DHC中国</a> </dd>
+  </dl>
+  <dl>
+    <dt>[食品]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">1号店</a>  <a href="#">大货栈</a>   <a href="#">我买网</a>  <a href="#">也买酒</a>  <a href="#">2点零食</a>  <a href="#">中国零食网</a>  <a href="#">依谷网</a>  五<a href="#">谷磨房</a>  <a href="#">也买茶</a>  <a href="#">中粮</a>  <a href="#">尚客茶品</a>  <a href="#">那酷零食网</a>  <a href="#">祐乐网</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[图书]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">博库书城</a> <a href="#">当当网 </a> <a href="#">文轩网 </a> <a href="#">中国互动出版网 </a> <a href="#">99网上书城</a><a href="#">蔚蓝书店</a><a href="#">中国图书网</a><a href="#">孔夫子旧书网 </a><a href="#"> 新华书店卓越亚马逊</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[箱包]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">麦包包 </a> <a href="#">乐买</a>  <a href="#">名鞋库</a><a href="#">烧包网</a>  <a href="#">购鞋网 </a> <a href="#">美兮阁 </a> <a href="#">佑一良品</a> <a href="#"> 包包树</a> <a href="#"> C&T古缇 </a>  <a href="#">买包啦</a>  我要包包网</a>  <a href="#">荷花皮具</a> </dd>
+  </dl>
+  <dl>
+    <dt>[家居]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">齐家家居网</a><a href="#">居泰隆</a> <a href="#">大管家 </a><a href="#">玩意生活网 </a><a href="#">趣玩网</a> <a href="#">优雅100 </a><a href="#">悠品购物网</a> <a href="#">乐扣乐扣</a><a href="#">宜家居</a><a href="#">艾美艾家 </a><a href="#">广雅网 </a><a href="#">ABS家居购物</a> </dd>
+  </dl>
+  <dl>
+    <dt>[母婴]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">红孩子</a><a href="#">乐友</a><a href="#">丽家宝贝</a><a href="#">爱伊贝丽</a><a href="#">妙乐乐</a><a href="#">摇篮网</a><a href="#">幸孕商城</a><a href="#">爱婴室</a><a href="#">智小天地</a><a href="#">孕妇装</a><a href="#">母婴之家</a><a href="#">25商街儿童精品</a><a href="#">天天玩具商城 </a> </dd>
+  </dl>
+  <dl>
+    <dt>[珠宝]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">珂兰钻石网</a><a href="#">九钻网</a><a href="#">钻石小鸟</a><a href="#">银尚圈</a><a href="#">戴欧妮</a><a href="#">冠晴钻石</a><a href="#">爱莲说水晶网</a><a href="#">新钻网</a><a href="#">品钻网</a><a href="#">Doido爱度</a><a href="#">戴维尼珠宝网</a> </dd>
+  </dl>
+  <dl>
+    <dt>[运动]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">李宁</a><a href="#">炫体运动</a><a href="#">奥迅运动城</a><a href="#">型尚网</a><a href="#">西街运动</a><a href="#">酷运动</a><a href="#">运动在线</a><a href="#">亦可运动</a><a href="#">益体网</a><a href="#">阳光体育</a><a href="#">我爱羽毛球网</a></dd>
+  </dl>
+  <dl>
+    <dt>[健康]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">药房网</a><a href="#">金象网</a><a href="#">上海药房网</a><a href="#">百洋健康网</a><a href="#">导药网</a><a href="#">惠好连锁网</a><a href="#">八百方</a><a href="#">健康网购</a><a href="#">瑞年商城</a> <a href="#">中国健康网</a><a href="#">网星商城</a> </dd>
+  </dl>
+  <dl>
+    <dt>[眼镜]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">爱戴网</a> <a href="#">亿超眼镜</a> <a href="#">艾视网</a> <a href="#">视客眼镜网</a> <a href="#">可得眼镜网</a><a href="#">合亚眼镜商城</a><a href="#">欧诺配镜网</a><a href="#">E眼镜网</a><a href="#">世界眼镜网</a><a href="#">亮视网</a><a href="#">帝卖网</a><a href="#">淘镜网</a></dd>
+  </dl>-->
+  <h2><strong>网络团购</strong></h2>
+  <%@tuan_cates.each do |tuan_cate|%>
+    <dl>
+      <dt>[<%=tuan_cate.name%>] </dt>
+      <dd><span><a href="#">>>更多</a>
+        </span>
+        <%@tuan_sites=tuan_cate.tuangou_sites.all.limit(10)
+        @tuan_sites.each do |tuan_site|%>
+          <%=link_to tuan_site.name,tuan_site.tuanurl%>
+        <%end%>
+      </dd>
+    </dl>
+  <%end%>
+  <!--
+    <dl>
+      <dt>[美妆]</dt>
+      <dd><span><a href="#">>>更多</a></span>聚美优品 草莓网 米奇网 每优购 乐疯团购 汇美优品 粉团 前卫团 零六团 VC团 美尚网 5151团 笑笑团 一起团买网 美网 </dd>
+    </dl>
+    <dl>
+      <dt>[服饰]</dt>
+      <dd><span><a href="#">>>更多</a></span>麦麦团 爱团网 衣服团 服饰团购 信团网 买啦团 依衣控 </dd>
+    </dl>
+    <dl>
+      <dt>[旅游]</dt>
+      <dd><span><a href="#">>>更多</a></span>去哪儿团购 携程团购 淘宝旅行 搜旅团 同程网 驴妈妈 悠哉旅游网 桂旅团 好易订旅行团购 我游团 旅友团 特卖团 周边游旅行</dd>
+    </dl>
+    <dl>
+      <dt>[家居]</dt>
+      <dd><span><a href="#">>>更多</a></span>新浪乐居团 我爱我家网 齐家建材网 搜房网 乐乐居 新团网 土豆团 佳家网 聚网 我要E厨 </dd>
+    </dl>
+    <dl>
+      <dt>[综合]</dt>
+      <dd><span><a href="#">>>更多</a></span>聚齐网 最团网 like团 趣团 可购可乐 粉皮儿网 星800团购商城 爱丽团购 五星汇 现在团 可可团 第一团购网 珍惜网 团委会</dd>
+    </dl>-->
+  <h2><strong>网络品牌</strong></h2>
+  <div class="wzdh_left" style="width:98%; padding-left:10px; line-height:30px;">
+    <%@brands.each do |brand|%>
+      <span><%=link_to brand.name,brand.brandurl%></span>
+    <%end%>
+    <!--
+        <span><a href="#"> 欧莱诺 </a></span>
+        <span><a href="#"> artka </a></span>
+        <span><a href="#"> 家家乐购</a></span>
+        <span><a href="#"> 奥汀堡</a></span>
+        <span><a href="#"> 芳草集 </a></span>
+        <span><a href="#"> 麦包包 </a></span>
+        <span><a href="#"> 本草怡 </a></span>
+        <span><a href="#"> 笛莎</a></span>
+        <span><a href="#"> 戈尔本 </a></span>
+        <span><a href="#"> 百思寒</a></span>
+        <span><a href="#"> 艾娜骑士</a></span>
+        <span><a href="#"> 奥朵 </a></span>
+        <span><a href="#"> 贝贝怡 </a></span>
+        <span><a href="#"> 百武西</a></span>
+        <span><a href="#"> 车品弘智 </a></span>
+        <span><a href="#"> 长生鸟</a></span>
+        <span><a href="#"> 迪尔马奇</a></span>
+        <span><a href="#"> 歌瑞尔</a></span>
+        <span><a href="#">公羊  </a></span>
+        <span><a href="#"> BINGER </a></span>
+        <span><a href="#"> 可可芭蕾 </a></span>
+        <span><a href="#">  juststyle</a></span>
+        <span><a href="#"> 乐行仕 </a></span>
+        <span><a href="#"> 爱肯 </a></span>
+        <span><a href="#"> HONEYWEST</a></span>
+        <span><a href="#"> IITA </a></span>
+        <span><a href="#"> O.SA</a></span>
+        <span><a href="#"> othermix </a></span>
+        <span><a href="#"> 螃蟹秘密 </a></span>
+        <span><a href="#"> 飘飘龙 </a></span>
+        <span><a href="#"> 琪特  </a></span>
+        <span><a href="#"> 诠渡良品 </a></span>
+        <span><a href="#"> 赛依达</a></span>
+        <span><a href="#"> 尚客茶品 </a></span>
+        <span><a href="#"> sportica</a></span>
+        <span><a href="#"> sophy</a></span>
+        <span><a href="#"> 橡菲</a></span>
+        <span><a href="#"> 小熊电器</a></span>
+        <span><a href="#"> 晏记卫浴</a></span>
+        <span><a href="#"> 阳光印记 </a></span>
+        <span><a href="#"> 氧气生活 </a></span>
+        <span><a href="#"> 艺福堂茗茶</a></span>
+        <span><a href="#"> 羊皮堂  </a></span>
+        <span><a href="#"> 也买茶 </a></span>
+        <span><a href="#"> 伊顿纪德</a></span>
+        <span><a href="#"> 鹰岩户外</a></span>
+        <span><a href="#"> 悠语旗舰店 </a></span>
+        <span><a href="#"> 优衣优生活</a></span>
+        <span><a href="#"> 御泥坊 </a></span>
+        <span><a href="#"> 茵曼   </a></span>
+        <span><a href="#"> 贞水 </a></span>
+        <span><a href="#"> 植物语  </a></span>
+        <span><a href="#"> 资多美</a></span>
+        <span><a href="#"> inbrand</a></span>
+        <span><a href="#"> dabuwawa </a></span>
+        <span><a href="#"> 哈他</a></span>
+        <span><a href="#"> gracegift</a></span>
+        <span><a href="#"> AMOVO  </a></span>
+        <span><a href="#"> 浪美</a></span>
+        <span><a href="#"> 摩登小姐 </a></span>
+        <span><a href="#"> 卡芙琳</a></span>
+        <span><a href="#"> 米卡</a></span>
+        <span><a href="#"> 零号男 </a></span>
+        <span><a href="#"> 林氏木业</a></span>-->
+  </div>
+</div>
+

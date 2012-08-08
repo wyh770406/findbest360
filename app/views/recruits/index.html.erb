@@ -1,0 +1,9 @@
+<% pagetitle("诚聘英才") %>
+<div align="center"><h2>诚聘英才</h2></div>
+
+<div class="main">
+  <%if @recruit.present?%>
+    <%=raw(@recruit.desc) %>
+  <%end%>
+</div>
+

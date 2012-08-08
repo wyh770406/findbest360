@@ -1,0 +1,20 @@
+<%= render 'base' %>
+<div id="adminpanel_question_advice" class="form">
+  <%= simple_form_for(@question_advice,
+    :url =>  adminpanel_question_advice_path(@question_advice) ) do |f| %>
+    <%= render "/shared/error_messages", :target => @question_advice %>
+
+    <div class="inputs">
+      <%= f.label :title,"标题" %><br/>
+      <%= f.text_field :title %><br/>
+
+      <%= f.label :desc,"内容" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_question_advices_path %>
+    </div>
+  <% end %>
+</div>

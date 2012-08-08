@@ -1,0 +1,31 @@
+<%= render 'base' %>
+<div id="adminpanel_tuangou_cates">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>团购大类名称</th>
+
+        <th>时间</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tuangou_cates.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+
+          <td style="width:30px;"><%= item.name %></td>
+
+          <td style="width:100px;"><%= l item.created_at.getlocal, :format => :short %></td>
+          <td style="width:50px;">
+            <%= link_to '修改', edit_adminpanel_tuangou_cate_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to '团购网站', adminpanel_tuangou_cate_tuangou_sites_path(item.id) %>&nbsp;&nbsp;
+            <%#= link_to '商家', adminpanel_tuangou_cate_merchants_path(item.id) %>&nbsp;&nbsp;
+            <%#= link_to '品牌', adminpanel_tuangou_cate_brands_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to image_tag("/images/wice_grid/delete.png", :style => "margin-bottom:-4px;border:0"), adminpanel_tuangou_cate_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @tuangou_cates %>
+</div>

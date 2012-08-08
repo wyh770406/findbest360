@@ -1,0 +1,388 @@
+# encoding: utf-8
+## YAML Template.
+---
+links:
+  meituan:
+    name: "美团网"
+    link: "http://www.meituan.com/api/v2/#city#/deals"
+    root: "data"
+    url:  "deal_url"
+    title: "deal_title"
+    img_url: "deal_img"
+    desc: "deal_desc"
+    orig_price: "value"
+    price: "price"
+    discount: "rebate"
+    buyer_num: "sales_num"
+    start_time: "start_time"
+    end_time: "end_time"
+    cate: "deal_cate"
+    subcate: "deal_subcate"
+    is_tuan800: false
+    f_link: "utm_campaign=UserReferral&utm_medium=im&utm_source=%28none%29&utm_content=u12841096&utm_term=index"
+   
+  lashou:
+    name: "拉手网"
+    link: "http://open.client.lashou.com/api/detail/city/#city_name#/p/1/r/50"
+    root: "url"
+    url:  "loc"
+    title: "title"
+    img_url: "image"
+    desc: "detail"
+    orig_price: "value"
+    price: "price"
+    discount: "rebate"
+    buyer_num: "bought"
+    start_time: "startTime"
+    end_time: "endTime"
+    cate: "cate"
+    subcate: ""
+    is_tuan800: false
+      
+  17xgo:
+    name: "一起购"
+    link: "http://www.17xgo.com/api/tuan800.php"
+    is_tuan800: true
+    
+  tuanxiu:
+    name: "团秀网"
+    link: "http://www.tuanxiu.cn/api/tuan800_api.php"
+    is_tuan800: true  
+    
+  manzuo:
+    name: "满座网"
+    link: "http://api.manzuo.com/common.xml"
+    is_tuan800: true    
+    
+  onetuan:
+    name: "第一团"
+    link: "http://www.onetuan.com/api/tuan800.php"
+    is_tuan800: true       
+      
+  gantuan:
+    name: "赶团网"
+    link: "http://www.gantuan.com/api/tuan800.php"
+    is_tuan800: true   
+    f_link: "r=167856"
+    
+  glituan:
+    name: "给力团"
+    link: "http://www.glituan.com/api/tuan800.php"
+    is_tuan800: true    
+    f_link: "r=28584"
+    
+  guangpantuan:
+    name: "光盘团"
+    link: "http://www.guangpantuan.com/api/tuan800.php"
+    is_tuan800: true
+ 
+  bianyituan:
+    name: "便宜团"
+    link: "http://www.guangpantuan.com/api/tuan800.php"
+    is_tuan800: true           
+    f_link: "r=1134953"
+    
+  cobuy:
+    name: "联合购买网"
+    link: "http://www.cobuy.net/api/tuan800.php"
+    is_tuan800: true             
+    
+  clilai:
+    name: "优活团"
+    link: "http://www.clilai.com/?mod=openapi&code=tuan800"
+    is_tuan800: true  
+    f_link: "u=8"
+    
+  gelu:
+    name: "格鲁网"
+    link: "http://www.gelu.com/api/tuan800.php"
+    is_tuan800: true                 
+    f_link: "r=55887"
+    
+  miqi:
+    name: "米奇网"
+    link: "http://www.miqi.cn/xml/apis/lab.api.tuan800.xml"
+    is_tuan800: true                   
+    f_link: "r=207270"
+    
+  36tuan:
+    name: "36团"
+    link: "http://www.36tuan.com/api/tuan800.php"
+    is_tuan800: true                     
+    f_link: "r=560674"
+    
+  55tuan:
+    name: "窝窝团"
+    link: "http://www.55tuan.com/tuan800.xml"
+    is_tuan800: true                       
+    f_link: "method=friendInviteLink&invitecode=c-2-inviteNDc4NzQ4OA=="
+    
+  tuan27:
+    name: "爱丽团"
+    link: "http://tuan.27.cn/api/tuan800.php"
+    is_tuan800: true                         
+    f_link: "r=283360"
+    
+  maidoutuan:
+    name: "麦兜团"
+    link: "http://www.maidoutuan.com/api800.action?t=nav&v=t800"
+    is_tuan800: true                           
+    f_link: "r=aTQyMDkyNQ=="
+    
+  17ya:
+    name: "一起呀"
+    link: "http://www.17ya.com/openapi/today"
+    is_tuan800: true                        
+    
+  zktuan:
+    name: "折扣团"
+    link: "http://www.zktuan.com/api/tuan800.php"
+    is_tuan800: true                          
+    
+  gocn:
+    name: "团购王"
+    link: "http://www.go.cn/api/tuan800api.php"
+    is_tuan800: true                          
+    
+  tnice:
+    name: "美网"
+    link: "http://www.tnice.com/api/tuan800.php"
+    is_tuan800: true                           
+    f_link: "r=34582"
+    
+  pztuan:
+    name: "品质团"
+    link: "http://www.pztuan.com/api.aspx?key=tuan800"
+    is_tuan800: true                             
+    
+  vctuan:
+    name: "VC团"
+    link: "http://www.vctuan.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "r=290391"
+    
+  tuanok:
+    name: "团好网"
+    link: "http://www.tuanok.com/api/tuan800.php"
+    is_tuan800: true                              
+    
+  zmtuan:
+    name: "芝麻团"
+    link: "http://www.zmtuan.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "r=18293"
+    
+  5151tuan:
+    name: "5151团"
+    link: "http://5151tuan.com/Misc/API/t800.aspx"
+    is_tuan800: true                             
+    f_link: "reuid=55237"
+    
+  ruyituan:
+    name: "如意团"
+    link: "http://www.ruyituan.com/api/tuan800.php"
+    is_tuan800: true                              
+    f_link: "r=11719"
+    
+  ayatuan:
+    name: "阿丫团"
+    link: "http://api.ayatuan.com/api/tuan800.xml"
+    is_tuan800: true                             
+    
+  gongzhu:
+    name: "公主网"
+    link: "http://www.gongzhu.com/newapi.php?act=tuan800"
+    is_tuan800: true                               
+    
+  0731cn:
+    name: "团购街"
+    link: "http://www.0731cn.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "r=12406"
+    
+  tuanweihui:
+    name: "团委会"
+    link: "http://www.tuanweihui.com/api/twh_tuan800.php"
+    is_tuan800: true                                
+    
+    
+  saituan:
+    name: "赛团"
+    link: "http://www.saituan.com/api/tuan800.php"
+    is_tuan800: true                             
+    
+  nettuan:
+    name: "网团"
+    link: "http://www.nettuan.com/api/tuan800.php"
+    is_tuan800: true                             
+    f_link: "r=12406"
+    
+  shishangtuan:
+    name: "时尚团"
+    link: "http://www.360shi.com/api/tuan800.php"
+    is_tuan800: true                            
+    
+  tuanku:
+    name: "团酷网"
+    link: "http://www.tuanku.com/api/tuan800"
+    is_tuan800: true                              
+    
+  teyoutuan:
+    name: "特优团"
+    link: "http://www.teyoutuan.com/api/tuan800.php"
+    is_tuan800: true                               
+    f_link: "r=19931"
+    
+  517tuan:
+    name: "517团"
+    link: "http://tuan.517huwai.com/Tuangou/api"
+    is_tuan800: true                           
+    
+  yiqimai:
+    name: "一起买"
+    link: "http://www.yiqimai.com.cn/index.php?m=API&a=tuan800"
+    is_tuan800: true                             
+    
+  xituan:
+    name: "西团网"
+    link: "http://www.gxtuan.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "r=29902"
+    
+  ipandoro:
+    name: "潘多拉"
+    link: "http://www.ipandoro.com/api/tuan800.php"
+    is_tuan800: true                          
+    f_link: "r=9827"
+    
+  kaixintuan:
+    name: "开心团"
+    link: "http://www.kaixintuan.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "r=20357"
+  
+  kupintuan:
+    name: "酷品团"
+    link: "http://www.kupin365.com/api/tuan800.php"
+    is_tuan800: true
+    
+  my0371:
+    name: "郑团网"
+    link: "http://tuan.my0371.com/api/tuan800.php"
+    is_tuan800: true                                
+    f_link: "r=145932"
+    
+  51fit:
+    name: "健团网"
+    link: "http://tuan.51fit.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "r=11731"
+    
+  27tuan:
+    name: "27团"
+    link: "http://www.27tuan.com/api/?f=tb"
+    is_tuan800: true                      
+    f_link: "n=19863"
+    
+  hottuan:
+    name: "浩团网"
+    link: "http://51hottuan.com/help/api.php"
+    is_tuan800: true                        
+    f_link: "r=37232"
+    
+  toptuan:
+    name: "顶团"
+    link: "http://www.toptuan.com/api/tuan800.php"
+    is_tuan800: true                          
+    f_link: "r=19286"
+    
+  liantuan001:
+    name: "联团网"
+    link: "http://www.liantuan001.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "r=44425"
+    
+  wutoo:
+    name: "梧桐团"
+    link: "http://t.wutoo.cn/api/tuan800.php"
+    is_tuan800: true                        
+    
+  lejale:
+    name: "乐加乐"
+    link: "http://www.lejale.com/api/tuan800.php"
+    is_tuan800: true                          
+    f_link: "r=6788"
+    
+  yuyue:
+    name: "愉悦团"
+    link: "http://tuan.yuyue.com/api/tuan800.php"
+    is_tuan800: true                            
+    f_link: "ru=353474"
+    
+  ziyoutuan:
+    name: "自由团"
+    link: "http://www.ziyoutuan.com/api/tuan800.php"
+    is_tuan800: true                              
+    f_link: "ru=5718"
+    
+  aimeituan:
+    name: "爱美团"
+    link: "http://www.aimeituan.com/api/tuan800.php"
+    is_tuan800: true                               
+    f_link: "r=35978"
+    
+  youtuan:
+    name: "友团"
+    link: "http://www.youtuan.so/api.aspx?key=tuan800"
+    is_tuan800: true                                 
+    f_link: "r=583"
+    
+  48miao:
+    name: "48秒团"
+    link: "http://www.48miao.com/api/tuan800.php"
+    is_tuan800: true                                   
+    f_link: "r=27570"
+    
+  sheng1000:
+    name: "省钱团"
+    link: "http://www.sheng1000.com/api/tuan800.php"
+    is_tuan800: true                               
+    f_link: "r=341134"
+    
+  v1tuan:
+    name: "v1团"
+    link: "http://v1tuan.v1.cn/api/tuan800.php"
+    is_tuan800: true                                 
+    f_link: "r=135085"
+    
+  my1930:
+    name: "优荟团"
+    link: "http://tg.my1930.com/api/tuan800.php"
+    is_tuan800: true 
+    f_link: "r=14500"
+    
+  yplife8:
+    name: "团优品"
+    link: "http://tuan.yplife8.com/tuan800.php"
+    is_tuan800: true
+    f_link: "r=7461"
+    
+  boletuan:
+    name: "伯乐团"
+    link: "http://www.boletuan.com/api/tuan800.php"
+    is_tuan800: true
+    
+  tuantrip:
+    name: "团程网"
+    link: "http://www.tuantrip.com/api_tuan800.php"
+    is_tuan800: true                              
+    f_link: "inviteuid=41759"
+    
+  donggo:
+    name: "东购团"
+    link: "http://www.donggo.com/api.aspx?key=tuan800"
+    is_tuan800: true         
+    f_link: "r=169776"
+
+    
+    

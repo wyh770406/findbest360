@@ -1,0 +1,42 @@
+<%= render 'base' %>
+<div id="search">
+  <%= form_tag search_adminpanel_brand_brand_types_path(@brand_id) do%>
+    <%=text_field_tag "search_key","搜索关键字"%>
+
+    <%=submit_tag "搜索"%>
+  <% end %>
+</div>
+
+<div id="adminpanel_brand_types">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+
+        <th>品牌款型</th>
+        <th>品牌款型说明</th>
+        <th>排序</th>
+        <th>品牌款型logo</th>
+        <th>上市时间</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @brand_types.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+
+          <td width="20%"><%= item.name %></td>
+          <td width="20%"><%= item.desc %></td>
+          <td width="20%"><%= item.order_num %></td>
+          <td width="20%"><%= image_tag(item.image_url, :size => "168x168") if item.image_url? %></td>
+          <td width="10%"><%= l item.onsale_at if item.onsale_at%></td>
+          <td width="20%">
+            <%= link_to '修改', edit_adminpanel_brand_brand_type_path(@brand_id,item.id) %>&nbsp;&nbsp;
+
+            <%= link_to image_tag("/images/wice_grid/delete.png", :style => "margin-bottom:-4px;border:0"), adminpanel_brand_brand_type_path(@brand_id,item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @brand_types %>
+</div>

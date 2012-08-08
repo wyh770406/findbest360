@@ -1,0 +1,20 @@
+<%= render 'base' %>
+<div id="adminpanel_recruit" class="form">
+  <%= simple_form_for(@recruit,
+    :url =>  adminpanel_recruit_path(@recruit) ) do |f| %>
+    <%= render "/shared/error_messages", :target => @recruit %>
+
+    <div class="inputs">
+      <%= f.label :title,"标题" %><br/>
+      <%= f.text_field :title %><br/>
+
+      <%= f.label :desc,"内容" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_recruits_path %>
+    </div>
+  <% end %>
+</div>

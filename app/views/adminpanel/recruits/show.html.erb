@@ -1,0 +1,12 @@
+<%= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_recruit_path(@recruit) %> |
+  <%= link_to '返回', adminpanel_recruits_path %>
+</div>
+<div id="adminpanel_recruit">
+  <p>
+    <b>Name:</b>
+    <%= @recruit.name %>
+  </p>
+
+</div>

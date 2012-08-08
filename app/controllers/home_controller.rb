@@ -1,0 +1,42 @@
+class HomeController < ApplicationController
+  caches_page :index
+  def index
+    @users = User.all
+    @top_cates = TopProduct.all.asc("order_num").limit(9)
+    @end_cates = TopProduct.all.offset(9).asc("order_num").limit(9)
+
+    @all_cates = @top_cates + @end_cates
+    #  @subcates = @top_cates.first.middle_products
+    
+    if params[:city]
+      @city = GroupbuyCity.find(params[:city])
+    else
+      @city = GroupbuyCity.where(:name => CGI::unescape(GroupbuyCity.get_city_by_ip(request.ip))).first 
+    end
+    
+    if @city.blank?
+      @city = GroupbuyCity.where({:pinyin => "shanghai"}).first
+    end
+    
+    @categories = GroupbuyCate.all
+    #@groupbuy_products = []
+
+    if @city.present?
+      @groupbuy_products = GroupbuyProduct.where({:groupbuy_city_id => @city.id}).desc("buyer_num").limit(10)
+      #GroupbuySite.all.each do |site|
+      #  Rails.logger.debug { "city name:#{@city.id}" }
+      #  Rails.logger.debug { "site id:#{site.id}" }
+      #  gbproducts = GroupbuyProduct.where({:groupbuy_city_id => @city.id, :groupbuy_site_id => site.id})
+      #  if gbproducts
+      #   @groupbuy_products << gbproducts.first
+      #   @groupbuy_products << gbproducts.last if gbproducts.first != gbproducts.last
+      #  end 
+
+      #end
+    end
+    #@groupbuy_products=@groupbuy_products.compact!
+    @promote_discounts = PromoteDiscount.where(:is_home=>true).and(:is_censored=>true).desc("created_at").limit(12)
+
+    @merchants = Merchant.where(:is_known=>true).asc("order_num").limit(60)
+  end
+end

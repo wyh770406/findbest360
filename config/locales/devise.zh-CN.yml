@@ -1,0 +1,54 @@
+## YAML Template.
+# Additional translations at http://github.com/plataformatec/devise/wiki/I18n
+
+zh-CN:
+  errors:
+    messages:
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      already_confirmed: "was already confirmed, please try signing in"
+      not_locked: "was not locked"
+      not_saved:
+        one: "有 1 个错误发生导致账户无法被保存。"
+        other: "有 %{count} 个错误发生导致账户无法被保存。"
+  devise:
+    failure:
+      already_authenticated: 'You are already signed in.'
+      unauthenticated: '在继续操作前，你需要登录或注册.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: '无效的 email 或密码.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: '你的session已经过期了, 请再登录后继续操作.'
+      inactive: '你的帐号还没有被激活.'
+    sessions:
+      signed_in: '成功登录.'
+      signed_out: '成功登出.'
+    passwords:
+      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+      send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
+    confirmations:
+      send_instructions: '你将很快收到一封关于如何重设密码的邮件.'
+      send_paranoid_instructions: 'If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: '欢迎! 你已经成功注册.'
+      inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
+      updated: '你成功地修改了你的帐号.'
+      destroyed: '再见! 你的账户被成功取消. 我们希望很快再次见到你.'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+      send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+    omniauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+      unlock_instructions:
+        subject: 'Unlock Instructions'
+

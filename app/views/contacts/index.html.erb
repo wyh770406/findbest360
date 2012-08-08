@@ -1,0 +1,9 @@
+<% pagetitle("联系我们") %>
+<div align="center"><h2>联系我们</h2></div>
+
+<div class="main">
+  <%if @contact.present?%>
+    <%=raw(@contact.desc) %>
+  <%end%>
+</div>
+

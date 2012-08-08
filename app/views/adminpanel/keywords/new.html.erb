@@ -1,0 +1,20 @@
+<%= render 'base' %>
+<div id="adminpanel_keyword" class="form">
+
+  <%= simple_form_for(@keyword,:url =>  adminpanel_top_product_keywords_path(@top_product_id)) do |f| %>
+
+    <%= render "/shared/error_messages", :target => @keyword %>
+
+    <div class="inputs">
+      <%= f.input :word %>
+      <%= f.input :pinyin %>
+      <%= f.label :hot,"是否热门搜索词" %>
+      <%= f.check_box :hot %><br/>
+
+     </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_top_product_keywords_path(@top_product_id) %>
+    </div>
+  <% end %>
+</div>

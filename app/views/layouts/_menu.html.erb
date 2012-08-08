@@ -1,0 +1,19 @@
+<ul>
+
+  <li><%= link_to '产品类别', adminpanel_top_products_path %></li>
+  <li><%= link_to '商家', adminpanel_merchants_path %></li>
+  <li><%= link_to '品牌', adminpanel_brands_path %></li>
+  <li><%= link_to '综合商城', adminpanel_composite_sites_path %></li>
+  <li><%= link_to '团购类别', adminpanel_tuangou_cates_path %></li>
+
+  <li><%= link_to '关于易淘比购', adminpanel_company_profiles_path %></li>
+  <li><%= link_to '友情链接', adminpanel_friend_links_path %></li>
+  <li><%= link_to '诚聘英才', adminpanel_recruits_path %></li>
+  <li><%= link_to '联系我们', adminpanel_contacts_path %></li>
+  <li><%= link_to '推广合作', adminpanel_cooperations_path %></li>
+  <li><%= link_to '商家入驻', adminpanel_merchant_entries_path %></li>
+  <li><%= link_to '建议疑问', adminpanel_question_advices_path %></li>
+  <li><%if admin_signed_in?%><%= link_to '修改密码',edit_admin_registration_path %><%end%></li>
+  <li><%= link_to '登出', destroy_user_session_path %></li>
+
+</ul>

@@ -1,0 +1,10 @@
+<%#= spaceless do %>
+<div align="left"><h3>大类名称：<%=@tuangou_cate.name%>&nbsp;&nbsp;<%=link_to "<<返回大类",adminpanel_tuangou_cates_path%></h3></div>
+<div class="tools">
+  <a href="<%= adminpanel_tuangou_cate_tuangou_sites_path(@tuangou_cate_id) %>" class="button small left<%= ' checked' if params[:action] == "index" %>">查看所有</a>
+  <% if ["edit","update"].index(params[:action]) %>
+  <a href="#" class="button small checked">编辑</a>
+  <% end %>
+  <a href="<%= new_adminpanel_tuangou_cate_tuangou_site_path(@tuangou_cate_id) %>" class="button small right<%= ' checked' if ["new","create"].index(params[:action]) %>">新建</a>
+</div>
+<%# end %>

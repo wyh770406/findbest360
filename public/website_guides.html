@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="alexaVerifyID" content="3X-2eGts5qqtpV06voXx_ca3vY8" />
+    <meta name="keywords" content="易淘比购,B2C,购物,比价,导购,搜索,网购,购物搜索,正品,保障,www.findbest360.com,品牌,特卖,服装,女装,男装,外套,牛仔,内衣,配件,鞋,箱包,女包,男包,珠宝,饰品,项链,戒指,手表,眼睛,化妆品,护肤,彩妆,香水,精油,运动,运动鞋,运动服,户外,手机,数码,笔记本,平板电脑,相机,单反,电器,电视,冰箱,空调,厨房,液晶,剃须刀,家具,卫浴,地板,五金,开关,建材,居家,生活,家纺,宠物,居家,食品,零食,茶叶,保健,滋补,粮油,酒水,母婴,童装,孕妇装,玩具,宝宝,汽车,配件,内饰,gps,玩乐,图书,乐器,旅游,鲜花,3X-2eGts5qqtpV06voXx_ca3vY8"/>
+    <meta name="description" content="收录全网正品、收录全网咨询、收录全网优惠，提供多层购物保障、给用户完美购物体验。" />
+    
+    <title>网站导航 - 易淘比购：要正品、得便宜、行方便，给用户带来真实惠</title>
+
+    <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <!-- 3X-2eGts5qqtpV06voXx_ca3vY8 -->
+    <link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/bann.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/css.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/pagination.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/jquery-ui-1.8.2.custom" media="screen" rel="stylesheet" type="text/css" />
+<link href="/assets/brands.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="/assets/application.js" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param" />
+<meta content="Q4TRDYF4Hr35kgOdbHpin/5K5fbSmLH6DZjjbLppyYc=" name="csrf-token" />
+
+    
+  <script type="text/javascript">
+    function switch_most_used_website(){
+      display_str = $('#most_used_website').css('display')
+      if (display_str == "none")
+      {$('#most_used_website').css('display','block')}
+      else
+      {$('#most_used_website').css('display','none')}
+    }
+    function save_favorite_site(){
+
+
+      var url = "/website_guides/save_favorite_site"
+      title_arr=[]
+      link_arr=[]
+      link_id_arr=[]
+      for (i=1;i<=12;i++)
+      {
+        title_str = $.trim($("#title"+i).val());
+        link_str = $.trim($("#link"+i).val());
+        link_id_str= $.trim($("#link_id"+i).val());
+
+        if (title_str != "" && title_str != "输入网站名称")
+        {
+          title_arr.push(title_str);
+          link_id_arr.push(link_id_str);
+        }
+
+        if (link_str != "" && link_str != "http://")
+        {
+          link_arr.push(link_str);
+        }
+
+      }
+
+
+      var title_link_arr=[];
+      for (j=0;j<=title_arr.length;j++)
+      { if (typeof(title_arr[j])!= "undefined" && typeof(link_arr[j])!= "undefined")
+        {
+
+          if (title_arr[j]!=""&&link_arr[j]!="")
+          {
+            if (link_arr[j].indexOf("http://")==0 || link_arr[j].indexOf("https://")==0)
+            {
+              json_data_str = {"title": title_arr[j], "link": link_arr[j],"link_id":link_id_arr[j]};
+              title_link_arr.push(json_data_str);
+            }
+          }
+        }
+      }
+
+     if (typeof(title_link_arr[0])== "undefined")
+       {alert("输入的网址有错误！");
+        return false;}
+
+      var arr_json_data = {"title_link":title_link_arr};
+      $.ajax({
+        type: "POST",
+        url: url,
+        data:  arr_json_data,
+        success:   function(data){
+
+        }
+      });
+
+
+    }
+   anylinkcssmenu.init("anchorclass")
+  </script>
+
+    
+    
+    <script type="text/javascript">
+      signin = $.cookie('sign_in');
+      function check_login()
+      {
+        if (signin=="login")
+        {return true}
+        else
+        {alert("请先登录");
+          return false;}
+      }
+
+      function addfavorite()
+      {
+        if (document.all)
+        {
+          window.external.addFavorite("http://www.findbest360.com","易淘比购 - 购物搜索第一站!");
+        }
+        else if (window.sidebar)
+        {
+          window.sidebar.addPanel("易淘比购 - 购物搜索第一站!", "http://www.findbest360.com",  "");
+        }
+      }
+
+      function setHomepage() {　 // 设置首页
+        if (document.all) {
+          document.body.style.behavior = "url(#default#homepage)";
+          document.body.setHomePage("http://www.findbest360.com");
+
+        }
+        else if (window.sidebar) {
+          if (window.netscape) {
+            try {
+              netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            }
+            catch (e) {
+              alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true");
+            }
+          }
+          var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+          prefs.setCharPref("browser.startup.homepage", "http://www.findbest360.com");
+        }
+
+      }
+      
+
+$(document).ready(function() {
+      if (signin=="login")
+         {
+          $(".header_right_login").css("display","none"); 
+          $(".header_right_logout").css("display","block");}
+      else
+      {
+        $(".header_right_login").css("display","block");
+        $(".header_right_logout").css("display","none");
+       }
+      })
+    </script>
+  </head>
+
+  <body>
+
+
+    <div class="box">
+      <div class="header">
+        <div class="header_left">欢迎光临易淘比购！</div>
+        <div class="header_right_login">
+
+          <span style="float:right">
+            <img src="/images/top_06.gif" /><a onclick="javascript:setHomepage();" href="">设为首页</a>
+            <img src="/images/top_08.gif" /><a href="javascript:addfavorite()">收藏本站</a></span>
+          <span style="float:left" >  <a href="/website_guides">易淘比购商家大全</a>  |   <a class="red" style="font-weight:bold" href="/users/sign_up">有奖注册</a>   |   <a href="/users/sign_in">登录</a> </span> 
+         </div>
+
+        <div class="header_right_logout" style="display:none">
+
+          <span style="float:right">
+            <img src="/images/top_06.gif" /><a onclick="javascript:setHomepage();" href="">设为首页</a>
+            <img src="/images/top_08.gif" /><a href="javascript:addfavorite()">收藏本站</a></span>
+          <span style="float:left" >  <a href="/website_guides">易淘比购商家大全</a>  |   <a href="/users/edit">编辑账户</a>   |   <a href="/users/sign_out">登出</a>   </span>
+         </div>
+      </div>
+      <div class="main"><!--div class="tl"></div-->
+        <div class="logo"></div>
+        <div class="menuA">
+          <ul>
+            <li class=>
+              <a href="/" style="">易淘比购首页</a><!--<a href="index.html" ><font style="color:#FFF"></font></a>--></li>
+            <li class=m1><a href="/website_guides" style="color:#FFF">商城大全</a></li>
+            <li class=><a href="/groupbuy_sites" style="">团购大全</a></li>
+            <li class=><a href="/brands" style="">品牌大全</a></li>
+            <!--li class=><a href="/promote_discounts" style="">折扣促销</a></li-->
+          </ul>
+        </div></div>
+      <div class="nav">
+        <div class="nav_left"></div>
+        <div class="nav_content">
+
+          <form accept-charset="UTF-8" action="/products/search" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Q4TRDYF4Hr35kgOdbHpin/5K5fbSmLH6DZjjbLppyYc=" /></div>
+            <input class="search" data-autocomplete="/products/autocomplete_keyword_word" id="search_key" name="search_key" onclick="clear_tip()" type="text" value="搜索关键字" />
+            <input class="search2" name="commit" type="submit" value="搜索" />
+</form>          <!--<input type="text" class="search" value="搜索关键字" /><input type="button" class="search2" value="搜索" />-->
+          <script type="text/javascript">
+            function clear_tip(){
+              if(document.getElementById("search_key").value == "搜索关键字"){
+                document.getElementById("search_key").value = "";
+              }
+            }
+          </script>
+          <div id="autocomplete">
+
+          </div>
+        </div>
+        <div class="nav_right"></div>
+
+      </div>
+      
+<div class="wzdh">
+  <div style="display:none" id="most_used_website">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" style="padding-top: 10px;">
+      <tbody><tr>
+          <th>1.</th>
+          <td>
+            <input type="text" value="输入网站名称" id="title1" name="textfield5" class="input_04" style="color: rgb(0, 0, 0);"/>
+          </td>
+          <th>网址:</th>
+          <td>
+            <input type="text" value="http://" id="link1" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id1"/>
+          </td>
+          <td>
+            <a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link1" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a>
+
+          </td>
+          <th>7.</th>
+          <td><input type="text" value="输入网站名称" id="title7" name="textfield5" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td>
+            <input type="text" value="http://" id="link7" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id7"/>
+          </td>
+          <td>
+            <a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link7" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+        </tr>
+        <tr>
+          <th>2.</th>
+          <td><input type="text" value="输入网站名称" id="title2" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link2" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id2"/></td>
+          <td>
+            <a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link2" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a>
+          </td>
+          <th>8.</th>
+          <td><input type="text" value="输入网站名称" id="title8" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link8" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id8"/></td>
+          <td>           <a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link8" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+        </tr>
+        <tr>
+          <th>3.</th>
+          <td><input type="text" value="输入网站名称" id="title3" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link3" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id3"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link3" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+          <th>9.</th>
+          <td><input type="text" value="输入网站名称" id="title9" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link9" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id9"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link9" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+        </tr>
+        <tr>
+          <th>4.</th>
+          <td><input type="text" value="输入网站名称" id="title4" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link4" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id4"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link4" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+          <th>10.</th>
+          <td><input type="text" value="输入网站名称" id="title10" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link10" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id10"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link10" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+        </tr>
+        <tr>
+          <th>5.</th>
+          <td><input type="text" value="输入网站名称" id="title5" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link5" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id5"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link5" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+          <th>11.</th>
+          <td><input type="text" value="输入网站名称" id="title11" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link11" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id11"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link11" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+        </tr>
+        <tr>
+          <th>6.</th>
+          <td><input type="text" value="输入网站名称" id="title6" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link6" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id6"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link6" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+          <th>12.</th>
+          <td><input type="text" value="输入网站名称" id="title12" name="textfield6" class="input_04" style="color: rgb(0, 0, 0);"/></td>
+          <th>网址:</th>
+          <td><input type="text" value="http://" id="link12" name="textfield6" class="input_05"/>
+            <input type="hidden" value="" id="link_id12"/></td>
+          <td><a href="#" data-confirm="你确定吗?" data-method="delete" data-remote="true" id="del_link12" rel="nofollow"><img alt="Cl01" src="/images/cl01.gif" /></a></td>
+        </tr>
+      </tbody></table>
+    <div class="btnbar"><span>定制我喜欢的网站</span>
+
+      <input type="button" class="btn_02" onclick="save_favorite_site();" value="保存" name="input"/>
+      <input type="button" value="取消" onclick="switch_most_used_website();" name="" class="btn_02"/>
+
+    </div>
+  </div>
+  <h1>我最常用<!--a href="#" onclick="javascript:switch_most_used_website();">我最常用 [编辑]</a-->
+
+    <a href="/website_guides/most_used_website.js" data-remote="true" onclick="return check_login()">编辑</a></h1>
+  <div class="w2">
+    <span>综合商城:</span>
+    <div class="wzdh_left">
+        <span><a href="http://s.click.taobao.com/t_9?p=mm_28794925_0_0&amp;l=http%3A%2F%2Fwww.tmall.com" target="_blank">淘宝商城</a></span>
+        <span><a href="http://click.union.360buy.com/JdClick/?unionId=15225&amp;t=1&amp;to=http://www.360buy.com" target="_blank">京东商城</a></span>
+        <span><a href="http://www.amazon.cn/?_encoding=UTF8&amp;tag=findbest360-23&amp;linkCode=ur2&amp;camp=536&amp;creative=3200" target="_blank">卓越亚马逊</a></span>
+        <span><a href="http://union.dangdang.com/transfer.php?from=P-293872&amp;ad_type=10&amp;sys_id=1&amp;backurl=http://www.dangdang.com" target="_blank">当当网</a></span>
+        <span><a href="http://www.yihaodian.com" target="_blank">1号店</a></span>
+        <span><a href="http://www.taobao.com/go/chn/tbk_channel/channelcode.php?pid=mm_28794925_2438216_9350318&amp;eventid=101329" target="_blank">淘宝网</a></span>
+        <span><a href="http://www.newegg.com.cn" target="_blank">新蛋</a></span>
+        <span><a href="http://www.taobao.com/go/chn/tbk_channel/celebrate.php?pid=mm_28794925_2438216_9350318&amp;eventid=102225" target="_blank">淘宝天天疯狂</a></span>
+        <span><a href="http://www.taobao.com/go/chn/tbk_channel/huangguan.php?pid=mm_28794925_2438216_9350318&amp;eventid=101858" target="_blank">淘宝皇冠店</a></span>
+        <span><a href="http://e-shop.carrefour.com.cn" target="_blank">家乐福</a></span>
+        <span><a href="http://www.51buy.com" target="_blank">易迅</a></span>
+        <span><a href="http://www.suning.com" target="_blank">苏宁易购</a></span>
+        <span><a href="http://www.vancl.com" target="_blank">凡客诚品</a></span>
+        <span><a href="http://shop.qq.com" target="_blank">QQ商城</a></span>
+        <span><a href="http://www.yaodian100.com" target="_blank">耀点100 </a></span>
+        <span><a href="http://www.ocj.com.cn" target="_blank">东方购物</a></span>
+        <span><a href="http://www.chinadrtv.com" target="_blank">橡果国际</a></span>
+        <span><a href="http://www.360mart.com" target="_blank">买特网</a></span>
+        <span><a href="http://www.17ugo.com" target="_blank">优购物</a></span>
+        <span><a href="http://www.ule.com.cn" target="_blank">邮乐网</a></span>
+        <span><a href="http://www.haiwaidian.com" target="_blank">海外店</a></span>
+        <span><a href="http://www.outlets365.com" target="_blank">奥特莱斯</a></span>
+        <span><a href="http://www.rakuten.cn" target="_blank">乐酷天</a></span>
+        <span><a href="http://www.51lepai.com" target="_blank">乐拍商城</a></span>
+        <span><a href="http://www.msegou.com" target="_blank">民生e购</a></span>
+        <span><a href="http://www.igocctv.com" target="_blank">央视购物</a></span>
+        <span><a href="http://www.drg168.com" target="_blank">达人购</a></span>
+        <span><a href="http://www.mytvmall.com" target="_blank">来逛街</a></span>
+        <span><a href="http://www.homevv.com" target="_blank">为为网</a></span>
+        <span><a href="http://www.woyo.com" target="_blank">我友网</a></span>
+<span>
+<p>
+<a class="anchorclass myownclass" rel="submenu3" href="#">&gt;&gt;更多综合商城</a>
+</p>
+</span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[综合商城]</b>
+ <ul>
+              <li><a href="http://www.d100h.com" target="_blank">第一百货</a></li>
+              <li><a href="http://www.tlx.com.cn" target="_blank">天路行</a></li>
+              <li><a href="http://www.hl98.com" target="_blank">华龙万惠</a></li>
+              <li><a href="http://www.myfc365.com" target="_blank">非常网</a></li>
+              <li><a href="http://www.51taozui.com" target="_blank">淘最网</a></li>
+              <li><a href="http://www.tuangouba.com" target="_blank">团购吧</a></li>
+              <li><a href="http://www.mylianmei.com" target="_blank">联美商城</a></li>
+              <li><a href="http://www.yibuerzu.com" target="_blank">一步二足</a></li>
+              <li><a href="http://www.960961.com" target="_blank">扬子壹购</a></li>
+              <li><a href="http://www.etaohe.com" target="_blank">桃河家园</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.temai88.com" target="_blank">特卖天下</a></li>
+              <li><a href="http://www.gooday.cn" target="_blank">日日顺乐家</a></li>
+              <li><a href="http://www.yoogou.net" target="_blank">悠购网</a></li>
+              <li><a href="http://www.365goba.com" target="_blank">购吧网</a></li>
+              <li><a href="http://www.blemall.com" target="_blank">百联E城</a></li>
+              <li><a href="http://www.5paike.com" target="_blank">我拍客</a></li>
+              <li><a href="http://www.xiaokang.com" target="_blank">小康之家</a></li>
+              <li><a href="http://www.zunbaowang.com" target="_blank">尊宝网</a></li>
+              <li><a href="http://www.best1.com" target="_blank">好易购</a></li>
+              <li><a href="http://www.tpy100.com" target="_blank">太平洋</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.2688.com" target="_blank">2688网店</a></li>
+              <li><a href="http://www.jsbcmall.com" target="_blank">好享购</a></li>
+              <li><a href="http://mall.sina.com.cn" target="_blank">新浪商城</a></li>
+              <li><a href="http://emall.chinapay.com" target="_blank">银联在线</a></li>
+              <li><a href="http://www.samsclub.cn" target="_blank">山姆会员</a></li>
+              <li><a href="http://www.binggo.com" target="_blank">缤购商城</a></li>
+              <li><a href="http://www.airshop.com.cn" target="_blank">金鹏商城</a></li>
+              <li><a href="http://www.cntvs.com" target="_blank">星活馆</a></li>
+              <li><a href="http://www.sale8.com" target="_blank">卖吧</a></li>
+              <li><a href="http://www.easy361.com" target="_blank">易斯来福</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.yinzuo100.com" target="_blank">银座商城</a></li>
+ </ul>
+</div>
+</div>
+      <!--      <span><a href="#">淘宝网</a></span>
+            <span><a href="#">易趣</a></span>
+            <span><a href="#">拍拍网</a></span>
+            <span><a href="#">京东商城</a></span>
+            <span><a href="#">淘宝商城</a></span>
+            <span><a href="#">当当网</a></span>
+            <span><a href="#">亚马逊</a></span>
+            <span><a href="#">麦考林</a></span>
+            <span><a href="#">乐酷天</a></span>
+            <span><a href="#">一号店</a></span>
+            <span><a href="#">凡客</a></span>
+            <span><a href="#">V+ </a></span>
+            <span><a href="#">易新浪商城</a></span>
+            <span><a href="#">易百联E城 </a></span>
+            <span><a href="#">易263商城</a></span>
+            <span><a href="#">365商城</a></span>
+            <span><a href="#">尚帝网</a></span>
+            <span><a href="#"> 金蛋商城</a></span>
+            <span><a href="#">亿家家 </a> </span>
+            <span><a href="#">舍得网</a> </span>
+            <span><a href="#"> 口碑网 </a> </span>
+            <span><a href="#"> 物美网</a></span>-->
+    </div>
+  </div>
+    <dl>
+      <dt>[电脑手机数码]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[电脑手机数码]</b>
+ <ul>
+              <li><a href="http://emall.chinapay.com" target="_blank">银联在线商城</a></li>
+              <li><a href="http://www.17ugo.com" target="_blank">优购物</a></li>
+              <li><a href="http://www.ibuying.com" target="_blank">品聚网</a></li>
+              <li><a href="http://www.yinzuo100.com" target="_blank">银座网</a></li>
+              <li><a href="http://www.sensengo.com" target="_blank">森森购物</a></li>
+              <li><a href="http://www.easy361.com" target="_blank">易斯来福</a></li>
+              <li><a href="http://www.airshop.com.cn" target="_blank">金鹏商城</a></li>
+              <li><a href="http://www.sale8.com" target="_blank">卖吧网</a></li>
+              <li><a href="http://www.usashopcn.com" target="_blank">美国购物网</a></li>
+              <li><a href="http://www.all3c.com" target="_blank">新七天电器网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.gome.com.cn" target="_blank">国美电器</a></li>
+              <li><a href="http://www.yidianda.com" target="_blank">一点达</a></li>
+              <li><a href="http://www.5366.com" target="_blank">咪啦网</a></li>
+              <li><a href="http://www.efeihu.com" target="_blank">飞虎乐购</a></li>
+              <li><a href="http://www.tao3c.com" target="_blank">高鸿商城</a></li>
+              <li><a href="http://www.21fox.com" target="_blank">网邻商城</a></li>
+              <li><a href="http://www.bobomobi.com" target="_blank">播播手机网</a></li>
+              <li><a href="http://www.ouku.com" target="_blank">欧酷网</a></li>
+              <li><a href="http://www.woye.com" target="_blank">我耶商城</a></li>
+              <li><a href="http://www.zm7.cn" target="_blank">卓美网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.360mart.com" target="_blank">买特网</a></li>
+              <li><a href="http://www1.ap.dell.com" target="_blank">DELL商用机</a></li>
+              <li><a href="http://www.saapaa.com" target="_blank">闪拍网</a></li>
+              <li><a href="http://www.2688.com" target="_blank">2688网店</a></li>
+              <li><a href="http://www.jsbcmall.com" target="_blank">好享购</a></li>
+              <li><a href="http://www.akimimi.com" target="_blank">阿基米米</a></li>
+              <li><a href="http://168dg.com" target="_blank">168订购网</a></li>
+              <li><a href="http://www.shihui.cn" target="_blank">实惠商城</a></li>
+              <li><a href="http://www.goonow.com" target="_blank">双安商场</a></li>
+              <li><a href="http://www.365.com" target="_blank">365商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.xiadingdan.com" target="_blank">下订单</a></li>
+              <li><a href="http://jp.bbn.com.cn" target="_blank">联通精品商城</a></li>
+              <li><a href="http://www.wg365.com" target="_blank">网购在线</a></li>
+              <li><a href="http://www.pgbao.com" target="_blank">平购宝</a></li>
+              <li><a href="http://www.jiaoyitong.com.cn" target="_blank">交易通</a></li>
+              <li><a href="http://www.wumeiwang.com" target="_blank">物美网</a></li>
+              <li><a href="http://www.gouwulian.com" target="_blank">购物链</a></li>
+              <li><a href="http://www.haotehao.com" target="_blank">好特好商城</a></li>
+              <li><a href="http://www.best1.com" target="_blank">好易购</a></li>
+              <li><a href="http://www.szshop.com" target="_blank">深圳铭店</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.congguo.com" target="_blank">聪果商城</a></li>
+              <li><a href="http://mall.sina.com.cn" target="_blank">新浪商城</a></li>
+              <li><a href="http://www.hongkouzi.com" target="_blank">红扣子商城</a></li>
+              <li><a href="http://www.139shop.com" target="_blank">北斗手机网</a></li>
+              <li><a href="http://appserver.lenovo.com.cn" target="_blank">Lenovo在线商城</a></li>
+              <li><a href="http://www.rayi.cn" target="_blank">锐意网</a></li>
+              <li><a href="http://www.18900.com" target="_blank">18900手机网</a></li>
+              <li><a href="http://www.shop.nokia.com.cn" target="_blank">诺基亚网上专卖店</a></li>
+              <li><a href="http://shop.benq.com.cn" target="_blank">明基官方商城</a></li>
+              <li><a href="http://www.dixintong.com" target="_blank">迪信通</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://click.union.360buy.com/JdClick/?unionId=15225&amp;t=1&amp;to=http://www.360buy.com" target="_blank">京东商城</a>
+                  <a href="http://sale.suning.com/images/advertise/rpg/14juhe/index.html" target="_blank">苏宁易购</a>
+                  <a href="http://www.taobao.com/go/chn/tbk_channel/digital.php?pid=mm_28794925_2438216_9350318&amp;eventid=101332" target="_blank">淘宝数码频道</a>
+                  <a href="http://www.newegg.com.cn" target="_blank">新蛋商城</a>
+                  <a href="http://www.coo8.com" target="_blank">库巴购物网</a>
+                  <a href="http://www.gome.com.cn" target="_blank">国美电器</a>
+                  <a href="http://www.lusen.cn" target="_blank">绿森数码</a>
+                  <a href="http://www.hqbuy.com" target="_blank">华强商城</a>
+                  <a href="http://www.comedl.com" target="_blank">动力商城</a>
+                  <a href="http://www.21fox.com" target="_blank">网邻商城</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[家电/办公]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[家电/办公]</b>
+ <ul>
+              <li><a href="http://www.houmart.com" target="_blank">后玛特网上超市</a></li>
+              <li><a href="http://www.ibuying.com" target="_blank">品聚网</a></li>
+              <li><a href="http://www.sensengo.com" target="_blank">森森购物</a></li>
+              <li><a href="http://www.all3c.com" target="_blank">新七天电器网</a></li>
+              <li><a href="http://www.gome.com.cn" target="_blank">国美电器</a></li>
+              <li><a href="http://www.efeihu.com" target="_blank">飞虎乐购</a></li>
+              <li><a href="http://www.tao3c.com" target="_blank">高鸿商城</a></li>
+              <li><a href="http://www.21fox.com" target="_blank">网邻商城</a></li>
+              <li><a href="http://www.woye.com" target="_blank">我耶商城</a></li>
+              <li><a href="http://www.360mart.com" target="_blank">买特网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.pangoo.com" target="_blank">盘古优品</a></li>
+              <li><a href="http://www.saapaa.com" target="_blank">闪拍网</a></li>
+              <li><a href="http://www.jsbcmall.com" target="_blank">好享购</a></li>
+              <li><a href="http://www.wg365.com" target="_blank">网购在线</a></li>
+              <li><a href="http://www.zunbaowang.com" target="_blank">尊宝网</a></li>
+              <li><a href="http://www.szshop.com" target="_blank">深圳铭店</a></li>
+              <li><a href="http://www.shnn.com" target="_blank">中国申网</a></li>
+              <li><a href="http://www.samsclub.cn" target="_blank">山姆会员网上商店</a></li>
+              <li><a href="http://shop.benq.com.cn" target="_blank">明基官方商城</a></li>
+              <li><a href="http://ehaier.com" target="_blank">海尔网上商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.bearbuy.com.cn" target="_blank">小熊商城</a></li>
+              <li><a href="http://www.dconline.com.cn" target="_blank">神码在线</a></li>
+              <li><a href="http://www.minibuy.com" target="_blank">小白购物</a></li>
+              <li><a href="http://www.itzm.com" target="_blank">IT专卖网</a></li>
+              <li><a href="http://huimai100.com" target="_blank">宏图三胞网上商城</a></li>
+              <li><a href="http://www.186mall.com" target="_blank">186办公商城</a></li>
+              <li><a href="http://www.veryok.cn" target="_blank">非常OK</a></li>
+              <li><a href="http://www.itgoods.com.cn" target="_blank">宜特购</a></li>
+              <li><a href="http://www.needblue.com" target="_blank">百蓝网</a></li>
+              <li><a href="http://www.diannaoshop.com" target="_blank">电脑商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.jmeishop.com" target="_blank">京美商城</a></li>
+              <li><a href="http://www.yongle.com.cn" target="_blank">永乐家电网</a></li>
+              <li><a href="http://www.shentop.com" target="_blank">圣托网</a></li>
+              <li><a href="http://www.palcent.com" target="_blank">百诚家电网</a></li>
+              <li><a href="http://www.upin365.com" target="_blank">优品电器</a></li>
+              <li><a href="http://www.24dq.com" target="_blank">全时电器网</a></li>
+              <li><a href="http://www.dazhongdianqi.com.cn" target="_blank">大中电器</a></li>
+              <li><a href="http://www.rakuten.cn" target="_blank">乐酷天</a></li>
+              <li><a href="http://www.haocai.com.cn" target="_blank">中国耗材商城</a></li>
+              <li><a href="http://www.ey100.com" target="_blank">易优百</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.staples.cn" target="_blank">史泰博</a></li>
+              <li><a href="http://www.cntvs.com" target="_blank">星活馆</a></li>
+              <li><a href="http://www.orange3c.com" target="_blank">品橙网</a></li>
+              <li><a href="http://www.officedepot.com.cn" target="_blank">欧迪办公</a></li>
+              <li><a href="http://www.lepu.com" target="_blank">乐铺</a></li>
+              <li><a href="http://www.zuomee.com" target="_blank">左米网</a></li>
+              <li><a href="http://www.hsz88.cn" target="_blank">好实再</a></li>
+              <li><a href="http://www.8mmo.com" target="_blank">富摩网</a></li>
+              <li><a href="http://www.99buy.com.cn" target="_blank">神州商城</a></li>
+              <li><a href="http://www.my12345.com" target="_blank">My12345</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://click.union.360buy.com/JdClick/?unionId=15225&amp;t=1&amp;to=http://www.360buy.com" target="_blank">京东商城</a>
+                  <a href="http://sale.suning.com/images/advertise/rpg/14juhe/index.html" target="_blank">苏宁易购</a>
+                  <a href="http://www.taobao.com/go/chn/tbk_channel/digital.php?pid=mm_28794925_2438216_9350318&amp;eventid=101332" target="_blank">淘宝数码频道</a>
+                  <a href="http://www.newegg.com.cn" target="_blank">新蛋商城</a>
+                  <a href="http://www.coo8.com" target="_blank">库巴购物网</a>
+                  <a href="http://www.gome.com.cn" target="_blank">国美电器</a>
+                  <a href="http://www.hqbuy.com" target="_blank">华强商城</a>
+                  <a href="http://www.comedl.com" target="_blank">动力商城</a>
+                  <a href="http://www.21fox.com" target="_blank">网邻商城</a>
+                  <a href="http://www.yaodian100.com" target="_blank">耀点100</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[服装]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[服装]</b>
+ <ul>
+              <li><a href="http://www.lyceem.com" target="_blank">蓝橙旅游用品</a></li>
+              <li><a href="http://www.shanghai-sports.com" target="_blank">上海体育用品网</a></li>
+              <li><a href="http://emall.chinapay.com" target="_blank">银联在线商城</a></li>
+              <li><a href="http://www.ihush.com" target="_blank">俏物悄语</a></li>
+              <li><a href="http://www.masamaso.com" target="_blank">玛萨玛索</a></li>
+              <li><a href="http://wwwlamiu.com" target="_blank">兰缪网</a></li>
+              <li><a href="http://www.mmuses.com" target="_blank">缪诗</a></li>
+              <li><a href="http://www.chictalk.com.cn" target="_blank">尚透社</a></li>
+              <li><a href="http://www.bb200.com" target="_blank">青青宝贝</a></li>
+              <li><a href="http://www.justonline.cn" target="_blank">Justyle</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.yintai.com" target="_blank">银泰网</a></li>
+              <li><a href="http://www.yksuit.com" target="_blank">雅库</a></li>
+              <li><a href="http://www.fanrry.cn" target="_blank">梵睿</a></li>
+              <li><a href="http://www.onlyts.com" target="_blank">TS兰亭集势</a></li>
+              <li><a href="http://www.naguu.com" target="_blank">奈谷 Naguu</a></li>
+              <li><a href="http://www.vipshop.com" target="_blank">唯品会</a></li>
+              <li><a href="http://www.yaodian100.com" target="_blank">耀点100</a></li>
+              <li><a href="http://www.dazhe.cn" target="_blank">名品打折</a></li>
+              <li><a href="http://www.viptemai.com" target="_blank">vip特卖</a></li>
+              <li><a href="http://www.d1.com.cn" target="_blank">D1优尚网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href=" http://www.51youpin.com" target="_blank">悠品网</a></li>
+              <li><a href="http://www.shopin.net" target="_blank">上品折扣</a></li>
+              <li><a href="http://shop.msn.com.cn" target="_blank">有品购物</a></li>
+              <li><a href="http://www.togogo.cn" target="_blank">淘购购</a></li>
+              <li><a href="http://www.ibuying.com" target="_blank">品聚网</a></li>
+              <li><a href="http://www.buyfine.net" target="_blank">有好网</a></li>
+              <li><a href="http://www.sale8.com" target="_blank">卖吧网</a></li>
+              <li><a href="www.oulele.com" target="_blank">欧乐乐</a></li>
+              <li><a href="http://www.mmbbgo.com" target="_blank">妈宝购</a></li>
+              <li><a href="http://www.lvhezi.com" target="_blank">绿盒子</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.mianhuabaobao.com" target="_blank">棉花宝宝</a></li>
+              <li><a href="http://www.anni.com" target="_blank">星尚爱你网</a></li>
+              <li><a href="http://www.nmlch.com" target="_blank">柠檬绿茶</a></li>
+              <li><a href="http://www.yoyo18.com" target="_blank">优邮网</a></li>
+              <li><a href="http://www.ecosme.cn" target="_blank">ECOSME大美人购物网</a></li>
+              <li><a href="http://www.k121.com" target="_blank">酷运动</a></li>
+              <li><a href="http://www.inshion.com" target="_blank">型尚网</a></li>
+              <li><a href="http://www.laikoo.com" target="_blank">莱客正品</a></li>
+              <li><a href="http://www.outlets365.com" target="_blank">奥特莱斯在线</a></li>
+              <li><a href="http://www.afffff.com" target="_blank">阿福购物网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.aimer.com.cn" target="_blank">爱慕</a></li>
+              <li><a href="http://www.roochee.com" target="_blank">如此网</a></li>
+              <li><a href="http://www.do93.com" target="_blank">久尚网</a></li>
+              <li><a href="http://www.tankl.com" target="_blank">唐客一品</a></li>
+              <li><a href="http://www.yyosso.com" target="_blank">优秀时尚购物网</a></li>
+              <li><a href="http://www.viszs.com" target="_blank">怡致服饰</a></li>
+              <li><a href="http://www.togj.com" target="_blank">逛街网</a></li>
+              <li><a href="http://www.imshop.com.cn" target="_blank">艾慕商城</a></li>
+              <li><a href="http://www.3guo.cn" target="_blank">时尚三国</a></li>
+              <li><a href="http://www.maywon.com" target="_blank">美旺商城</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.pb89.com/?u=1130813" target="_blank">太平鸟</a>
+                  <a href="http://www.vancl.com" target="_blank">凡客诚品</a>
+                  <a href="http://shopping.moonbasa.com/rd/rd.aspx?a_id=mbs&amp;other=findbest360&amp;url=http://www.moonbasa.com/" target="_blank">梦芭莎</a>
+                  <a href="http://www.m18.com" target="_blank">麦考林</a>
+                  <a href="http://www.okbuy.com" target="_blank">好乐买</a>
+                  <a href="http://www.leyou.com" target="_blank">乐友网</a>
+                  <a href="http://www.menglu.com" target="_blank">梦露时尚网</a>
+                  <a href="http://www.vjia.com/?source=findbest360" target="_blank">V+</a>
+                  <a href="http://www.xiu.com" target="_blank">走秀网</a>
+                  <a href="http://www.fclub.cn" target="_blank">聚尚网</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[鞋帽服饰]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[鞋帽服饰]</b>
+ <ul>
+              <li><a href="http://www.lyceem.com" target="_blank">蓝橙旅游用品</a></li>
+              <li><a href="http://www.shanghai-sports.com" target="_blank">上海体育用品网</a></li>
+              <li><a href="http://www.ihush.com" target="_blank">俏物悄语</a></li>
+              <li><a href="http://www.masamaso.com" target="_blank">玛萨玛索</a></li>
+              <li><a href="http://www.yintai.com" target="_blank">银泰网</a></li>
+              <li><a href="http://www.yksuit.com" target="_blank">雅库</a></li>
+              <li><a href="http://www.fanrry.cn" target="_blank">梵睿</a></li>
+              <li><a href="http://www.naguu.com" target="_blank">奈谷 Naguu</a></li>
+              <li><a href="http://www.vipshop.com" target="_blank">唯品会</a></li>
+              <li><a href="http://www.yaodian100.com" target="_blank">耀点100</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.dazhe.cn" target="_blank">名品打折</a></li>
+              <li><a href="http://www.viptemai.com" target="_blank">vip特卖</a></li>
+              <li><a href="http://www.d1.com.cn" target="_blank">D1优尚网</a></li>
+              <li><a href="http://www.shopin.net" target="_blank">上品折扣</a></li>
+              <li><a href="http://shop.msn.com.cn" target="_blank">有品购物</a></li>
+              <li><a href="http://www.buyfine.net" target="_blank">有好网</a></li>
+              <li><a href="www.oulele.com" target="_blank">欧乐乐</a></li>
+              <li><a href="http://www.yoye.cn" target="_blank">优悦生活</a></li>
+              <li><a href="http://www.usashopcn.com" target="_blank">美国购物网</a></li>
+              <li><a href="http://www.vipstore.com" target="_blank">佳品网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.360mart.com" target="_blank">买特网</a></li>
+              <li><a href="http://www.lvhezi.com" target="_blank">绿盒子</a></li>
+              <li><a href="http://www.keede.com" target="_blank">可得眼镜</a></li>
+              <li><a href="http://www.sigo.cn" target="_blank">视客眼镜网</a></li>
+              <li><a href="http://www.4inlook.com" target="_blank">4inlook眼镜网</a></li>
+              <li><a href="http://www.lenses.cn" target="_blank">亮视网</a></li>
+              <li><a href="http://www.nmlch.com" target="_blank">柠檬绿茶</a></li>
+              <li><a href="http://www.biancui.com" target="_blank">砭萃网</a></li>
+              <li><a href="http://www.uelux.com" target="_blank">优乐视</a></li>
+              <li><a href="http://www.jpeen.com" target="_blank">晶品网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.gagacoco.com" target="_blank">谷蔻 GAGACOCO</a></li>
+              <li><a href="http://www.ohxuan.com" target="_blank">欧炫官方购物网</a></li>
+              <li><a href="http://www.cnyu.com" target="_blank">御灵珠宝</a></li>
+              <li><a href="http://www.9wow.com.cn" target="_blank">氿窝网</a></li>
+              <li><a href="http://www.ecosme.cn" target="_blank">ECOSME大美人购物网</a></li>
+              <li><a href="http://www.ugou.cn" target="_blank">优歌网</a></li>
+              <li><a href="http://www.k121.com" target="_blank">酷运动</a></li>
+              <li><a href="http://www.s.cn" target="_blank">名鞋库</a></li>
+              <li><a href="http://www.inshion.com" target="_blank">型尚网</a></li>
+              <li><a href="http://www.fadmad.com" target="_blank">封面网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.taoxie.cn" target="_blank">淘鞋网</a></li>
+              <li><a href="http://www.gouxie.com" target="_blank">购鞋网</a></li>
+              <li><a href="http://www.laikoo.com" target="_blank">莱客正品</a></li>
+              <li><a href="http://www.paixie.net" target="_blank">拍鞋网</a></li>
+              <li><a href="http://www.jojojoy.com" target="_blank">九兴网店</a></li>
+              <li><a href="http://www.yougou.com" target="_blank">优购网</a></li>
+              <li><a href="http://www.hoosy.cn" target="_blank">好鞋网购</a></li>
+              <li><a href="http://www.xietoo.com" target="_blank">鞋途网</a></li>
+              <li><a href="http://www.ezeroshop.com" target="_blank">零度尚品</a></li>
+              <li><a href="http://www.outlets365.com" target="_blank">奥特莱斯在线</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.doodays.com" target="_blank">多黛</a>
+                  <a href="http://www.pb89.com/?u=1130813" target="_blank">太平鸟</a>
+                  <a href="http://www.taobao.com/go/chn/tbk_channel/jewelry.php?pid=mm_28794925_2438216_9350318&amp;eventid=101331" target="_blank">淘宝鞋饰</a>
+                  <a href="http://www.vancl.com" target="_blank">凡客诚品</a>
+                  <a href="http://shopping.moonbasa.com/rd/rd.aspx?a_id=mbs&amp;other=findbest360&amp;url=http://www.moonbasa.com/" target="_blank">梦芭莎</a>
+                  <a href="http://www.m18.com" target="_blank">麦考林</a>
+                  <a href="http://www.okbuy.com" target="_blank">好乐买</a>
+                  <a href="http://www.vjia.com/?source=findbest360" target="_blank">V+</a>
+                  <a href="http://www.xiu.com" target="_blank">走秀网</a>
+                  <a href="http://www.fclub.cn" target="_blank">聚尚网</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[箱包皮具]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[箱包皮具]</b>
+ <ul>
+              <li><a href="http://www.yintai.com" target="_blank">银泰网</a></li>
+              <li><a href="http://www.yksuit.com" target="_blank">雅库</a></li>
+              <li><a href="http://www.fanrry.cn" target="_blank">梵睿</a></li>
+              <li><a href="http://www.vipshop.com" target="_blank">唯品会</a></li>
+              <li><a href="http://www.dazhe.cn" target="_blank">名品打折</a></li>
+              <li><a href="http://www.viptemai.com" target="_blank">vip特卖</a></li>
+              <li><a href="http://www.d1.com.cn" target="_blank">D1优尚网</a></li>
+              <li><a href=" http://www.51youpin.com" target="_blank">悠品网</a></li>
+              <li><a href="http://www.easy361.com" target="_blank">易斯来福</a></li>
+              <li><a href="http://www.sale8.com" target="_blank">卖吧网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.glamour-sales.com.cn" target="_blank">魅力惠</a></li>
+              <li><a href="http://www.usashopcn.com" target="_blank">美国购物网</a></li>
+              <li><a href="http://www.vipstore.com" target="_blank">佳品网</a></li>
+              <li><a href="http://www.ouku.com" target="_blank">欧酷网</a></li>
+              <li><a href="http://www.360mart.com" target="_blank">买特网</a></li>
+              <li><a href="http://www.chris-tina.com" target="_blank">C&amp;T古缇</a></li>
+              <li><a href="http://www.uiyi.cn" target="_blank">佑一良品</a></li>
+              <li><a href="http://www.laikoo.com" target="_blank">莱客正品</a></li>
+              <li><a href="http://www.yougou.com" target="_blank">优购网</a></li>
+              <li><a href="http://www.maymay.cn" target="_blank">美美商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.utcbag.com" target="_blank">UTC行家网</a></li>
+              <li><a href="http://www.outlets365.com" target="_blank">奥特莱斯在线</a></li>
+              <li><a href="http://www.wooha.com" target="_blank">呼哈网</a></li>
+              <li><a href="http://www.afffff.com" target="_blank">阿福购物网</a></li>
+              <li><a href="http://www.roochee.com" target="_blank">如此网</a></li>
+              <li><a href="http://www.htjz.com" target="_blank">胡桃夹子（烧包网）</a></li>
+              <li><a href="http://www.eboxbuy.com" target="_blank">易禾网</a></li>
+              <li><a href="http://www.5188bag.com" target="_blank">我要包包网</a></li>
+              <li><a href="http://www.qianxun.com" target="_blank">千寻网</a></li>
+              <li><a href="http://www.wtaotao.com" target="_blank">我淘淘购物网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.95box.com" target="_blank">95俪人</a></li>
+              <li><a href="http://www.meici.com" target="_blank">美西时尚</a></li>
+              <li><a href="http://www.9dadao.com" target="_blank">第九大道</a></li>
+              <li><a href="http://www.mpshow.com.cn" target="_blank">名品show</a></li>
+              <li><a href="http://www.yide.com" target="_blank">亦得网</a></li>
+              <li><a href="http://e-shop.carrefour.com.cn" target="_blank">家乐福</a></li>
+              <li><a href="http://www.xtpo.cn" target="_blank">姿格网</a></li>
+              <li><a href="http://www.goonow.com" target="_blank">双安商场</a></li>
+              <li><a href="http://mall.guobuy.com" target="_blank">国购网</a></li>
+              <li><a href="http://www.pgbao.com" target="_blank">平购宝</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.zunbaowang.com" target="_blank">尊宝网</a></li>
+              <li><a href="http://www.tpy100.com" target="_blank">太平洋直购官方网</a></li>
+              <li><a href="http://www.likebuy.com" target="_blank">乐买网</a></li>
+              <li><a href="http://www.yangsam.com" target="_blank">扬沙商城</a></li>
+              <li><a href="http://www.yifu.com" target="_blank">衣服网</a></li>
+              <li><a href="http://www.yipinbao.com" target="_blank"> 一品包</a></li>
+              <li><a href="http://www.xpdd.com" target="_blank">血拼大道</a></li>
+              <li><a href="http://shop.163.com" target="_blank">网易商城</a></li>
+              <li><a href="http://www.baokelong.com" target="_blank">包客隆</a></li>
+              <li><a href="http://www.vvplus.com" target="_blank">中快商城</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.618580.cn" target="_blank">贝包网</a>
+                  <a href="http://www.myni168.com" target="_blank">麦妮包包</a>
+                  <a href="http://www.vancl.com" target="_blank">凡客诚品</a>
+                  <a href="http://shopping.moonbasa.com/rd/rd.aspx?a_id=mbs&amp;other=findbest360&amp;url=http://www.moonbasa.com/" target="_blank">梦芭莎</a>
+                  <a href="http://www.m18.com" target="_blank">麦考林</a>
+                  <a href="http://www.menglu.com" target="_blank">梦露时尚网</a>
+                  <a href="http://www.vjia.com/?source=findbest360" target="_blank">V+</a>
+                  <a href="http://www.xiu.com" target="_blank">走秀网</a>
+                  <a href="http://www.lyceem.com" target="_blank">蓝橙旅游用品</a>
+                  <a href="http://emall.chinapay.com" target="_blank">银联在线商城</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[美容护肤]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[美容护肤]</b>
+ <ul>
+              <li><a href="http://www.binggo.com" target="_blank">缤购网</a></li>
+              <li><a href="http://www.xiu.com" target="_blank">走秀网</a></li>
+              <li><a href="http://www.acosme.com" target="_blank">爱可美妆</a></li>
+              <li><a href="http://www.fclub.cn" target="_blank">聚尚网</a></li>
+              <li><a href="http://www.ihush.com" target="_blank">俏物悄语</a></li>
+              <li><a href="http://www.yintai.com" target="_blank">银泰网</a></li>
+              <li><a href="http://www.d1.com.cn" target="_blank">D1优尚网</a></li>
+              <li><a href="http://shop.msn.com.cn" target="_blank">有品购物</a></li>
+              <li><a href="http://www.17ugo.com" target="_blank">优购物</a></li>
+              <li><a href="http://www.houmart.com" target="_blank">后玛特网上超市</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.ibuying.com" target="_blank">品聚网</a></li>
+              <li><a href="http://www.yinzuo100.com" target="_blank">银座网</a></li>
+              <li><a href="http://www.sensengo.com" target="_blank">森森购物</a></li>
+              <li><a href="http://www.airshop.com.cn" target="_blank">金鹏商城</a></li>
+              <li><a href="www.oulele.com" target="_blank">欧乐乐</a></li>
+              <li><a href="http://www.yoye.cn" target="_blank">优悦生活</a></li>
+              <li><a href="http://www.usashopcn.com" target="_blank">美国购物网</a></li>
+              <li><a href="http://www.vipstore.com" target="_blank">佳品网</a></li>
+              <li><a href="http://www.ouku.com" target="_blank">欧酷网</a></li>
+              <li><a href="http://www.boheshop.com" target="_blank">薄荷时尚</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.lafaso.com" target="_blank">乐蜂网</a></li>
+              <li><a href="http://www.tiantian.com" target="_blank">天天购物网</a></li>
+              <li><a href="http://www.dhc.net.cn" target="_blank">DHC中国</a></li>
+              <li><a href="http://www.anni.com" target="_blank">星尚爱你网</a></li>
+              <li><a href="http://www.beautyplus.cn" target="_blank">美丽加芬</a></li>
+              <li><a href="http://www.nmlch.com" target="_blank">柠檬绿茶</a></li>
+              <li><a href="http://www.naruko.com.cn" target="_blank">牛尔娜露可</a></li>
+              <li><a href="http://www.xifuquan.com" target="_blank">皙肤泉</a></li>
+              <li><a href="http://www.oltang.com" target="_blank">伊人堂</a></li>
+              <li><a href="http://www.piaoliang100.com" target="_blank">漂亮100</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.imeibuy.com" target="_blank">爱美倍时尚网</a></li>
+              <li><a href="http://www.fenixmall.com" target="_blank">长生鸟</a></li>
+              <li><a href="http://www.lirenmima.com" target="_blank">丽人密码</a></li>
+              <li><a href="http://www.360side.com" target="_blank">身边商城</a></li>
+              <li><a href="http://www.95wanmei.com" target="_blank">95完美</a></li>
+              <li><a href="http://www.kt-mall.com" target="_blank">科婷</a></li>
+              <li><a href="http://www.meixiu.com" target="_blank">美秀网</a></li>
+              <li><a href="http://web1.sasa.com" target="_blank">莎莎网</a></li>
+              <li><a href="http://www.guopi.com" target="_blank">果皮网</a></li>
+              <li><a href="http://www.cosme-de.com" target="_blank">玫丽网（欧诗漫）COSME-DE</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.chengdecs.com" target="_blank">千丽网</a></li>
+              <li><a href="http://www.yoyo18.com" target="_blank">优邮网</a></li>
+              <li><a href="http://www.augshow.com" target="_blank">美白肌肤网</a></li>
+              <li><a href="http://www.mmgw.cn" target="_blank">美美购物网</a></li>
+              <li><a href="http://www.ecosme.cn" target="_blank">ECOSME大美人购物网</a></li>
+              <li><a href="http://shop.imeelee.com" target="_blank">艾米丽</a></li>
+              <li><a href="http://www.flowerby.com" target="_blank">花样年华</a></li>
+              <li><a href="http://www.ugou.cn" target="_blank">优歌网</a></li>
+              <li><a href="http://www.ladypk.com" target="_blank">丽人商城</a></li>
+              <li><a href="http://www.dalanzhu.com" target="_blank">大懒猪</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.payez.cn" target="_blank">魅丽奇</a>
+                  <a href="http://www.vancl.com" target="_blank">凡客诚品</a>
+                  <a href="http://shopping.moonbasa.com/rd/rd.aspx?a_id=mbs&amp;other=findbest360&amp;url=http://www.moonbasa.com/" target="_blank">梦芭莎</a>
+                  <a href="http://www.yihaodian.com/product/index.do?merchant=1&amp;tracker_u=1037133706" target="_blank">1号店</a>
+                  <a href="http://www.m18.com" target="_blank">麦考林</a>
+                  <a href="http://www.lafaso.com" target="_blank">乐蜂网</a>
+                  <a href="http://cn.strawberrynet.com" target="_blank">草莓网</a>
+                  <a href="http://www.nala.com.cn" target="_blank">NALA（原败妆网）</a>
+                  <a href="http://www.likeface.com" target="_blank">likeface</a>
+                  <a href="http://www.vjia.com/?source=findbest360" target="_blank">V+</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[母婴]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[母婴]</b>
+ <ul>
+              <li><a href="http://www.yinzuo100.com" target="_blank">银座网</a></li>
+              <li><a href="http://www.easy361.com" target="_blank">易斯来福</a></li>
+              <li><a href="http://www.sale8.com" target="_blank">卖吧网</a></li>
+              <li><a href="http://www.yoye.cn" target="_blank">优悦生活</a></li>
+              <li><a href="http://www.usashopcn.com" target="_blank">美国购物网</a></li>
+              <li><a href="http://www.muyingzhijia.com" target="_blank">母婴之家</a></li>
+              <li><a href="http://www.misslele.com" target="_blank">妙乐乐</a></li>
+              <li><a href="http://www.4008813318.com" target="_blank">小小赢家</a></li>
+              <li><a href="http://www.mmbbgo.com" target="_blank">妈宝购</a></li>
+              <li><a href="http://www.800pharm.com" target="_blank">八百方网上药店</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.yaolan.com" target="_blank">摇篮网</a></li>
+              <li><a href="http://www.vivavt.com" target="_blank">惟娃维她网</a></li>
+              <li><a href="http://www.supuy.com" target="_blank">速普商城</a></li>
+              <li><a href="http://www.mianhuabaobao.com" target="_blank">棉花宝宝</a></li>
+              <li><a href="http://www.reislife.com" target="_blank">瑞丝家居</a></li>
+              <li><a href="http://www.iwugu.com" target="_blank">五谷磨房</a></li>
+              <li><a href="http://www.my-le.com" target="_blank">买乐网</a></li>
+              <li><a href="http://www.k121.com" target="_blank">酷运动</a></li>
+              <li><a href="http://www.hoosy.cn" target="_blank">好鞋网购</a></li>
+              <li><a href="http://www.afffff.com" target="_blank">阿福购物网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.9dadao.com" target="_blank">第九大道</a></li>
+              <li><a href="http://www.lequ360.com" target="_blank">乐趣网</a></li>
+              <li><a href="http://168dg.com" target="_blank">168订购网</a></li>
+              <li><a href="http://e-shop.carrefour.com.cn" target="_blank">家乐福</a></li>
+              <li><a href="http://xian.96128.com" target="_blank">96128购物网</a></li>
+              <li><a href="http://www.newgo5.com" target="_blank">新生活购物网</a></li>
+              <li><a href="http://www.wumeiwang.com" target="_blank">物美网</a></li>
+              <li><a href="http://www.juqile.cn" target="_blank">聚齐乐购物网</a></li>
+              <li><a href="http://www.baiyjk.com" target="_blank">百洋健康药房网</a></li>
+              <li><a href="http://www.lijiababy.com.cn" target="_blank">丽家宝贝</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.aiyingshi.com" target="_blank">爱婴室</a></li>
+              <li><a href="http://www.77toy.com" target="_blank">奇奇玩具商城</a></li>
+              <li><a href="http://xiaozhuren.com" target="_blank">小主人网</a></li>
+              <li><a href="http://www.tinies.cn" target="_blank">泰妮丝 TINIES</a></li>
+              <li><a href="http://www.mamamei.com" target="_blank">妈妈美</a></li>
+              <li><a href="http://www.jinjichina.com" target="_blank">中国防辐射健康网</a></li>
+              <li><a href="http://www.kidslandshop.com" target="_blank">智乐网</a></li>
+              <li><a href="http://www.mamabb.com" target="_blank">妈妈好孩子</a></li>
+              <li><a href="http://www.eyababy.com" target="_blank">咿呀母婴商城</a></li>
+              <li><a href="http://www.baby.com.cn" target="_blank">爱婴岛</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.redkids.cn" target="_blank">红孩儿</a></li>
+              <li><a href="http://www.danglang123.com" target="_blank">当啷123</a></li>
+              <li><a href="http://mall.bbm.cn" target="_blank">婴达喜</a></li>
+              <li><a href="http://www.babyour.com" target="_blank">爱我宝贝</a></li>
+              <li><a href="http://www.youhao.com" target="_blank">友好商城</a></li>
+              <li><a href="http://www.cheerbb.com" target="_blank">橙爱网</a></li>
+              <li><a href="http://www.ainakids.com" target="_blank">艾娜骑士</a></li>
+              <li><a href="http://www.fulj.cn" target="_blank">福连家</a></li>
+              <li><a href="http://www.99buy.com.cn" target="_blank">神州商城</a></li>
+              <li><a href="http://www.buy368.com" target="_blank">368智乐城</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.yihaodian.com/product/index.do?merchant=1&amp;tracker_u=1037133706" target="_blank">1号店</a>
+                  <a href="http://www.leyou.com" target="_blank">乐友网</a>
+                  <a href="http://www.m6go.com" target="_blank">麦乐购M6go</a>
+                  <a href="http://www.redbaby.com.cn" target="_blank">红孩子</a>
+                  <a href="http://www.yaodian100.com" target="_blank">耀点100</a>
+                  <a href="http://www.dazhe.cn" target="_blank">名品打折</a>
+                  <a href="http://www.purcotton.com" target="_blank">全棉时代</a>
+                  <a href="http://www.houmart.com" target="_blank">后玛特网上超市</a>
+                  <a href="http://www.ibuying.com" target="_blank">品聚网</a>
+                  <a href="http://www.buyfine.net" target="_blank">有好网</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[珠宝配饰]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[珠宝配饰]</b>
+ <ul>
+              <li><a href="http://www.glamour-sales.com.cn" target="_blank">魅力惠</a></li>
+              <li><a href="http://www.vipstore.com" target="_blank">佳品网</a></li>
+              <li><a href="http://www.yidianda.com" target="_blank">一点达</a></li>
+              <li><a href="http://www.oohdear.com" target="_blank">oohdear</a></li>
+              <li><a href="http://www.yespearl.com" target="_blank">珍珠美人</a></li>
+              <li><a href="http://www.biancui.com" target="_blank">砭萃网</a></li>
+              <li><a href="http://www.leecr.com" target="_blank">LEECR</a></li>
+              <li><a href="http://www.5jui.com" target="_blank">聚爱商城</a></li>
+              <li><a href="http://www.gagacoco.com" target="_blank">谷蔻 GAGACOCO</a></li>
+              <li><a href="http://www.ohxuan.com" target="_blank">欧炫官方购物网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.cnyu.com" target="_blank">御灵珠宝</a></li>
+              <li><a href="http://www.outlets365.com" target="_blank">奥特莱斯在线</a></li>
+              <li><a href="http://www.zbird.com" target="_blank">钻石小鸟</a></li>
+              <li><a href="http://www.pirateship.com.cn" target="_blank">海盗船银饰</a></li>
+              <li><a href="http://www.sz-esun.com" target="_blank">易尚秀饰品</a></li>
+              <li><a href="http://www.tian10.com" target="_blank">天时表行</a></li>
+              <li><a href="http://www.bloves.com" target="_blank">结婚钻戒网</a></li>
+              <li><a href="http://www.le978.cn" target="_blank">乐艺商城</a></li>
+              <li><a href="http://www.biaoshang.hk" target="_blank">表尚网</a></li>
+              <li><a href="http://www.qianxun.com" target="_blank">千寻网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.dtoto.com" target="_blank">钻多多</a></li>
+              <li><a href="http://www.pt9999.com" target="_blank">帕蒂珠宝</a></li>
+              <li><a href="http://www.52shehua.com" target="_blank">奢华珠宝</a></li>
+              <li><a href="http://www.kadang.com" target="_blank">卡当网</a></li>
+              <li><a href="http://www.mpshow.com.cn" target="_blank">名品show</a></li>
+              <li><a href="http://www.yide.com" target="_blank">亦得网</a></li>
+              <li><a href="http://www.wumeiwang.com" target="_blank">物美网</a></li>
+              <li><a href="http://www.maxfunbuy.com" target="_blank">泛佰购物</a></li>
+              <li><a href="http://www.best1.com" target="_blank">好易购</a></li>
+              <li><a href="http://www.congguo.com" target="_blank">聪果商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.guuoo.com" target="_blank">谷网</a></li>
+              <li><a href="http://www.hongkouzi.com" target="_blank">红扣子商城</a></li>
+              <li><a href="http://www.iloveyou.com.cn" target="_blank">我爱你礼品网</a></li>
+              <li><a href="http://www.likebuy.com" target="_blank">乐买网</a></li>
+              <li><a href="http://www.junph.com" target="_blank">铁血军品行</a></li>
+              <li><a href="http://www.xpdd.com" target="_blank">血拼大道</a></li>
+              <li><a href="http://shop.163.com" target="_blank">网易商城</a></li>
+              <li><a href="http://www.mingbiao.com.cn" target="_blank">名表折扣</a></li>
+              <li><a href="http://www.wbiao.cn" target="_blank">万表网</a></li>
+              <li><a href="http://www.eygou.com" target="_blank">东易水晶</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.diy19.com" target="_blank">DIY19</a></li>
+              <li><a href="http://www.iyuyou.com" target="_blank">爱玉友</a></li>
+              <li><a href="http://www.chinacrystal.cn" target="_blank">天隆水晶</a></li>
+              <li><a href="http://www.xianzaishi.com" target="_blank">现在时</a></li>
+              <li><a href="http://www.zbw678.com" target="_blank">开运宝石</a></li>
+              <li><a href="http://www.szjyly.com" target="_blank">金玉良缘</a></li>
+              <li><a href="http://www.dionly.com" target="_blank">戴欧妮</a></li>
+              <li><a href="http://www.gou3618.com" target="_blank">广购网</a></li>
+              <li><a href="http://www.lesun001.com" target="_blank">乐尚</a></li>
+              <li><a href="http://www.yohobuy.com" target="_blank">YOHO!有货</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://shopping.moonbasa.com/rd/rd.aspx?a_id=mbs&amp;other=findbest360&amp;url=http://www.moonbasa.com/" target="_blank">梦芭莎</a>
+                  <a href="http://www.m18.com" target="_blank">麦考林</a>
+                  <a href="http://shoubiao.com.cn" target="_blank">手表折扣网</a>
+                  <a href="http://www.vipshop.com" target="_blank">唯品会</a>
+                  <a href="http://www.yaodian100.com" target="_blank">耀点100</a>
+                  <a href="http://www.viptemai.com" target="_blank">vip特卖</a>
+                  <a href="http://www.d1.com.cn" target="_blank">D1优尚网</a>
+                  <a href="http://www.17ugo.com" target="_blank">优购物</a>
+                  <a href="http://www.sensengo.com" target="_blank">森森购物</a>
+                  <a href="http://www.easy361.com" target="_blank">易斯来福</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[图书音像]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[图书音像]</b>
+ <ul>
+              <li><a href="http://bookcity.dayoo.com" target="_blank">大洋书城</a></li>
+              <li><a href="http://www.zgcbb.com" target="_blank">中关村图书大厦</a></li>
+              <li><a href="http://www.hopebook.net" target="_blank">希望书店</a></li>
+              <li><a href="http://www.258sd.com" target="_blank">申东外语书店</a></li>
+              <li><a href="http://www.cnave.com" target="_blank">中国音像商务网</a></li>
+              <li><a href="http://mall.caistv.com" target="_blank">商界书城</a></li>
+              <li><a href="http://shop.apabi.com" target="_blank">阿帕比电子书店</a></li>
+              <li><a href="http://www.8801.net" target="_blank">成功网</a></li>
+              <li><a href="http://www.51eng.com/cn" target="_blank">蓝泉外文图书</a></li>
+              <li><a href="http://www.021kaoshi.com" target="_blank">021考试书店</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.goocctv.cn" target="_blank">央视音像精品网</a></li>
+              <li><a href="http://www.youlu.net" target="_blank">有路网</a></li>
+              <li><a href="http://www.kuaishubao.com" target="_blank">快书包</a></li>
+              <li><a href="http://xian.96128.com" target="_blank">96128购物网</a></li>
+              <li><a href="http://www.001town.com" target="_blank">一城网</a></li>
+              <li><a href="http://www.chashu.cn" target="_blank">中国茶书网</a></li>
+              <li><a href="http://www.bgccbook.com" target="_blank">传媒书苑</a></li>
+              <li><a href="http://www.hcyxbook.com" target="_blank">汇成医学书店</a></li>
+              <li><a href="http://www.800zazhi.com" target="_blank">800杂志网</a></li>
+              <li><a href="http://www.zazhipu.com" target="_blank">杂志铺</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.jiumai.net" target="_blank">就买网</a></li>
+              <li><a href="http://www.9yue.com" target="_blank">九月网</a></li>
+              <li><a href="http://www.lingting.cc" target="_blank">聆听网</a></li>
+              <li><a href="http://www.haixiabook.com" target="_blank">海峡书城</a></li>
+              <li><a href="http://www.toopoo.com" target="_blank">拓普网</a></li>
+              <li><a href="http://www.gyabooks.com" target="_blank">广雅书苑</a></li>
+              <li><a href="http://smsd.mall.dianzhanggui.net" target="_blank">三明网上书店</a></li>
+              <li><a href="http://www.ting85.com" target="_blank">畅听网</a></li>
+              <li><a href="http://www.ssap.com.cn" target="_blank">社会科学文献出版社</a></li>
+              <li><a href="http://www.fanshu.com" target="_blank">番薯网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+ </ul>
+</div>
+
+</div>
+          <a href="http://www.innerlight.cc" target="_blank">心探索</a>
+                  <a href="http://union.xinhuabookstore.com/Tracker/Tracker.html?customerID=662&amp;url=http%3A%2F%2Fwww.winxuan.com%2F" target="_blank">文轩网</a>
+                  <a href="http://union.dangdang.com/transfer.php?from=P-293872&amp;ad_type=10&amp;sys_id=1&amp;backurl=http://www.dangdang.com" target="_blank">当当网</a>
+                  <a href="http://www.xinhuabookstore.com" target="_blank">新华书店</a>
+                  <a href="http://www.99read.com" target="_blank">99网上书城</a>
+                  <a href="http://www.china-pub.com" target="_blank">互动出版网</a>
+                  <a href="http://www.bookschina.com" target="_blank">中国图书网</a>
+                  <a href="http://www.bookuu.com" target="_blank">博库书城</a>
+                  <a href="http://www.wl.cn" target="_blank">蔚蓝网</a>
+                  <a href=" http://www.99kaoshi.com" target="_blank">99考试网</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[运动户外]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[运动户外]</b>
+ <ul>
+              <li><a href="http://www.s.cn" target="_blank">名鞋库</a></li>
+              <li><a href="http://www.inshion.com" target="_blank">型尚网</a></li>
+              <li><a href="http://www.utcbag.com" target="_blank">UTC行家网</a></li>
+              <li><a href="http://www.roochee.com" target="_blank">如此网</a></li>
+              <li><a href="http://www.huwaiying.com" target="_blank">户外营</a></li>
+              <li><a href="http://www.m360.com.cn" target="_blank">乐活360</a></li>
+              <li><a href="http://www.yodo.cn" target="_blank">悠度网</a></li>
+              <li><a href="http://www.e-my.com.cn" target="_blank">易迈商城</a></li>
+              <li><a href="http://www.hw2008.cn" target="_blank">美邦购物</a></li>
+              <li><a href="http://www.7sev.com" target="_blank">七色谷商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.likebuy.com" target="_blank">乐买网</a></li>
+              <li><a href="http://www.yangsam.com" target="_blank">扬沙商城</a></li>
+              <li><a href="http://www.yifu.com" target="_blank">衣服网</a></li>
+              <li><a href="http://www.sanfo.com" target="_blank">三夫户外</a></li>
+              <li><a href="http://www.lvyoumall.com" target="_blank">中国驴友商城</a></li>
+              <li><a href="http://sport2008.com.cn" target="_blank">北京体育用品在线</a></li>
+              <li><a href="http://www.39ty.com" target="_blank">39体育网</a></li>
+              <li><a href="http://yumaoclub.com" target="_blank">健之乐羽毛球网</a></li>
+              <li><a href="http://yoger.com.cn" target="_blank">优个网</a></li>
+              <li><a href="http://bbesports.com" target="_blank">新蓝天羽网体育用品商店</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.oyego.com" target="_blank">偶也购户外商城</a></li>
+              <li><a href="http://sun521.com" target="_blank">阳光体育用品网</a></li>
+              <li><a href="http://www.conslive.com" target="_blank">匡威网</a></li>
+              <li><a href="http://www.colebuy.com" target="_blank">可乐购物网</a></li>
+              <li><a href="http://www.junph.com" target="_blank">铁血军品行</a></li>
+              <li><a href="http://www.trackman.cn" target="_blank">Trackma自由人</a></li>
+              <li><a href="http://www.5paipai.com" target="_blank">我拍拍体育网</a></li>
+              <li><a href="http://www.yitiwang.cn" target="_blank">益体网</a></li>
+              <li><a href="http://www.okgolf.cn" target="_blank">OK高尔夫</a></li>
+              <li><a href="http://www.77toy.com" target="_blank">奇奇玩具商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.kouclo.com" target="_blank">抠抠网</a></li>
+              <li><a href="http://www.sneakergo.com" target="_blank">运动狂</a></li>
+              <li><a href="http://www.leevy.cn" target="_blank">力为运动汇</a></li>
+              <li><a href="http://www.nuomai.com" target="_blank">诺麦网</a></li>
+              <li><a href="http://www.hi-tec.cn" target="_blank">海泰客</a></li>
+              <li><a href="http://www.942buy.com" target="_blank">欧谷商城</a></li>
+              <li><a href="http://www.360bw.com" target="_blank">北纬商城</a></li>
+              <li><a href="http://www.buy007.com" target="_blank">奥迅运动城</a></li>
+              <li><a href="http://www.black7.com.cn" target="_blank">黑七台球</a></li>
+              <li><a href="http://www.liehuzuo.com" target="_blank">猎户座</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.dsgoo.com" target="_blank">大圣购物</a></li>
+              <li><a href="http://www.buy007.com" target="_blank">奥迅运动</a></li>
+              <li><a href="http://www.okjee.com" target="_blank">杂良集</a></li>
+              <li><a href="http://www.jiaboohome.com" target="_blank">象象网</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.coo8.com" target="_blank">库巴购物网</a>
+                  <a href="http://www.vjia.com/?source=findbest360" target="_blank">V+</a>
+                  <a href="http://www.lyceem.com" target="_blank">蓝橙旅游用品</a>
+                  <a href="http://www.shanghai-sports.com" target="_blank">上海体育用品网</a>
+                  <a href="http://www.shopin.net" target="_blank">上品折扣</a>
+                  <a href="http://www.17ugo.com" target="_blank">优购物</a>
+                  <a href="http://www.airshop.com.cn" target="_blank">金鹏商城</a>
+                  <a href="http://www.usashopcn.com" target="_blank">美国购物网</a>
+                  <a href="http://www.ouku.com" target="_blank">欧酷网</a>
+                  <a href="http://www.k121.com" target="_blank">酷运动</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[汽车用品]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[汽车用品]</b>
+ <ul>
+              <li><a href="http://www.d1car.com" target="_blank">第一汽车</a></li>
+              <li><a href="http://xiaozhuren.com" target="_blank">小主人网</a></li>
+              <li><a href="http://www.cheeee.com" target="_blank">中国车主网</a></li>
+              <li><a href="http://www.autosup.com" target="_blank">中国汽车用品在线</a></li>
+              <li><a href="http://www.83go.net" target="_blank">巴珊购</a></li>
+              <li><a href="http://www.vancar.cn" target="_blank">凡卡先锋</a></li>
+              <li><a href="http://shop316980.p21.shopex.cn" target="_blank">威威汽车座套</a></li>
+              <li><a href="http://www.car1997.cn" target="_blank">车港网</a></li>
+              <li><a href="http://www.niniw.com" target="_blank">车尚商城</a></li>
+ </ul>
+</div>
+
+
+
+
+</div>
+          <a href="http://www.coo8.com" target="_blank">库巴购物网</a>
+                  <a href="http://www.lusen.cn" target="_blank">绿森数码</a>
+                  <a href="http://www.17ugo.com" target="_blank">优购物</a>
+                  <a href="http://www.efeihu.com" target="_blank">飞虎乐购</a>
+                  <a href="http://www.guguwang.com" target="_blank">咕咕网</a>
+                  <a href="http://www.2688.com" target="_blank">2688网店</a>
+                  <a href="http://www.car339.com.cn" target="_blank">三三得九养车网</a>
+                  <a href="http://www.juqile.cn" target="_blank">聚齐乐购物网</a>
+                  <a href="http://www.chedangjia.com" target="_blank">车当家</a>
+                  <a href="http://www.car6688.com" target="_blank">金星汽车用品</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[家居家纺]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[家居家纺]</b>
+ <ul>
+              <li><a href="http://www.yaodian100.com" target="_blank">耀点100</a></li>
+              <li><a href="http://www.dazhe.cn" target="_blank">名品打折</a></li>
+              <li><a href=" http://www.51youpin.com" target="_blank">悠品网</a></li>
+              <li><a href="http://www.purcotton.com" target="_blank">全棉时代</a></li>
+              <li><a href="http://www.17ugo.com" target="_blank">优购物</a></li>
+              <li><a href="http://www.houmart.com" target="_blank">后玛特网上超市</a></li>
+              <li><a href="http://www.yinzuo100.com" target="_blank">银座网</a></li>
+              <li><a href="http://www.sensengo.com" target="_blank">森森购物</a></li>
+              <li><a href="http://www.easy361.com" target="_blank">易斯来福</a></li>
+              <li><a href="http://www.airshop.com.cn" target="_blank">金鹏商城</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.sale8.com" target="_blank">卖吧网</a></li>
+              <li><a href="http://www.yoye.cn" target="_blank">优悦生活</a></li>
+              <li><a href="http://www.gome.com.cn" target="_blank">国美电器</a></li>
+              <li><a href="http://www.woye.com" target="_blank">我耶商城</a></li>
+              <li><a href="http://www.360mart.com" target="_blank">买特网</a></li>
+              <li><a href="http://www.mianhuabaobao.com" target="_blank">棉花宝宝</a></li>
+              <li><a href="http://www.uya100.com" target="_blank">优雅100</a></li>
+              <li><a href="http://www.reislife.com" target="_blank">瑞丝家居</a></li>
+              <li><a href="http://www.1234go.com.cn" target="_blank">1234购物网</a></li>
+              <li><a href="http://www.nonmin88.com" target="_blank">农民巴巴</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.yomata.com" target="_blank">优玛家纺</a></li>
+              <li><a href="http://www.jupins.com" target="_blank">居品氏</a></li>
+              <li><a href="http://www.anni.com" target="_blank">星尚爱你网</a></li>
+              <li><a href="http://www.yoyo18.com" target="_blank">优邮网</a></li>
+              <li><a href="http://www.wooha.com" target="_blank">呼哈网</a></li>
+              <li><a href="http://www.sealbeauty.com" target="_blank">随尔美内衣</a></li>
+              <li><a href="http://www.sawbuy.com" target="_blank">秀派商城</a></li>
+              <li><a href="http://www.quwan.com" target="_blank">趣玩网</a></li>
+              <li><a href="http://www.5paike.com" target="_blank">我拍客</a></li>
+              <li><a href="http://www.kadang.com" target="_blank">卡当网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.2688.com" target="_blank">2688网店</a></li>
+              <li><a href="http://www.mpshow.com.cn" target="_blank">名品show</a></li>
+              <li><a href="http://www.532shop.com" target="_blank">青岛购物网</a></li>
+              <li><a href="http://www.51dg.com" target="_blank">无忧订购网</a></li>
+              <li><a href="http://www.jsbcmall.com" target="_blank">好享购</a></li>
+              <li><a href="http://e-shop.carrefour.com.cn" target="_blank">家乐福</a></li>
+              <li><a href="http://www.shihui.cn" target="_blank">实惠商城</a></li>
+              <li><a href="http://www.xiadingdan.com" target="_blank">下订单</a></li>
+              <li><a href="http://www.wg365.com" target="_blank">网购在线</a></li>
+              <li><a href="http://www.doulaimai.com" target="_blank">都来买</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.jiaoyitong.com.cn" target="_blank">交易通</a></li>
+              <li><a href="http://www.jiayougo.com" target="_blank">家有购物</a></li>
+              <li><a href="http://www.maxfunbuy.com" target="_blank">泛佰购物</a></li>
+              <li><a href="http://www.haotehao.com" target="_blank">好特好商城</a></li>
+              <li><a href="http://www.juqile.cn" target="_blank">聚齐乐购物网</a></li>
+              <li><a href="http://www.shnn.com" target="_blank">中国申网</a></li>
+              <li><a href="http://www.hongkouzi.com" target="_blank">红扣子商城</a></li>
+              <li><a href="http://www.samsclub.cn" target="_blank">山姆会员网上商店</a></li>
+              <li><a href="http://www.dahuozhan.com" target="_blank">大货栈网上超市</a></li>
+              <li><a href="http://www.minibuy.com" target="_blank">小白购物</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.vancl.com" target="_blank">凡客诚品</a>
+                  <a href="http://www.yihaodian.com/product/index.do?merchant=1&amp;tracker_u=1037133706" target="_blank">1号店</a>
+                  <a href="http://www.m18.com" target="_blank">麦考林</a>
+                  <a href="http://www.leyou.com" target="_blank">乐友网</a>
+                  <a href="http://www.menglu.com" target="_blank">梦露时尚网</a>
+                  <a href="http://www.vjia.com/?source=findbest360" target="_blank">V+</a>
+                  <a href="http://www.binggo.com" target="_blank">缤购网</a>
+                  <a href="http://www.xiu.com" target="_blank">走秀网</a>
+                  <a href="http://www.comedl.com" target="_blank">动力商城</a>
+                  <a href="http://www.yijiaju.com" target="_blank">宜家居</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[食品/保健品]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[食品/保健品]</b>
+ <ul>
+              <li><a href="http://www.ibuying.com" target="_blank">品聚网</a></li>
+              <li><a href="http://www.giftport.com.cn" target="_blank">手礼网</a></li>
+              <li><a href="http://www.yinzuo100.com" target="_blank">银座网</a></li>
+              <li><a href="http://www.yoye.cn" target="_blank">优悦生活</a></li>
+              <li><a href="http://www.usashopcn.com" target="_blank">美国购物网</a></li>
+              <li><a href="http://www.vipstore.com" target="_blank">佳品网</a></li>
+              <li><a href="http://www.efeihu.com" target="_blank">飞虎乐购</a></li>
+              <li><a href="http://www.jxdyf.com" target="_blank">金象网上药店</a></li>
+              <li><a href="http://www.1994.com.cn" target="_blank">亚当夏娃</a></li>
+              <li><a href="http://www.360kxr.com" target="_blank">开心人</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.taohv.com" target="_blank">桃花坞</a></li>
+              <li><a href="http://www.cnhealth360.com" target="_blank">泰怡康成</a></li>
+              <li><a href="http://www.800pharm.com" target="_blank">八百方网上药店</a></li>
+              <li><a href="http://www.x.com.cn" target="_blank">桔色成人用品网</a></li>
+              <li><a href="http://www.shinsbo.cn" target="_blank">新稀宝</a></li>
+              <li><a href="http://www.aizhigu.com.cn" target="_blank">爱之谷</a></li>
+              <li><a href="http://www.515l.com" target="_blank">我要我乐</a></li>
+              <li><a href="http://www.x-playboy.com" target="_blank">X档案</a></li>
+              <li><a href="http://www.oyeah.cn" target="_blank">春水堂</a></li>
+              <li><a href="http://www.5396.com" target="_blank">康美传奇</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.vivavt.com" target="_blank">惟娃维她网</a></li>
+              <li><a href="http://www.dulaian.com" target="_blank">多莱安</a></li>
+              <li><a href="http://www.xiuzheng.net" target="_blank">修正健康品</a></li>
+              <li><a href="http://www.boheshop.com" target="_blank">薄荷时尚</a></li>
+              <li><a href="http://www.bimuniao.com" target="_blank">比目鸟</a></li>
+              <li><a href="http://man219.com" target="_blank">鱼水街</a></li>
+              <li><a href="http://www.womai.com" target="_blank">中粮我买网</a></li>
+              <li><a href=" http://www.goujiuwang.net" target="_blank">购酒网</a></li>
+              <li><a href="http://www.jiuxian.com" target="_blank">酒仙网</a></li>
+              <li><a href="http://www.winenice.com" target="_blank">酒美网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.iwugu.com" target="_blank">五谷磨房</a></li>
+              <li><a href="http://www.12dian.com" target="_blank">12点商城</a></li>
+              <li><a href="http://www.hecha.cn" target="_blank">和茶网</a></li>
+              <li><a href="http://www.7cha.com" target="_blank">7茶网</a></li>
+              <li><a href="http://www.nonmin88.com" target="_blank">农民巴巴</a></li>
+              <li><a href="http://www.ptmeijiu.com" target="_blank">葡萄美酒</a></li>
+              <li><a href="http://www.pinwine.cn" target="_blank">品尚红酒网</a></li>
+              <li><a href="http://www.maimaicha.com" target="_blank">买买茶</a></li>
+              <li><a href="http://www.i-jiu.com" target="_blank">爱酒网</a></li>
+              <li><a href="http://www.charen.com" target="_blank">茶人岭</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.365wine.com" target="_blank">天天红酒网</a></li>
+              <li><a href="http://www.mayihui.com" target="_blank">蚂蚁汇</a></li>
+              <li><a href="http://www.nmlch.com" target="_blank">柠檬绿茶</a></li>
+              <li><a href="http://www.oltang.com" target="_blank">伊人堂</a></li>
+              <li><a href="http://www.guopi.com" target="_blank">果皮网</a></li>
+              <li><a href="http://www.flowerby.com" target="_blank">花样年华</a></li>
+              <li><a href="http://www.sawbuy.com" target="_blank">秀派商城</a></li>
+              <li><a href="http://kangpinhui.com" target="_blank">康品汇</a></li>
+              <li><a href="http://www.wuxinghui.com" target="_blank">五星汇联盟</a></li>
+              <li><a href="http://www.upsex.cn" target="_blank">爱向上</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.goodnourish.cn" target="_blank">好滋润</a>
+                  <a href="http://www.yihaodian.com/product/index.do?merchant=1&amp;tracker_u=1037133706" target="_blank">1号店</a>
+                  <a href="http://www.vinshare.com" target="_blank">葡萄酒网</a>
+                  <a href="http://www.9519.cn" target="_blank">名酒坊</a>
+                  <a href="http://www.binggo.com" target="_blank">缤购网</a>
+                  <a href="http://www.xixiangcha.com" target="_blank">西厢茶坊</a>
+                  <a href="http://www.kingfarmer.com" target="_blank">绿舍神农</a>
+                  <a href="http://www.7cv.com" target="_blank">七彩谷商城</a>
+                  <a href=" http://www.51youpin.com" target="_blank">悠品网</a>
+                  <a href="http://www.houmart.com" target="_blank">后玛特网上超市</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[旅游酒店机票]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[旅游酒店机票]</b>
+ <ul>
+              <li><a href="http://www.jinjianginns.com" target="_blank">锦江之星</a></li>
+              <li><a href="http://www.zhuna.cn" target="_blank">住哪儿</a></li>
+ </ul>
+</div>
+
+
+
+
+</div>
+          <a href="http://u.ctrip.com/union/redirect.aspx?jt=EEA0CC83CFD0AEF5EC803A3DA5808853&amp;acct=57F5CBF4E3FFEAE342B79C38B0071EBCB2B8017998FDC30C&amp;ouid=" target="_blank">携程旅行网</a>
+                  <a href="http://www.etpass.com" target="_blank">快乐e行机票</a>
+                  <a href="http://www.1hai.cn" target="_blank">一嗨租车</a>
+                  <a href="http://www.qmango.com" target="_blank">青芒果旅行网</a>
+                  <a href="http://www.mangocity.com" target="_blank">芒果网</a>
+                  <a href="http://www.wokaijia.com" target="_blank">我开价网</a>
+                  <a href="http://www.daodao.com" target="_blank">到到网</a>
+                  <a href="http://www.tuniu.com" target="_blank">途牛旅游网</a>
+                  <a href="http://www.9588.com" target="_blank">9588旅行网</a>
+                  <a href="http://www.hui99.com" target="_blank">惠久久</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[药品]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[药品]</b>
+ <ul>
+              <li><a href="http://www.oyeah.cn" target="_blank">春水堂</a></li>
+              <li><a href="http://www.5396.com" target="_blank">康美传奇</a></li>
+              <li><a href="http://www.xiuzheng.net" target="_blank">修正健康品</a></li>
+              <li><a href="http://www.bimuniao.com" target="_blank">比目鸟</a></li>
+              <li><a href="http://man219.com" target="_blank">鱼水街</a></li>
+              <li><a href="http://www.upsex.cn" target="_blank">爱向上</a></li>
+              <li><a href="http://www.newgo5.com" target="_blank">新生活购物网</a></li>
+              <li><a href="http://www.ejaja.cn" target="_blank">亿家家</a></li>
+              <li><a href="http://www.homeold.cn" target="_blank">家有老人网</a></li>
+              <li><a href="http://www.jiajiajk.com" target="_blank">佳家健康</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.daoyao.com" target="_blank">导药网</a></li>
+              <li><a href="http://www.511yd.com" target="_blank">惠好连锁网</a></li>
+              <li><a href="http://www.yaofang.cn" target="_blank">药房网</a></li>
+              <li><a href="http://www.yiliu88.com" target="_blank">医流巴巴</a></li>
+              <li><a href="http://www.myyao.com" target="_blank">买药网</a></li>
+              <li><a href="http://www.39vivi.cn" target="_blank">39成人用品</a></li>
+ </ul>
+</div>
+
+
+
+</div>
+          <a href="http://www.7cv.com" target="_blank">七彩谷商城</a>
+                  <a href="http://www.jxdyf.com" target="_blank">金象网上药店</a>
+                  <a href="http://www.1994.com.cn" target="_blank">亚当夏娃</a>
+                  <a href="http://www.360kxr.com" target="_blank">开心人</a>
+                  <a href="http://www.taohv.com" target="_blank">桃花坞</a>
+                  <a href="http://www.800pharm.com" target="_blank">八百方网上药店</a>
+                  <a href="http://www.x.com.cn" target="_blank">桔色成人用品网</a>
+                  <a href="http://www.aizhigu.com.cn" target="_blank">爱之谷</a>
+                  <a href="http://www.515l.com" target="_blank">我要我乐</a>
+                  <a href="http://www.x-playboy.com" target="_blank">X档案</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[保险按揭]</dt>
+      <dd>          <a href="http://www.zhongmin.cn/travel/travel.aspx?area=34&amp;source=1335" target="_blank">中民保险</a>
+                  <a href="http://www.ubao.com" target="_blank">优保</a>
+                  <a href="http://www.pingan.com" target="_blank">平安保险</a>
+                  <a href="http://www.e-chinalife.com" target="_blank">中国人寿保险</a>
+                  <a href="http://www.cpic.com.cn" target="_blank">太平洋保险</a>
+                  <a href="http://www.piccnet.com.cn" target="_blank">中国人民财产保险</a>
+                  <a href="http://www.taikang.com" target="_blank">泰康人寿</a>
+                  <a href="http://www.ehuatai.com" target="_blank">华泰保险</a>
+                  <a href="http://www.aia.com.cn" target="_blank">友邦保险</a>
+                  <a href="http://www.ab-insurance.com" target="_blank">安邦保险</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[学习教育]</dt>
+      <dd>          <a href="http://www.4008813318.com" target="_blank">小小赢家</a>
+                  <a href="http://www.yaolan.com" target="_blank">摇篮网</a>
+                  <a href="http://www.koolearn.com" target="_blank">新东方</a>
+                  <a href="http://www.xueersi.com" target="_blank">学而思</a>
+                  <a href="http://sun521.com" target="_blank">阳光体育用品网</a>
+                  <a href="http://www.77toy.com" target="_blank">奇奇玩具商城</a>
+                  <a href="http://xiaozhuren.com" target="_blank">小主人网</a>
+                  <a href="http://www.vsvt.com" target="_blank">成都七中</a>
+        </dd>
+    </dl>
+    <dl>
+      <dt>[其他]</dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[其他]</b>
+ <ul>
+              <li><a href="http://www.532shop.com" target="_blank">青岛购物网</a></li>
+              <li><a href="http://zhoubian.9you.com" target="_blank">久游周边商城</a></li>
+              <li><a href="http://www.bazha.com.cn" target="_blank">巴扎网</a></li>
+              <li><a href="http://yxp.163.com" target="_blank">网易印像派</a></li>
+              <li><a href="http://www.cobuy.com.cn" target="_blank">联合购买网</a></li>
+              <li><a href="http://www.daisonghua.com" target="_blank">中国送花网</a></li>
+              <li><a href="http://shop.boqii.com" target="_blank">波奇商城</a></li>
+              <li><a href="http://home.china-gift.com" target="_blank">中礼网</a></li>
+              <li><a href="http://www.7caihua.com" target="_blank">七彩鲜花礼品网</a></li>
+              <li><a href="http://www.petyoo.com" target="_blank">宠友网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.168flower.com" target="_blank">中国花城</a></li>
+              <li><a href="http://www.iloveyou.com.cn" target="_blank">我爱你礼品网</a></li>
+              <li><a href="http://www.epetbar.com" target="_blank">E宠商城</a></li>
+              <li><a href="http://www.yinyuehe.net" target="_blank">尚礼音乐盒</a></li>
+              <li><a href="http://www.cncard.com" target="_blank">云网数字商品</a></li>
+              <li><a href="http://www.ofcard.com" target="_blank">欧飞数卡</a></li>
+              <li><a href="http://www.jiyiri.com" target="_blank">记忆日</a></li>
+              <li><a href="http://www.szx123.com" target="_blank">开心购物网</a></li>
+              <li><a href="http://www.cp2y.com" target="_blank">彩票2元网</a></li>
+              <li><a href="http://www.310win.com" target="_blank">彩客网</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.jiangduoduo.com" target="_blank">奖多多</a></li>
+              <li><a href="http://www.diy19.com" target="_blank">DIY19</a></li>
+              <li><a href="http://www.liwuyou.com" target="_blank">礼无忧网</a></li>
+              <li><a href="http://www.e1988.com" target="_blank">中邮网</a></li>
+              <li><a href="http://www.uudiy.com" target="_blank">UU定制网</a></li>
+              <li><a href="http://www.6688.com" target="_blank">6688商城</a></li>
+              <li><a href="http://www.36588.com.cn" target="_blank">世纪开元</a></li>
+              <li><a href="http://www.buding.com" target="_blank">布丁网</a></li>
+              <li><a href="http://www.budiy.com" target="_blank">布袋网</a></li>
+              <li><a href="http://www.wodexiangce.cn" target="_blank">我的相册</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.giftour.com" target="_blank">集物特</a></li>
+              <li><a href="http://www.360fei.com" target="_blank">龙泉青瓷</a></li>
+              <li><a href="http://www.5shop.com" target="_blank">5号店</a></li>
+              <li><a href="http://www.iruantao.com" target="_blank">淘陶乐</a></li>
+              <li><a href="http://www.biezhong.com" target="_blank">别众网</a></li>
+              <li><a href="http://www.zhenxin365.cn" target="_blank">真心网</a></li>
+              <li><a href="http://www.happyflower.cn" target="_blank">不朽园丁</a></li>
+              <li><a href="http://www.huo2hua.com" target="_blank">火妹儿鲜花</a></li>
+              <li><a href="http://www.5288.com" target="_blank">5288鲜花礼品</a></li>
+              <li><a href="http://www.cnefs.com" target="_blank">中花恒熠</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.u517.com" target="_blank">网联</a></li>
+              <li><a href="http://www.cncard.com" target="_blank">云网</a></li>
+              <li><a href="http://www.wktsc.com" target="_blank">万卡通</a></li>
+              <li><a href="http://www.2caipiao.com" target="_blank">爱彩票</a></li>
+              <li><a href="http://www.lepu.com" target="_blank">乐铺</a></li>
+              <li><a href="http://www.jiangduoduo.com" target="_blank">奖多多</a></li>
+              <li><a href="http://www.kfcyouhui.com" target="_blank">KFC优惠券</a></li>
+              <li><a href="http://www.5biying.com" target="_blank">我必赢</a></li>
+              <li><a href="http://www.5yh.com.cn" target="_blank">五月花鲜花礼品网</a></li>
+              <li><a href="http://www.printerstudio.cn" target="_blank">正印坊</a></li>
+ </ul>
+</div>
+</div>
+          <a href="http://www.dingpiaoke.com" target="_blank">订票客</a>
+                  <a href="http://www.shouhui07.com" target="_blank">聚精绘神</a>
+                  <a href="http://www.wangpiao.com" target="_blank">网票网</a>
+                  <a href="http://www.cnfse.com" target="_blank">中国鲜花专递网</a>
+                  <a href="http://www.liyi99.com" target="_blank">礼意久久送礼网</a>
+                  <a href="http://www.cbaynet.com" target="_blank">希贝网</a>
+                  <a href="http://xiaoyinmu.com" target="_blank">小银幕</a>
+                  <a href="http://www.500wan.com" target="_blank">500万</a>
+                  <a href="http://www.com.cn" target="_blank">万网梦工厂</a>
+                  <a href="http://www.caiyou.cn" target="_blank">彩友网</a>
+        </dd>
+    </dl>
+
+  <!--<dl>
+    <dt>[折扣]</dt>
+    <dd><span><a href="#">>>更多</a></span> <a href="#">唯品会</a>   <a href="#">聚尚网</a>   <a href="#">易趣特价</a>  <a href="#">V+</a><a href="#">上品折扣</a>  <a href="#"> 名品打折网</a>   <a href="#">奥特莱斯商城</a>  <a href="#">淘宝品牌折扣</a>  <a href="#">俏物悄语网</a>  <a href="#">奥特莱斯1号</a>   <a href="#">凡客V+</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[奢侈品]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">尚品网</a><a href="#">魅力惠</a>  <a href="#">美西时尚</a><a href="#">全球优品</a>  优众</a><a href="#">雅品特</a><a href="#">第五大道</a><a href="#">奢华街</a><a href="#">聚风尚 </a> <a href="#">鸿运商城</a>  <a href="#">e品味网 </a> <a href="#">雅品特免税店</a>  <a href="#">银泰奢侈品</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[全球购]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">美国代购</a><a href="#">韩国品牌</a><a href="#">日本商品</a><a href="#">台湾品牌 </a><a href="#">东京pretty</a> <a href="#"> 美国购物网 </a><a href="#">加拿大代购</a> <a href="#">淘宝海外 </a> <a href="#">澳大利亚代购</a>  <a href="#">日本代购</a><a href="#">过家家 </a></dd>
+  </dl>
+  <dl>
+    <dt>[服装] </dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">麦网</a><a href="#">凡客诚品</a><a href="#">梦芭莎</a><a href="#">衣服网</a><a href="#">时尚起义</a><a href="#">玛萨玛索</a>  <a href="#">淘秀网</a><a href="#">兰缪</a>  <a href="#">梦露时尚</a>  <a href="#">逛街网</a>  <a href="#">第九大道品</a><a href="#">佐丹奴 </a><a href="#">歌莉娅</a>  <a href="#">邦购商城</a> </dd>
+  </dl>
+  <dl>
+    <dt>[鞋子]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">乐淘网</a>  <a href="#">淘鞋网</a>  <a href="#">好乐买</a>  <a href="#">名鞋库</a>  <a href="#">拍鞋网</a>  <a href="#">鞋子网</a>  <a href="#">秀足网</a> <a href="#">封面网 </a> <a href="#">卡路里</a>  <a href="#">鞋包世界网 </a> <a href="#">维思诺 </a> <a href="#">美国骆驼 </a></dd>
+  </dl>
+  <dl>
+    <dt>[数码]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">京东商城 </a> <a href="#">新蛋商城</a>  <a href="#">苏宁易购</a>  <a href="#">国美电器</a>  <a href="#">库巴网</a> <a href="#"> 新七天电器网</a> <a href="#"> 永乐电器网</a> <a href="#"> 中关村在线</a> <a href="#">爱派商城</a>  <a href="#">易迅网</a>  <a href="#">绿森数码</a> </dd>
+  </dl>
+  <dl>
+    <dt>[美妆]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">千色网</a><a href="#">  名品SHOW </a> <a href="#">天天购物网</a>  <a href="#">丝芙兰 </a> <a href="#">抢鲜网</a>  <a href="#">D1优尚网 </a> <a href="#">牛尔娜露可 </a> <a href="#">No.5时尚广场</a> <a href="#">左岸女人</a>  <a href="#">美易商城 </a> <a href="#">DHC中国</a> </dd>
+  </dl>
+  <dl>
+    <dt>[食品]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">1号店</a>  <a href="#">大货栈</a>   <a href="#">我买网</a>  <a href="#">也买酒</a>  <a href="#">2点零食</a>  <a href="#">中国零食网</a>  <a href="#">依谷网</a>  五<a href="#">谷磨房</a>  <a href="#">也买茶</a>  <a href="#">中粮</a>  <a href="#">尚客茶品</a>  <a href="#">那酷零食网</a>  <a href="#">祐乐网</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[图书]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">博库书城</a> <a href="#">当当网 </a> <a href="#">文轩网 </a> <a href="#">中国互动出版网 </a> <a href="#">99网上书城</a><a href="#">蔚蓝书店</a><a href="#">中国图书网</a><a href="#">孔夫子旧书网 </a><a href="#"> 新华书店卓越亚马逊</a>  </dd>
+  </dl>
+  <dl>
+    <dt>[箱包]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">麦包包 </a> <a href="#">乐买</a>  <a href="#">名鞋库</a><a href="#">烧包网</a>  <a href="#">购鞋网 </a> <a href="#">美兮阁 </a> <a href="#">佑一良品</a> <a href="#"> 包包树</a> <a href="#"> C&T古缇 </a>  <a href="#">买包啦</a>  我要包包网</a>  <a href="#">荷花皮具</a> </dd>
+  </dl>
+  <dl>
+    <dt>[家居]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">齐家家居网</a><a href="#">居泰隆</a> <a href="#">大管家 </a><a href="#">玩意生活网 </a><a href="#">趣玩网</a> <a href="#">优雅100 </a><a href="#">悠品购物网</a> <a href="#">乐扣乐扣</a><a href="#">宜家居</a><a href="#">艾美艾家 </a><a href="#">广雅网 </a><a href="#">ABS家居购物</a> </dd>
+  </dl>
+  <dl>
+    <dt>[母婴]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">红孩子</a><a href="#">乐友</a><a href="#">丽家宝贝</a><a href="#">爱伊贝丽</a><a href="#">妙乐乐</a><a href="#">摇篮网</a><a href="#">幸孕商城</a><a href="#">爱婴室</a><a href="#">智小天地</a><a href="#">孕妇装</a><a href="#">母婴之家</a><a href="#">25商街儿童精品</a><a href="#">天天玩具商城 </a> </dd>
+  </dl>
+  <dl>
+    <dt>[珠宝]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">珂兰钻石网</a><a href="#">九钻网</a><a href="#">钻石小鸟</a><a href="#">银尚圈</a><a href="#">戴欧妮</a><a href="#">冠晴钻石</a><a href="#">爱莲说水晶网</a><a href="#">新钻网</a><a href="#">品钻网</a><a href="#">Doido爱度</a><a href="#">戴维尼珠宝网</a> </dd>
+  </dl>
+  <dl>
+    <dt>[运动]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">李宁</a><a href="#">炫体运动</a><a href="#">奥迅运动城</a><a href="#">型尚网</a><a href="#">西街运动</a><a href="#">酷运动</a><a href="#">运动在线</a><a href="#">亦可运动</a><a href="#">益体网</a><a href="#">阳光体育</a><a href="#">我爱羽毛球网</a></dd>
+  </dl>
+  <dl>
+    <dt>[健康]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">药房网</a><a href="#">金象网</a><a href="#">上海药房网</a><a href="#">百洋健康网</a><a href="#">导药网</a><a href="#">惠好连锁网</a><a href="#">八百方</a><a href="#">健康网购</a><a href="#">瑞年商城</a> <a href="#">中国健康网</a><a href="#">网星商城</a> </dd>
+  </dl>
+  <dl>
+    <dt>[眼镜]</dt>
+    <dd><span><a href="#">>>更多</a></span><a href="#">爱戴网</a> <a href="#">亿超眼镜</a> <a href="#">艾视网</a> <a href="#">视客眼镜网</a> <a href="#">可得眼镜网</a><a href="#">合亚眼镜商城</a><a href="#">欧诺配镜网</a><a href="#">E眼镜网</a><a href="#">世界眼镜网</a><a href="#">亮视网</a><a href="#">帝卖网</a><a href="#">淘镜网</a></dd>
+  </dl>-->
+  <h2><strong>网络团购</strong></h2>
+    <dl>
+      <dt>[团购名站] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[团购名站]</b>
+ <ul>
+              <li><a href="http://www.nuomi.com" target="_blank">糯米网</a></li>
+              <li><a href="http://tuan.qunar.com" target="_blank">去哪儿团</a></li>
+              <li><a href="http://www.xiutuan.com" target="_blank">秀团网</a></li>
+              <li><a href="http://www.jumei.com" target="_blank">聚美优品</a></li>
+              <li><a href="http://www.gaopeng.com" target="_blank">高朋</a></li>
+              <li><a href="http://www.go.cn" target="_blank">团购王</a></li>
+              <li><a href="http://tuan.27.cn" target="_blank">爱丽团</a></li>
+              <li><a href="http://tuan.elong.com" target="_blank">艺龙酒店</a></li>
+              <li><a href="http://ju.tao800.com" target="_blank">淘宝折扣</a></li>
+              <li><a href="http://www.leyou.com.cn" target="_blank">乐友婴童</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+ </ul>
+</div>
+
+
+
+</div>
+
+
+          <a href="http://www.meituan.com" target="_blank">美团网</a>
+          <a href="http://www.lashou.com" target="_blank">拉手网</a>
+          <a href="http://ju.taobao.com" target="_blank">聚划算</a>
+          <a href="http://t.dianping.com" target="_blank">大众点评团</a>
+          <a href="http://www.55tuan.com" target="_blank">窝窝团</a>
+          <a href="http://t.58.com" target="_blank">58团</a>
+          <a href="http://www.24quan.com/" target="_blank">24券</a>
+          <a href="http://www.ftuan.com" target="_blank">F团</a>
+          <a href="http://www.manzuo.com" target="_blank">满座团</a>
+          <a href="http://www.didatuan.com" target="_blank">嘀嗒团</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[餐饮美食] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[餐饮美食]</b>
+ <ul>
+              <li><a href="http://www.ninglu.com" target="_blank">宁露零食团</a></li>
+              <li><a href="http://www.58guo.com" target="_blank">水果团购</a></li>
+              <li><a href="http://www.foodtuan.com" target="_blank">食团</a></li>
+              <li><a href="http://tuan.tooogooo.com" target="_blank">零食团购</a></li>
+              <li><a href="http://www.wufantuan.com" target="_blank">午饭团</a></li>
+              <li><a href="http://www.weidaotuan.com" target="_blank">味道团</a></li>
+              <li><a href="http://www.zttuan.com" target="_blank">猪头团</a></li>
+              <li><a href="http://www.12dian.com" target="_blank">12点零食</a></li>
+ </ul>
+</div>
+
+
+
+
+</div>
+
+
+          <a href="http://www.fantong.com" target="_blank">饭统网-饭团</a>
+          <a href="http://www.juqi.com" target="_blank">聚齐团</a>
+          <a href="http://www.bingganhe.com" target="_blank">饼干盒</a>
+          <a href="http://tuan.lskong.com" target="_blank">零食控</a>
+          <a href="http://t.dianping.com" target="_blank">大众点评团</a>
+          <a href="http://www.tunlingshi.com" target="_blank">囤零食</a>
+          <a href="http://www.haochatuan.com" target="_blank">好茶团</a>
+          <a href="http://www.jiuxian.com/group_buy.php" target="_blank">酒仙团</a>
+          <a href="http://www.nftuan.com" target="_blank">奶粉团</a>
+          <a href="http://meijiutuan.net" target="_blank">美酒团</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[服饰鞋帽] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[服饰鞋帽]</b>
+ <ul>
+              <li><a href="http://www.boletuan.com" target="_blank">伯乐团</a></li>
+              <li><a href="http://www.gaibangtuan.com/team/current.php?gid=14" target="_blank">丐帮团</a></li>
+              <li><a href="http://www.hongxiutuan.net/UserControls/tuandetail.aspx?catalogid=15" target="_blank">红秀团</a></li>
+              <li><a href="http://www.letao.com/tuan" target="_blank">乐淘鞋城团购</a></li>
+              <li><a href="http://www.emowawatuan.com" target="_blank">娃娃团</a></li>
+              <li><a href="http://www.xietuan.com" target="_blank">鞋团</a></li>
+ </ul>
+</div>
+
+
+
+
+</div>
+
+
+          <a href="http://www.fentuan.com" target="_blank">粉团</a>
+          <a href="http://tuan.27.cn/jewelry/index.php" target="_blank">爱丽团购</a>
+          <a href="http://www.xiutuan.com" target="_blank">秀团网</a>
+          <a href="http://www.a4m3.com" target="_blank">傲世名尚</a>
+          <a href="http://tuan.vancl.com" target="_blank">凡客团</a>
+          <a href="http://www.17gb.net" target="_blank">购宝网</a>
+          <a href="http://tuan.vipstore.com" target="_blank">佳品团</a>
+          <a href="http://www.lijia100.com" target="_blank">丽家100</a>
+          <a href="http://www.bangzhufu.com" target="_blank">棒主妇</a>
+          <a href="http://bailituan.com" target="_blank">百丽团</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[美容化妆] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[美容化妆]</b>
+ <ul>
+              <li><a href="http://www.jumei.com" target="_blank">聚美优品</a></li>
+              <li><a href="http://51maimei.com" target="_blank">买美诚品</a></li>
+              <li><a href="http://www.meketuan.com" target="_blank">美客团</a></li>
+              <li><a href="http://www.morelady.com" target="_blank">美乐良品</a></li>
+              <li><a href="http://www.mztuangou.com" target="_blank">美妆团</a></li>
+              <li><a href="http://www.peach365.com" target="_blank">皮趣彩妆</a></li>
+              <li><a href="http://www.chinamr.com.cn" target="_blank">沙子美容团</a></li>
+              <li><a href="http://www.liangdiantuan.com" target="_blank">靓点团购</a></li>
+              <li><a href="http://www.fenpier.com" target="_blank">粉皮儿</a></li>
+              <li><a href="http://www.91zhengpin.com" target="_blank">91正品</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.360yxt.com" target="_blank">360优享团</a></li>
+              <li><a href="http://www.andtuan.com" target="_blank">俺的团</a></li>
+              <li><a href="http://www.bomeituan.com" target="_blank">博美团</a></li>
+              <li><a href="http://www.qinqin.net" target="_blank">亲亲网</a></li>
+              <li><a href="http://t.360side.com" target="_blank">身边风暴团购</a></li>
+ </ul>
+</div>
+
+
+
+</div>
+
+
+          <a href="http://www.miqi.cn" target="_blank">米奇网</a>
+          <a href="http://www.zhiwo.com" target="_blank">知我商城</a>
+          <a href="http://www.tnice.com" target="_blank">今日美丽</a>
+          <a href="http://www.nala.com.cn" target="_blank">Nala团购</a>
+          <a href="http://tuan.lafaso.com" target="_blank">乐蜂团</a>
+          <a href="http://mei.liketuan.com" target="_blank">Like团</a>
+          <a href="http://www.aiwanmei.net" target="_blank">爱完美</a>
+          <a href="http://www.aimeituan.com" target="_blank">爱美团</a>
+          <a href="http://www.aimeit.com" target="_blank">爱美团</a>
+          <a href="http://www.jiango.cn" target="_blank">尖果美妆</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[箱包首饰] </dt>
+      <dd>
+
+          <a href="http://www.dbox.cn" target="_blank">首饰盒</a>
+          <a href="http://www.relatuan.com/team/index.php?gid=29" target="_blank">热辣团</a>
+          <a href="http://www.linglongtuan.com/UserControls/tuandetail.aspx?catalogid=7&amp;p=d" target="_blank">玲珑团购</a>
+          <a href="http://ju.taobao.com/tg/today_items.htm?juTagId=jump" target="_blank">聚划算</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[旅游酒店] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[旅游酒店]</b>
+ <ul>
+              <li><a href="http://t.rootour.com" target="_blank">旅途团</a></li>
+              <li><a href="http://www.tourtuan.com" target="_blank">旅游团</a></li>
+              <li><a href="http://www.fjzxlyw.com" target="_blank">旅友团</a></li>
+              <li><a href="http://www.6996.com" target="_blank">溜达网</a></li>
+              <li><a href="http://q.uutuu.com" target="_blank">旅行者</a></li>
+              <li><a href="http://t.sjlyw.com" target="_blank">世游团</a></li>
+              <li><a href="http://www.xhlx.cn" target="_blank">新华旅行</a></li>
+              <li><a href="http://www.wenquantuan.com" target="_blank">温泉团</a></li>
+              <li><a href="http://www.16tour.net" target="_blank">一路游</a></li>
+              <li><a href="http://www.aoyou.com" target="_blank">中青旅</a></li>
+ </ul>
+</div>
+
+<div class="column">
+ <b></b>
+ <ul>
+              <li><a href="http://www.zhoubianyou.com" target="_blank">周边游</a></li>
+              <li><a href="http://www.go-lux.cn/trip" target="_blank">Go-lux</a></li>
+              <li><a href="http://www.2qiao.com" target="_blank">二乔团</a></li>
+              <li><a href="http://tuan.51fit.com" target="_blank">健团网</a></li>
+              <li><a href="http://t.soulv.com" target="_blank">搜旅团</a></li>
+ </ul>
+</div>
+
+
+
+</div>
+
+
+          <a href="http://jiudian.juqi.com" target="_blank">聚齐团</a>
+          <a href="http://365h.com" target="_blank">好易订旅行团</a>
+          <a href="http://tuan.ctrip.com" target="_blank">携程团</a>
+          <a href="http://www.lvye.com" target="_blank">绿野酒店团</a>
+          <a href="http://tuan.elong.com" target="_blank">艺龙酒店团</a>
+          <a href="http://tuan.qunar.com" target="_blank">去哪儿团</a>
+          <a href="http://www.piaowu001.com" target="_blank">团票网</a>
+          <a href="http://tuan.airchina.com" target="_blank">国航团购</a>
+          <a href="http://www.jdt999.com" target="_blank">大都团</a>
+          <a href="http://www.lvmama.com/tuangou" target="_blank">驴妈妈旅游团</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[数码家电] </dt>
+      <dd>
+
+          <a href="http://tuan.efeihu.com" target="_blank">飞虎团购</a>
+          <a href="http://tg.gome.com.cn" target="_blank">国美团购</a>
+          <a href="http://www.guangpantuan.com" target="_blank">光盘团</a>
+          <a href="http://ju.taobao.com/tg/today_items.htm?frontCatId=4000" target="_blank">聚划算</a>
+          <a href="http://www.suning.com/webapp/wcs/stores/servlet/SNGroupIndexView?storeId=10052&amp;catalogId=10051" target="_blank">苏宁易购</a>
+          <a href="http://tuan.newegg.com.cn" target="_blank">新蛋团购</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[母婴儿童] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[母婴儿童]</b>
+ <ul>
+              <li><a href="http://www.yingtuan.com" target="_blank">婴团网</a></li>
+ </ul>
+</div>
+
+
+
+
+</div>
+
+
+          <a href="http://www.360boy.com.cn" target="_blank">360母婴团购</a>
+          <a href="http://www.aotutuan.com" target="_blank">凹凸团</a>
+          <a href="http://www.citybaby.cn" target="_blank">城市宝贝</a>
+          <a href="http://t.kangq.com" target="_blank">康Q母婴团</a>
+          <a href="http://www.nftuan.com" target="_blank">奶粉团</a>
+          <a href="http://www.muyingtuangou.com" target="_blank">母婴团购</a>
+          <a href="http://www.relatuan.com/team/index.php?gid=30" target="_blank">热辣团</a>
+          <a href="http://www.qinzi360.net" target="_blank">亲子360</a>
+          <a href="http://www.qinzt.com" target="_blank">亲子团</a>
+          <a href="http://www.5iett.com" target="_blank">我爱儿童团</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[婚庆摄影] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[婚庆摄影]</b>
+ <ul>
+              <li><a href="http://www.xituan.com" target="_blank">喜团网</a></li>
+              <li><a href="http://www.xishi.me" target="_blank">喜事蜜</a></li>
+ </ul>
+</div>
+
+
+
+
+</div>
+
+
+          <a href="http://tg.mnlsbj.com" target="_blank">蒙娜丽莎</a>
+          <a href="http://www.51sytuan.com" target="_blank">51摄影团</a>
+          <a href="http://tuan.8photo.cn" target="_blank">芭比团</a>
+          <a href="http://tuan.6899.cn" target="_blank">婚嫁团</a>
+          <a href="http://www.meihuntuan.net" target="_blank">美婚团</a>
+          <a href="http://www.rmgstuan.com" target="_blank">人民公摄</a>
+          <a href="http://www.51shetuan.com" target="_blank">青岛51摄团网</a>
+          <a href="http://www.sstogo.com" target="_blank">摄摄团购</a>
+          <a href="http://www.sheyingtg.com" target="_blank">摄影团</a>
+          <a href="http://tuan.xfwed.com" target="_blank">幸福结婚团</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[家居日用] </dt>
+      <dd>
+
+          <a href="http://www.kemaide.com" target="_blank">可买得团购</a>
+          <a href="http://www.mogoyoyo.com" target="_blank">芒果家纺</a>
+          <a href="http://tuan.haoche365.com" target="_blank">爱车团</a>
+          <a href="http://www.icarzoo.com" target="_blank">车族网</a>
+          <a href="http://www.jiajutuan.net" target="_blank">家居团</a>
+          <a href="http://www.relatuan.com/team/index.php?gid=21" target="_blank">热辣团</a>
+          <a href="http://tuan.sohu.com" target="_blank">搜狐爱家团</a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>[其他] </dt>
+      <dd><span><p>
+<a href="#" class="anchorclass myownclass" rel="submenu3">>>更多</a>
+</p></span>
+<div id="submenu3" class="anylinkcsscols">
+<div class="column">
+ <b>[其他]</b>
+ <ul>
+              <li><a href="http://taiqiu.motour.org" target="_blank">北京台球团购</a></li>
+              <li><a href="http://tuan.baike.com" target="_blank">百科团</a></li>
+              <li><a href="http://www.bsunion.com" target="_blank">百思团</a></li>
+              <li><a href="http://tuangou.ynet.com" target="_blank">北青团</a></li>
+              <li><a href="http://www.dz999.com" target="_blank">打折999</a></li>
+              <li><a href="http://www.52caizi.com" target="_blank">菜籽团</a></li>
+              <li><a href="http://www.huo39.com" target="_blank">火团网</a></li>
+              <li><a href="http://tuan.360buy.com" target="_blank">京东团</a></li>
+              <li><a href="http://tuan.kaixin001.com" target="_blank">开心团购</a></li>
+ </ul>
+</div>
+
+
+
+
+</div>
+
+
+          <a href="http://event.shop.rakuten.com.cn/gold/" target="_blank">乐酷天团购</a>
+          <a href="http://www.17ya.com" target="_blank">一起呀</a>
+          <a href="http://www.pztuan.com" target="_blank">品质团</a>
+          <a href="http://www.haotehui.com" target="_blank">好特会</a>
+          <a href="http://tuan.coo8.com" target="_blank">库巴团购</a>
+          <a href="http://tuan.haoche365.com" target="_blank">爱拼团</a>
+          <a href="http://www.auvtuan.com" target="_blank">哎呦喂团购</a>
+          <a href="http://www.az114.com" target="_blank">爱众团</a>
+          <a href="http://www.awotuan.com" target="_blank">阿窝团</a>
+          <a href="http://www.ayatuan.com" target="_blank">阿丫团</a>
+      </dd>
+    </dl>
+  <!--
+    <dl>
+      <dt>[美妆]</dt>
+      <dd><span><a href="#">>>更多</a></span>聚美优品 草莓网 米奇网 每优购 乐疯团购 汇美优品 粉团 前卫团 零六团 VC团 美尚网 5151团 笑笑团 一起团买网 美网 </dd>
+    </dl>
+    <dl>
+      <dt>[服饰]</dt>
+      <dd><span><a href="#">>>更多</a></span>麦麦团 爱团网 衣服团 服饰团购 信团网 买啦团 依衣控 </dd>
+    </dl>
+    <dl>
+      <dt>[旅游]</dt>
+      <dd><span><a href="#">>>更多</a></span>去哪儿团购 携程团购 淘宝旅行 搜旅团 同程网 驴妈妈 悠哉旅游网 桂旅团 好易订旅行团购 我游团 旅友团 特卖团 周边游旅行</dd>
+    </dl>
+    <dl>
+      <dt>[家居]</dt>
+      <dd><span><a href="#">>>更多</a></span>新浪乐居团 我爱我家网 齐家建材网 搜房网 乐乐居 新团网 土豆团 佳家网 聚网 我要E厨 </dd>
+    </dl>
+    <dl>
+      <dt>[综合]</dt>
+      <dd><span><a href="#">>>更多</a></span>聚齐网 最团网 like团 趣团 可购可乐 粉皮儿网 星800团购商城 爱丽团购 五星汇 现在团 可可团 第一团购网 珍惜网 团委会</dd>
+    </dl>-->
+  <!--h2><strong>网络品牌</strong></h2>
+  <div class="wzdh_left" style="width:98%; padding-left:10px; line-height:30px;">
+      <span></span>
+  </div-->
+    <!--
+        <span><a href="#"> 欧莱诺 </a></span>
+        <span><a href="#"> artka </a></span>
+        <span><a href="#"> 家家乐购</a></span>
+        <span><a href="#"> 奥汀堡</a></span>
+        <span><a href="#"> 芳草集 </a></span>
+        <span><a href="#"> 麦包包 </a></span>
+        <span><a href="#"> 本草怡 </a></span>
+        <span><a href="#"> 笛莎</a></span>
+        <span><a href="#"> 戈尔本 </a></span>
+        <span><a href="#"> 百思寒</a></span>
+        <span><a href="#"> 艾娜骑士</a></span>
+        <span><a href="#"> 奥朵 </a></span>
+        <span><a href="#"> 贝贝怡 </a></span>
+        <span><a href="#"> 百武西</a></span>
+        <span><a href="#"> 车品弘智 </a></span>
+        <span><a href="#"> 长生鸟</a></span>
+        <span><a href="#"> 迪尔马奇</a></span>
+        <span><a href="#"> 歌瑞尔</a></span>
+        <span><a href="#">公羊  </a></span>
+        <span><a href="#"> BINGER </a></span>
+        <span><a href="#"> 可可芭蕾 </a></span>
+        <span><a href="#">  juststyle</a></span>
+        <span><a href="#"> 乐行仕 </a></span>
+        <span><a href="#"> 爱肯 </a></span>
+        <span><a href="#"> HONEYWEST</a></span>
+        <span><a href="#"> IITA </a></span>
+        <span><a href="#"> O.SA</a></span>
+        <span><a href="#"> othermix </a></span>
+        <span><a href="#"> 螃蟹秘密 </a></span>
+        <span><a href="#"> 飘飘龙 </a></span>
+        <span><a href="#"> 琪特  </a></span>
+        <span><a href="#"> 诠渡良品 </a></span>
+        <span><a href="#"> 赛依达</a></span>
+        <span><a href="#"> 尚客茶品 </a></span>
+        <span><a href="#"> sportica</a></span>
+        <span><a href="#"> sophy</a></span>
+        <span><a href="#"> 橡菲</a></span>
+        <span><a href="#"> 小熊电器</a></span>
+        <span><a href="#"> 晏记卫浴</a></span>
+        <span><a href="#"> 阳光印记 </a></span>
+        <span><a href="#"> 氧气生活 </a></span>
+        <span><a href="#"> 艺福堂茗茶</a></span>
+        <span><a href="#"> 羊皮堂  </a></span>
+        <span><a href="#"> 也买茶 </a></span>
+        <span><a href="#"> 伊顿纪德</a></span>
+        <span><a href="#"> 鹰岩户外</a></span>
+        <span><a href="#"> 悠语旗舰店 </a></span>
+        <span><a href="#"> 优衣优生活</a></span>
+        <span><a href="#"> 御泥坊 </a></span>
+        <span><a href="#"> 茵曼   </a></span>
+        <span><a href="#"> 贞水 </a></span>
+        <span><a href="#"> 植物语  </a></span>
+        <span><a href="#"> 资多美</a></span>
+        <span><a href="#"> inbrand</a></span>
+        <span><a href="#"> dabuwawa </a></span>
+        <span><a href="#"> 哈他</a></span>
+        <span><a href="#"> gracegift</a></span>
+        <span><a href="#"> AMOVO  </a></span>
+        <span><a href="#"> 浪美</a></span>
+        <span><a href="#"> 摩登小姐 </a></span>
+        <span><a href="#"> 卡芙琳</a></span>
+        <span><a href="#"> 米卡</a></span>
+        <span><a href="#"> 零号男 </a></span>
+        <span><a href="#"> 林氏木业</a></span>-->
+
+</div>
+
+
+      <div class="main">
+        <div class="footerA">
+          <dl>
+            <dt><img src="/images/food_166.gif" /><span> 便 捷 </span></dt>
+            <dd>搜索导购，精确查找 </dd>
+          </dl>
+          <dl>
+            <dt><img src="/images/food_168.gif" width="26" height="26" /><span> 实 惠 </span></dt>
+            <dd>货比三家，购物返现<br />
+              亿万精选商品 </dd>
+          </dl>
+          <dl>
+            <dt><img src="/images/food_170.gif" width="26" height="29" /><span> 全 网 </span></dt>
+            <dd>精选2000家正品保证商城<br />
+              收录全网折扣信息</dd>
+          </dl>
+          <dl>
+            <dt><img src="/images/food_172.gif" /><span> 权威咨询</span></dt>
+            <dd>汇聚全网2亿条购物资讯</dd>
+          </dl>
+          <dl style="border:none">
+            <dt><img src="/images/food_174.gif" /><span> 双重保障</span></dt>
+            <dd>商家保障的基础上<br />
+              易淘比购再加一层保障</dd>
+          </dl>
+        </div>
+        <!-- Baidu Button BEGIN -->
+        <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=0&amp;uid=222737" ></script>
+        <script type="text/javascript" id="bdshell_js"></script>
+        <script type="text/javascript">
+          document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+        </script>
+        <!-- Baidu Button END -->
+      </div>
+      <div class="main">
+        <div class="footer"><a href="/company_profiles">关于易淘比购</a>|<a href="/website_guides">商城大全</a>|<a href="/brands">品牌大全</a>|<a href="/merchant_entries">商家入驻</a>|<a href="/cooperations">推广合作</a>   |<a href="/question_advices/new">建议疑问</a>|<a href="#">网站地图</a>|<a href="/friend_links">友情链接</a>|<a href="/recruits">诚聘英才</a>|<a href="/contacts">联系我们</a></div>
+        <div class="copyright">
+          <!--<script type="text/javascript" src="http://js.tongji.linezing.com/2593870/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2593870/tongji.gif"/></a></noscript>-->
+          <a href="#"><img src="/images/index_197.gif" width="134" height="48" border="0" /></a><a href="#"><img src="/images/index_184.gif" border="0" /></a><span>copyright@2011-2011 by www.findbest360.com all rights
+            reserved  易淘比购  沪ICP备07001941号
+          </span> <a href="#"><img src="/images/index_202.gif" width="140" height="39" border="0" /></a><a href="#"><img src="/images/index_204.gif" width="125" height="40" border="0" /></a> </div>
+      </div>
+    </div>
+
+<table style="display:none;">
+<tr><td>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/6014048.js"></script>
+<noscript><a href="http://www.51.la/?6014048" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/6014048.asp" style="border:none" /></a><noscript>
+</td>
+</tr>
+</table>
+
+  </body>
+</html>

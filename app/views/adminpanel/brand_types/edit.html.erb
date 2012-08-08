@@ -1,0 +1,32 @@
+<%= render 'base' %>
+<div id="adminpanel_brand_type" class="form">
+  <%= simple_form_for(@brand_type,
+    :url =>  adminpanel_brand_brand_type_path(@brand,@brand_type) ) do |f| %>
+    <%= render "/shared/error_messages", :target => @brand_type %>
+
+    <div class="inputs">
+      <%= f.label :name,"品牌款型名称" %><br/>
+      <%= f.text_field :name %><br/>
+      <%= f.label :name,"品牌款型图片路径" %><br/>
+      <%= f.text_field :image_url %><br/>
+      <%= f.label :desc,"品牌款型简介" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+      <%= f.input :order_num %><br/>
+      <%= f.label :brandtypelogo,"品牌款型logo" %><br/>
+
+      <%= image_tag(@brand_type.brandtypelogo_url) if @brand_type.brandtypelogo? %><br/>
+
+      <%#= f.file_field :brandtypelogo %><br/>
+
+      <%= f.label :onsale_at,"上市时间" %><br/>
+      <%= f.input :onsale_at, :label => false, :as => :date %><br/>
+      <%= f.hidden_field :brandtypelogo_cache %><br/>
+      <%= f.check_box :remove_brandtypelogo %>移除logo
+
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_brand_brand_types_path(@brand) %>
+    </div>
+  <% end %>
+</div>

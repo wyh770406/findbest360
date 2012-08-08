@@ -1,0 +1,12 @@
+<%#= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_top_product_merchant_product_path(@top_product,@merchant,@product) %> |
+  <%= link_to '返回', adminpanel_top_product_merchant_products_path(@top_product) %>
+</div>
+<div id="adminpanel_product">
+  <p>
+    <b>Name:</b>
+    <%= @product.title %>
+  </p>
+
+</div>

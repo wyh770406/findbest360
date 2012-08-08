@@ -1,0 +1,1087 @@
+
+<%i=1
+for top_cate in @all_cates%>
+  <div class="<%=(i==1 ? 'contentB':'contentB hidden')%>" id="c2_<%=i%>">
+    <div class="contentB_a border">
+
+      <%for sub_cate in top_cate.middle_products.asc("order_num").limit(9)%>
+        <dl>
+          <dt><%=sub_cate.name[0,4]%></dt>
+          <dd>
+            <%sub_cate_end_products=sub_cate.end_products.asc("order_num")
+              for third_cate in sub_cate_end_products[0,6]%>
+              <%=link_to third_cate.name,end_product_products_path(third_cate),:target=>"_blank"%>
+              <%#=link_to third_cate.name,{:controller=>"products",:action=>"search",:search_key=>third_cate.name},:target=>"_blank"%>
+            <%end%>
+            <%if sub_cate_end_products.uniq.size>6%><span><a href="#" class="anchorclass myownclass" rel="submenu3">>></a></span>
+<div id="submenu3" class="anylinkcsscols">
+<%
+if !sub_cate_end_products.uniq[6,6].nil?%>
+<div class="column">
+ <b>[<%=sub_cate.name%>]</b>
+ <ul>
+            <%for third_cate in sub_cate_end_products.uniq[6,6]%>
+              <li><%=link_to third_cate.name,end_product_products_path(third_cate),:target=>"_blank"%></li>
+              <%#=link_to third_cate.name,{:controller=>"products",:action=>"search",:search_key=>third_cate.name},:target=>"_blank"%>
+            <%end%>
+ </ul>
+</div>
+<%
+end%>
+<%
+if !sub_cate_end_products.uniq[12,6].nil?%>
+<div class="column">
+ <b></b>
+ <ul>
+            <%for third_cate in sub_cate_end_products.uniq[12,6]%>
+              <li><%=link_to third_cate.name,end_product_products_path(third_cate),:target=>"_blank"%></li>
+              <%#=link_to third_cate.name,{:controller=>"products",:action=>"search",:search_key=>third_cate.name},:target=>"_blank"%>
+            <%end%>
+ </ul>
+</div>
+<%
+end%>
+<%
+if !sub_cate_end_products.uniq[18,6].nil?%>
+<div class="column">
+ <b></b>
+ <ul>
+            <%for third_cate in sub_cate_end_products.uniq[18,6]%>
+              <li><%=link_to third_cate.name,end_product_products_path(third_cate),:target=>"_blank"%></li>
+              <%#=link_to third_cate.name,{:controller=>"products",:action=>"search",:search_key=>third_cate.name},:target=>"_blank"%>
+            <%end%>
+ </ul>
+</div>
+
+<%
+end%>
+</div><%end%>
+          </dd>
+        </dl>
+      <%end%>
+
+    </div>
+    <div class="contentB_b border">
+      <h1><%=top_cate.name%>热搜榜</h1>
+      <ul>
+        <%top_cate.keywords.desc("order_num").limit(9).each do |keyword|%>
+          <li>
+            <%=link_to keyword.word,{:controller=>"products",:action=>"search",:search_key=>keyword.word,:count_flag=>"count"},:target=>"_blank"%>
+          </li>
+        <%end%>
+
+
+        <!--li><a href="#">全自动洗衣机</a></li>
+        <li><a href="#">飞科电动剃须刀</a></li>
+        <li><a href="#">37寸液晶电视</a></li>
+        <li><a href="#">脱排油烟机</a></li>
+        <li><a href="#">美的电饭煲</a></li>
+        <li><a href="#">苏泊尔电压力锅</a></li-->
+      </ul>
+    </div>
+    <div class="contentB_c border">
+      <h1><%=top_cate.name%>商家榜</h1>
+      <ul>
+        <%for merchant in top_cate.merchants.asc("order_num").limit(9)%>
+          <li><%=link_to merchant.name,merchant.merchanturl,:target=>"_blank"%></li>
+        <%end%>
+      </ul>
+    </div>
+    <div class="contentB_d ">
+      <h1><%if ["电脑手机数码","旅游酒店机票","食品/保健品","家电/办公"].include?(top_cate.name)%>
+         <%=top_cate.name[0,6]%>
+        <%else%>
+         <%=top_cate.name[0,6]%>品牌
+         <%end%></h1>
+      <ul>
+        <%for brand in top_cate.brands.asc("order_num").limit(5)%>
+          <li><%=link_to image_tag(brand.brandlogo_url),brand.brandurl,:target=>"_blank"%></li>
+        <%end%>
+        <%if top_cate.brands.size > 5%>
+          <li><%= link_to ">>>更多", brands_path(:product_id => top_cate.id) %></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+  <%i=i+1
+end%>
+<!--
+<div class="contentB hidden" id="c2_2" ><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器333224444 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_3"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_4"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd>
+        播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_5"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_6"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_7"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_8"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_9"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+
+<div class="contentB hidden" id="c2_10"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电水壶 </a></dd>
+    </dl>
+
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电水壶 </a></dd>
+    </dl>
+
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_11"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd>
+        加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_12"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd>
+        榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_13"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd>
+        <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+
+<div class="contentB hidden" id="c2_14"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd>
+        榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_15"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd>
+        榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_16"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> <a href="#">冰箱 </a> <a href="#">洗衣机 </a> <a href="#">空调 </a>  <a href="#">
+          吸尘器
+          加湿器 </a>  <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_17"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd> <a href="#">按摩器 </a>  <a href="#">电风扇 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+<div class="contentB hidden" id="c2_18"><div class="contentB_a border">
+    <dl>
+      <dt>生活家电</dt>
+      <dd><a href="#">晶电视 </a> <a href="#">等离子电视 </a>  <a href="#">家庭影院  </a>
+        <a href="#"><br />
+          播放器 </a> </dd>
+    </dl>
+    <dl>
+      <dt>厨房家电</dt>
+      <dd><a href="#">油烟机</a> <a href="#">燃气灶</a> <a href="#">电饭煲</a> <a href="#">豆浆机</a>
+        <a href="#"><br />
+          榨汁机</a> <a href="#">电压力锅 </a><a href="#">电磁炉 </a><a href="#">微波炉</a>
+        <a href="#">酸奶机</a> <a href="#">煮蛋器</a> <a href="#">电烤箱 </a><a href="#">电水壶 </a></dd>
+    </dl>
+  </div>
+  <div class="contentB_b border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">冷暖变频空调</a></li>
+      <li><a href="#">全自动洗衣机</a></li>
+      <li><a href="#">飞科电动剃须刀</a></li>
+      <li><a href="#">37寸液晶电视</a></li>
+      <li><a href="#">脱排油烟机</a></li>
+      <li><a href="#">美的电饭煲</a></li>
+      <li><a href="#">苏泊尔电压力锅</a></li>
+    </ul>
+  </div>
+  <div class="contentB_c border">
+    <h1>家电热销榜</h1>
+    <ul>
+      <li><a href="#">家电商家国</a></li>
+      <li><a href="#">美电器库巴-国美旗下</a></li>
+      <li><a href="#">我耶商城卓</a></li>
+      <li><a href="#">越亚马逊</a></li>
+      <li><a href="#">TCL网上商城</a></li>
+      <li><a href="#">飞虎乐购</a></li>
+      <li><a href="#">东方CJ家庭购物</a></li>
+    </ul>
+
+  </div>
+  <div class="contentB_d ">
+    <h1>家电品牌</h1>
+    <ul>
+      <li><a href="#"><img src="/images/index_93.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_95.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_97.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_102.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_103.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_104.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_108.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_109.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_110.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_114.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_115.gif" width="73" height="38" border="0" /></a></li>
+      <li><a href="#"><img src="/images/index_116.gif" width="73" height="38" border="0" /></a></li>
+    </ul>
+  </div></div>
+-->

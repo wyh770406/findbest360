@@ -1,0 +1,15 @@
+<%= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_question_advice_path(@question_advice) %> |
+  <%= link_to '返回', adminpanel_question_advices_path %>
+</div>
+<div id="adminpanel_question_advice">
+  <p>
+    <b>标题:</b>
+    <%= @question_advice.title %>
+  </p>
+  <p>
+    <b>内容:</b>
+    <%= @question_advice.desc %>
+  </p>
+</div>

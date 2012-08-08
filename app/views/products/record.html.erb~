@@ -1,0 +1,10 @@
+<% content_for :meta do %>
+<meta http-equiv="refresh" content="3; url=<%=@product.union_url%>"> 
+<% end %>
+<div id="redirect" style="border:1px solid #ccc;background: #ccc;margin:10px;height:300px;padding:5px;">
+  <h1 style="padding-top: 20px;">
+    您正在离开易淘进入产品页面....<br/>
+    如果浏览器没有跳转，请点击<%= link_to "这里", @product.union_url, :style => "color:red"  %>
+  </h1>
+  
+</div>

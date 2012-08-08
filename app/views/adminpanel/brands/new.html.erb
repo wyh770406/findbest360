@@ -1,0 +1,35 @@
+<%= render 'base' %>
+<div id="adminpanel_brand" class="form">
+
+  <%= simple_form_for(@brand,:url =>  adminpanel_brands_path,:html => {:multipart => true}) do |f| %>
+
+    <%= render "/shared/error_messages", :target => @brand %>
+
+    <div class="inputs">
+      <%= f.label :name,"品牌名称" %><br/>
+      <%= f.text_field :name %><br/>
+      <%= f.input :order_num %>
+      <%= f.label :desc,"品牌简介" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+      <%= f.label :service,"品牌服务" %><br/>
+      <%=  f.ckeditor :service, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+      <%= f.label :brandurl,"官方网上商城" %><br/>
+      <%= f.text_field :brandurl %><br/>
+
+      <%= f.label :taobrandurl,"官方旗舰店" %><br/>
+      <%= f.text_field :taobrandurl %><br/>
+
+      <%= f.label :brandlogo,"品牌logo" %><br/>
+      <%= f.file_field :brandlogo %>
+      
+      <%= f.hidden_field :brandlogo_cache %>
+
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_brands_path %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<%= render 'base' %>
+<div class="tools">
+  <%= link_to '修改', edit_adminpanel_brand_path(@brand) %> |
+  <%= link_to '返回', adminpanel_brands_path %>
+</div>
+<div id="adminpanel_brand">
+  <p>
+    <b>Name:</b>
+    <%= @brand.name %>
+  </p>
+
+</div>

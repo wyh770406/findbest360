@@ -1,0 +1,13 @@
+<% ('a'..'z').each do |l| %>
+  <% cities =  get_cities_by_letter(l) %>
+  <% if cities.present? %>
+    <DL>
+      <DD id="city_change">
+        <%= l.upcase %>
+        <% cities.each do |c| %>
+          <%= link_to c.name, groupbuy_sites_path(:city => c.id), :target => "_blank", :class => "#{c == @city ? 'tf' : ''}" %>
+        <% end %>
+      </DD>
+    </DL>
+  <% end %>
+<% end %>

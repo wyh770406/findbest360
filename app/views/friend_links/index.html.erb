@@ -1,0 +1,9 @@
+<% pagetitle("友情链接") %>
+<div align="center"><h2>友情链接</h2></div>
+
+<div class="main">
+  <%if @friend_link.present?%>
+    <%=raw(@friend_link.desc) %>
+  <%end%>
+</div>
+

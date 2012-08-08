@@ -1,0 +1,35 @@
+<%= render 'base' %>
+<div id="adminpanel_top_products">
+  <table class="wice_grid">
+    <thead>
+      <tr class="wice_grid_title_row">
+        <th>大类名称</th>
+        <th>icon</th>
+        <th>排序</th>
+        <th>时间</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @top_products.each_with_index do |item,i| %>
+        <tr class="<%= i.odd? ? "odd" : "even" %>">
+
+          <td style="width:30px;"><%= item.name %></td>
+          <td style="width:30px;"><%= image_tag(item.topicon_url) if item.topicon? %></td>
+          <td style="width:30px;"><%= item.order_num %></td>
+          <td style="width:100px;"><%= l item.created_at.getlocal, :format => :short %></td>
+          <td style="width:50px;">
+            <%= link_to '修改', edit_adminpanel_top_product_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to '二级分类', adminpanel_top_product_middle_products_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to '热门活动', adminpanel_top_product_promote_discounts_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to '热门搜索词', adminpanel_top_product_keywords_path(item.id) %>&nbsp;&nbsp;
+            <%#= link_to '商家', adminpanel_top_product_merchants_path(item.id) %>&nbsp;&nbsp;
+            <%#= link_to '品牌', adminpanel_top_product_brands_path(item.id) %>&nbsp;&nbsp;
+            <%= link_to image_tag("/images/wice_grid/delete.png", :style => "margin-bottom:-4px;border:0"), adminpanel_top_product_path(item.id), :method => :delete, :confirm => '确定要删除吗?' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @top_products %>
+</div>

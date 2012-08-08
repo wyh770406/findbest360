@@ -1,0 +1,167 @@
+<% pagetitle("折扣促销") %>
+
+
+<div class="main">
+  <div class="cx " style="height:70px">
+    <h1><%@top_products.each do |top_product|%>
+        <%=link_to top_product.name,promote_discounts_path(:top_product_id=>top_product.id)%>
+      <%end%>
+      <!--a href="#">女士服饰</a>   <a href="#">男士服饰  </a>  <a href="#">数码家电</a>    <a href="#">食品美食</a>    <a href="#">美容化妆 </a>  <a href="#">饰品首饰</a>   <a href="#">家居建材</a>   <a href="#">母婴用品</a>    <a href="#">图书</a>  <a href="#">运动户外</a>   <a href="#"> 机票酒店</a>    <a href="#">品牌展示</a>   <a href="#">热门活动</a>  <a href="#"> 其他</a--> </h1>
+  </div>
+  <div class="cxA">
+    <dl>
+      <%if @top_promote_discount.present?%>
+      <dt><%=link_to image_tag(@top_promote_discount.image_url,:size=>"650x150"),@top_promote_discount.link_to_url,:target=>"_blank"%><!--a target="_blank" href="http://market.360buy.com/hd/20110901/index.html">
+          <img width="766" height="120" src="http://img11.360buyimg.com/da/20110928/766_120_WcxPtC.jpg">
+        </a--></dt><dd><%=image_tag(@top_promote_discount.merchant.merchantlogo_url,:size=>"120x60")%></dd><%end%>
+      <!--dt><img src="/images/cx_10.jpg" width="240" height="151" /></dt>
+      <dd><img src="/images/cx_04.jpg" width="164" height="163" /></dd>
+      <dd><img src="/images/cx_12.jpg" /></dd>
+      <dd><img src="/images/cx_06.jpg" /></dd>
+      <dd><img src="/images/cx_08.jpg" /></dd-->
+    </dl>
+  </div>
+  <div class="cxB">
+    <span><a href="#">>>更多</a></span>
+    <h1>推荐品牌 Brands</h1>
+  </div>
+  <div class="cxC">
+    <ul>
+      <%@brands.each do |brand|%>
+        <%=link_to image_tag(brand.brandlogo_url),brand.brandurl%>
+      <%end%>
+      <!--li><img src="/images/cx__18.jpg" /></li>
+      <li><img src="/images/cx_-10.jpg" /></li>
+      <li><img src="/images/cx_09.jpg" /></li>
+      <li><img src="/images/cx_11.jpg" /></li-->
+    </ul>
+  </div>
+  <div class="cxB">
+    <span><a href="#">>>更多</a></span>
+    <h1>推荐商家 Business  </h1>
+  </div>
+  <div class="cxD">
+    <ul>
+      <%@merchants.each do |merchant|%>
+        <%=link_to image_tag(merchant.merchantlogo.url(:thumb)),merchant.merchanturl%>
+      <%end%>
+      <!--li><img src="/images/cx_1.jpg" /></li>
+      <li><img src="/images/cx_2.jpg" /></li>
+      <li><img src="/images/cx_3.jpg" /></li>
+      <li><img src="/images/cx_4.jpg" /></li>
+      <li><img src="/images/cx_5.jpg" /></li>
+      <li><img src="/images/cx_6.jpg" width="130" height="156" /></li>
+      <li><img src="/images/cx_7.jpg" /></li-->
+
+    </ul>
+  </div>
+  <div class="cx"><span><a href="#">>>更多</a></span><h1>热门活动</h1></div>
+  <div class="cxE">
+   <dl>
+      <%@rest_promote_discounts.each do |promote_discount|%>
+        <dt>
+          <%=link_to image_tag(promote_discount.image_url,:size=>"650x150"),promote_discount.link_to_url,:target=>"_blank"%>
+        </dt>          <dd><%=image_tag(promote_discount.merchant.merchantlogo_url,:size=>"200x100")%></dd>
+      <%end unless @rest_promote_discounts.nil?%>
+
+
+    </dl> 
+  <dl>
+    <ul id="slideshow">
+  <li>
+   <h3>易迅网—网购嘉年华</h3>
+   <span>images/orange-fish.jpg</span>
+   <p>| 网购嘉年华，游戏装备5折疯抢 |</p>
+   <a href="#"><img src="/images/orange-fish-thumb.jpg" alt="易迅网—网购嘉年华" /></a>
+  </li>
+  <li>
+   <h3>卓越网—暑促特卖会</h3>
+   <span>images/sea-turtle.jpg</span>
+   <p>| 卓越网，手机，家用电器暑促特卖会 |</p>
+   <img src="/images/sea-turtle-thumb.jpg" alt="卓越网—暑促特卖会" />
+  </li>
+  <li>
+   <h3>淘宝网—全场特卖</h3>
+   <span>images/red-coral.jpg</span>
+   <p>| 淘宝网，时尚跑步鞋5折起；进口柚子茶$2元换购；少儿好书5折封顶，少儿图书全场满99元再送高价童书；夏季用品万件特卖99元 |</p>
+   <a href="#"><img src="/images/red-coral-thumb.jpg" alt="淘宝网—全场特卖" /></a>
+  </li>
+  <li>
+   <h3>易迅网—网购嘉年华</h3>
+   <span>images/coral-reef.jpg</span>
+   <p>| 网购嘉年华，游戏装备5折疯抢 |</p>
+   <a href="#"><img src="/images/coral-reef-thumb.jpg" alt="易迅网—网购嘉年华" /></a>
+  </li>
+  <li>
+   <h3>卓越网—暑促特卖会</h3>
+   <span>images/blue-fish.jpg</span>
+   <p>| 卓越网，手机，家用电器暑促特卖会 |</p>
+   <img src="/images/blue-fish-thumb.jpg" alt="卓越网—暑促特卖会" />
+  </li>
+  <li>
+   <h3>淘宝网—全场特卖</h3>
+   <span>images/yellow-fish.jpg</span>
+   <p>| 淘宝网，时尚跑步鞋5折起；进口柚子茶$2元换购；少儿好书5折封顶，少儿图书全场满99元再送高价童书；夏季用品万件特卖99元 |</p>
+   <a href="#"><img src="/images/yellow-fish-thumb.jpg" alt="淘宝网—全场特卖" /></a>
+  </li>
+  <li>
+   <h3>卓越网—暑促特卖会</h3>
+   <span>images/squid.jpg</span>
+   <p>| 卓越网，手机，家用电器暑促特卖会 |</p>
+   <a href="#"><img src="/images/squid-thumb.jpg" alt="卓越网—暑促特卖会" /></a>
+  </li>
+  <li>
+   <h3>淘宝网—全场特卖</h3>
+   <span>images/small-fish.jpg</span>
+   <p>| 淘宝网，时尚跑步鞋5折起；进口柚子茶$2元换购；少儿好书5折封顶，少儿图书全场满99元再送高价童书；夏季用品万件特卖99元 |</p>
+   <a href="#"><img src="/images/small-fish-thumb.jpg" alt="淘宝网—全场特卖" /></a>
+  </li>
+ </ul>
+ <div id="wrapper">
+  <div id="fullsize">
+   <div id="imgprev" class="imgnav" title="Previous Image"></div>
+   <div id="imglink"></div>
+   <div id="imgnext" class="imgnav" title="Next Image"></div>
+   <div id="image"></div>
+   <div id="information">
+    <h3></h3>
+    <p></p>
+   </div>
+  </div>
+  <div id="thumbnails">
+   <div id="slideleft" title="Slide Left"></div>
+   <div id="slidearea">
+    <div id="slider"></div>
+   </div>
+   <div id="slideright" title="Slide Right"></div>
+  </div>
+ </div>
+
+
+  </dl>
+  </div>
+  <div class="cx_AD"><%=link_to image_tag("/images/cx_105.jpg",:border=>0),new_promote_discount_path%></div>
+</div>
+<script type="text/javascript" src="/javascripts/compressed.js"></script>
+<script type="text/javascript">
+ $('slideshow').style.display='none';
+ $('wrapper').style.display='block';
+ var slideshow=new TINY.slideshow("slideshow");
+
+ window.onload=function(){
+
+  slideshow.auto=true;
+  slideshow.speed=5;
+  slideshow.link="linkhover";
+  slideshow.info="information";
+  slideshow.thumbs="slider";
+  slideshow.left="slideleft";
+  slideshow.right="slideright";
+  slideshow.scrollSpeed=4;
+  slideshow.spacing=5;
+  slideshow.active="#fff";
+
+  slideshow.init("slideshow","image","imgprev","imgnext","imglink");
+
+ }
+</script>

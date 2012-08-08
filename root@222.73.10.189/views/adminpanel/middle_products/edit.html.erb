@@ -1,0 +1,16 @@
+<%= render 'base' %>
+<div id="adminpanel_middle_product" class="form">
+<%= simple_form_for(@middle_product,
+  :url =>  adminpanel_top_product_middle_product_path(@top_product,@middle_product) ) do |f| %>
+  <%= render "/shared/error_messages", :target => @middle_product %>
+
+  <div class="inputs">
+  <%= f.input :name %>
+
+  </div>
+  <div class="actions">
+    <button type="submit">提交</button>
+     或者 <%= link_to '返回', adminpanel_top_product_middle_products_path(@top_product) %>
+  </div>
+<% end %>
+</div>

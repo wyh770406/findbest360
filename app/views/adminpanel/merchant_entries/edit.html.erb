@@ -1,0 +1,20 @@
+<%= render 'base' %>
+<div id="adminpanel_merchant_entry" class="form">
+  <%= simple_form_for(@merchant_entry,
+    :url =>  adminpanel_merchant_entry_path(@merchant_entry) ) do |f| %>
+    <%= render "/shared/error_messages", :target => @merchant_entry %>
+
+    <div class="inputs">
+      <%= f.label :title,"标题" %><br/>
+      <%= f.text_field :title %><br/>
+
+      <%= f.label :desc,"内容" %><br/>
+      <%=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%><br/>
+
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+      或者 <%= link_to '返回', adminpanel_merchant_entries_path %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,232 @@
+@charset "utf-8";
+/* CSS Document */
+/*==============common==============*/
+.content {
+	width:940px;
+	margin:0 auto;
+}
+#w .content {
+	padding:20px 0;
+	font-size:14px;
+	line-height:22px;
+	color:#2b2b2b;
+	position:relative;
+}
+.content a {
+	color:#03c;
+}
+.content_right h4 {
+	padding:3px 0;
+	border-bottom:1px solid #d9e2eb;
+}
+.red {
+	color:red;
+}
+.grey {
+	color:#999;
+}
+.center {
+	text-align:center;
+}
+.clr {
+	clear:both;
+}
+a img {
+	border:none;
+}
+.small_text {
+	font-size:12px;
+}
+.hr {
+	border:none;
+	overflow:hidden;
+	background:#e3eff8;
+	height:1px;
+	margin:20px 0px 0px;
+}
+.hr_dotted {
+	border:none;
+	border-bottom:1px dotted #b5c8d9;
+	overflow:hidden;
+	height:1px;
+	margin:20px 0px 0px;
+}
+label {
+	display:inline-block;
+	width:70px;
+	text-align:right;
+}
+.input_table td{
+	padding:5px;
+	vertical-align:top;
+}
+.input_table p {
+	margin:0 0 10px 0;
+}
+/*sub page template*/
+.left {
+	width:166px;
+	float:left;
+	border-right:1px solid #e3eff8;
+}
+.right {
+	margin-left:178px;
+}
+.left a{
+	text-decoration:none;
+}
+.left .list01, .list02 {
+	margin:0;
+	padding:0;
+}
+.left .list01 {
+	width:159px;
+}
+.left .list01 li {
+	border-bottom:1px solid #e3eff8;
+	padding:6px 0px 6px 15px;
+	list-style:none;
+	background:url(../p/bullets/bullet03.gif) 3px 14px no-repeat;
+	font-weight:bold;
+}
+.left .list01 li#focus {
+	background: url(../p/bullets/bullet03.gif) 3px 14px no-repeat;
+}
+.left .list01 li#focus a {
+	color:#000;
+}
+.left .list02 {
+	padding:8px 0 8px 0;
+}
+.left .list02 li {
+	padding:5px 15px;
+	border-bottom:none;
+	list-style:none;
+	background:url(../p/bullets/bullet01.gif) 5px 15px no-repeat;
+	font-size:12px;
+	font-weight:normal;
+}
+.left .list02 li#focus {
+	background:#e3eff8 url(../p/bullets/bullet01.gif) 5px 15px no-repeat;
+}
+.left h4 {
+	background:url(../p/help-sprite.jpg)  no-repeat;
+	padding:8px 10px;
+	margin:0;
+	font-size:14px;
+}
+.breadcrumb {
+	font-size:12px;
+	height:24px;
+	margin:0 0 10px -10px;
+}
+.breadcrumb ul {
+	margin:0;
+	padding:0;
+}
+.breadcrumb ul li {
+	float:left;
+	list-style:none;
+	padding:0px 4px 4px 10px;
+	background:url(../p/bullets/bullet04.gif) 0 7px no-repeat;
+}
+.breadcrumb ul li.first {
+	background:none;
+}
+.pics {
+	margin:10px;
+}
+.list03 {
+	font-weight:normal;
+}
+.list03 li {
+	font-weight:bold;
+	list-style:upper-alpha;
+	padding:10px 0;
+}
+.round_corner {
+	background:#fafeff;
+	border:1px solid #b5c8d9;
+	position:relative;
+}
+/*==============special page==============*/
+/* CSS Document */
+body {
+	margin:0;
+	padding:0;
+	font-size:62.5%;
+	 *font-size:63%;
+	font-family:Arial, sans-serif
+}
+#t {
+	font-size:1.4em;
+	height:23px;
+	line-height:23px;
+	padding:5px;
+	position:relative;
+	z-index:2;
+	height:78px;
+}
+#t .content {
+	height:65px;
+}
+#t .link {
+	position:absolute;
+	height:14px;
+	right:0;
+	top:46px;
+	font-size:12px;
+}
+#t .link a {
+	color:#476a90;
+	text-decoration:none;
+}
+#f {
+	background:none;
+}
+#w {
+	margin-top:0;
+	font-size:12px;
+}
+#yd {
+	background:transparent url(../p/logo-s.png) repeat scroll 0 0;
+	font-size:1px;
+	height:36px;
+	left:0px;
+	margin:-1px 0 0;
+	position:absolute;
+	text-indent:-9999em;
+	top:30px;
+	width:153px;
+	z-index:10;
+}
+#yd a {
+	display:block;
+	height:36px;
+	width:153px;
+}
+#b {
+	font-size:1.2em;
+	padding-bottom:1em;
+	position:relative;
+	text-align:center;
+}
+#b p {
+margin:0.7em 0 0;
+}
+#cr {
+    color:#808080;
+}
+#b {
+    font-size:1.2em;
+    text-align:center;
+}
+#slogen {
+	display:block;
+	position:absolute;
+	left:16px;
+	top:36px;
+	height:18px;
+	padding-left:12px;
+	font-weight:bold;
+}

@@ -1,0 +1,183 @@
+<% pagetitle("首页") %>
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    $(function(){
+      $('#newsSlider').loopedSlider({
+        autoStart: 4000
+      });
+      $('.validate_Slider').loopedSlider({
+        autoStart: 4000
+      });
+
+    });
+
+    window.onload = function(){
+      switchmodTag(["b_1","b_2","b_3","b_4","b_5","b_6","b_7","b_8","b_9","b_10","b_11","b_12","b_13","b_14","b_15","b_16","b_17","b_18"],["c2_1","c2_2","c2_3","c2_4","c2_5","c2_6","c2_7","c2_8","c2_9","c2_10","c2_11","c2_12","c2_13","c2_14","c2_15","c2_16","c2_17","c2_18"],"stx01","stx02");//第二组 搜索
+    }
+
+   anylinkcssmenu.init("anchorclass")
+  </script>
+<% end %>
+
+
+<div class="main">
+  <div class="title2">产品类目</div>
+    <%=render "content"%>
+  <!--div class="content">
+    <div class="contentA">
+      <%#=render "top_cates"%>
+    </div>
+
+
+
+
+    <div class="contentA">
+      <%#=render "end_cates"%>
+    </div>
+  </div-->
+</div>
+
+<div class="main">
+  <div class="title2">团购特区</div>
+  <div class="content">
+    <%if @city.present?%>
+      <div id=site-nav style="margin-left:0px; width:936px"><div class="clear"></div>
+        <UL class=quick-menu>
+          <LI class=home></LI>
+          <A href="#"><h1 style="margin-left:0px;">[<%=  @city.name %>]</h1></A>
+          <LI class="services menu-item last" style="margin-top:0px; margin-left:5px;">
+            <div class=menu>
+              <A class=menu-hd href="#" target=_top>切换城市<B></B></A>
+              <div class=menu-bd style="WIDTH: 410px; HEIGHT: 642px;">
+                <div class=menu-bd-panel>
+                  <%= render "groupbuy_sites/city" %>
+                </div>
+                <S class=r></S><S class=rt></S><S class=lt></S><S class=b style="WIDTH: 169px"></S><S class="b b2" style="WIDTH: 169px"></S><S class=rb></S><S class=lb></S>
+              </div>
+            </div>
+          </LI>
+        </UL>
+        <h3>
+          <% @categories.each do |c| %>
+            <%= link_to "#{c.name}(#{products_count(c, @city, 'c')})", groupbuy_sites_path(:category => c.id, :city =>  ( @city.id),
+              :price_sort => "all", :sort => "1"), :target => "_blank" %>
+          <% end %>
+          <a href="/groupbuy_sites" target="_blank"><font class="red">更多团购信息</font></a></h3>
+      </div>
+    <%end%>
+
+      <% if @groupbuy_products.present? %>
+
+    <div class="contentC">
+
+        <% @groupbuy_products[0,5].each do |p| %>
+
+          <% if p.present? %>
+            <dl>
+              <dt>
+                <%= link_to image_tag(p.img_url, :width => "164", :height => "115"), p.url, :target => "_blank" %>
+              </dt>
+              <dd>
+                <%=link_to truncate(p.title, :length => 30), p.url, :target => "_blank" %>
+              </dd>
+            </dl>
+          <% end %>
+
+        <% end %>
+
+
+    </div>
+
+    <div class="contentC">
+
+        <% 
+         @groupbuy_products[5,5].each do |p| %>
+
+          <% if p.present? %>
+            <dl>
+              <dt>
+                <%= link_to image_tag(p.img_url, :width => "164", :height => "115"), p.url, :target => "_blank" %>
+              </dt>
+              <dd>
+                <%=link_to truncate(p.title, :length => 30), p.url, :target => "_blank" %>
+              </dd>
+            </dl>
+          <% end %>
+
+        <%  
+          end %>
+
+    </div>
+      <% end %>
+  </div>
+</div>
+
+<div class="main">
+  <div class="main_left">
+    <div class="title">
+
+      <span><a href="#">>>>更多</a></span><img src="/images/index_45.gif" width="30" height="35" />公告栏目 </div>
+    <ul>
+      <%@promote_discounts.each do |promote_discount|%>
+        <li><%=link_to "·"+promote_discount.title,promote_discount.link_to_url,:target=>"_blank"%></li>
+      <%end unless @promote_discounts.nil?%>
+      <!--li class="red"><a href="#" >·<span class="red">教育考试、外语类图书全场满减！</a></li>
+      <li><a href="#">·沃3G，理财卡全国首发！</a></li>
+      <li><a href="#">·口水！阿卡OT990爱机试用</a></li>
+      <li><a href="#">·温州市新城自提点搬迁通知！</a></li>
+      <li><a href="#">·夏日美肤秘笈，HOT特卖！</a></li>
+      <li><a href="#">·美“食”美刻，体验惊喜直降</a></li>
+      <li><a href="#">·沃3G，理财卡全国首发！</a></li>
+      <li><a href="#">·口水！阿卡OT990爱机试用</a></li-->
+    </ul>
+  </div>
+  <div class="main_right"><div class="lanrentukubox">
+      <!--焦点图-->
+      <DIV id=newsSlider>
+        <DIV class=container>
+          <UL class=slides>
+            <%i=0
+            @promote_discounts.each do |promote_discount|%>
+              <li>
+                <%=link_to image_tag(promote_discount.image_url),promote_discount.link_to_url,:target=>"_blank"%>
+              </li>
+              <%if i<6%>
+              <%end%>
+              <%i=i+1
+            end unless @promote_discounts.nil?%>
+            <!--LI><A href="http://www.lanrentuku.com/"
+                   target=_blank><IMG src="/images/01.jpg"></A>
+            <LI><a target="_blank" href="http://promo.dangdang.com/day.php?id=137#ref=www-0-E" name="B7">
+                <img width="416" height="243" alt="十一大惠战 疯狂限时抢" src="http://img4.ddimg.cn/00074/pic/dh11.jpg"></a>
+
+            <LI><a target="_blank" href="http://market.360buy.com/hd/20110901/index.html">
+                <img width="766" height="120" src="http://img11.360buyimg.com/da/20110928/766_120_WcxPtC.jpg">
+              </a>
+            <LI><A href="http://www.lanrentuku.com/"
+                   target=_blank><IMG src="/images/04.jpg"></A>
+            <LI><A href="http://www.lanrentuku.com/"
+                   target=_blank><IMG src="/images/05.jpg"></A> </LI>
+            <LI><A href="http://www.lanrentuku.com/"
+                   target=_blank><IMG src="/images/06.jpg"></A> </LI-->
+          </UL></DIV>
+        <DIV class=validate_Slider></DIV>
+        <UL class=pagination>
+          <LI><A href="#">1</A> </LI>
+          <LI><A href="#">2</A> </LI>
+          <LI><A href="#">3</A> </LI>
+          <LI><A href="#">4</A> </LI>
+          <LI><A href="#">5</A> </LI>
+          <LI><A href="#">6</A> </LI></UL></DIV>
+      <!--焦点图-->
+    </div></div>
+</div>
+<div class="main"><div class="Mall">
+    <div class="title"><span><%= link_to ">>>更多", website_guides_path,:target=>"_blank" %>
+</span><p style="margin-left:15px;">名家商城</p></div>
+    <ul>
+      <%@merchants.each do |merchant|%>
+        <%=link_to image_tag(merchant.merchantlogo.url(:thumb),:size=>"85x30") ,merchant.merchanturl,:target=>"_blank",:title=>merchant.name%>
+      <%end unless @merchants.nil?%>
+      <!--a href="#"><img src="/images/index_138.gif" border="0" /></a> <a href="#"><img src="/images/index_139.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_140.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_141.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_142.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_143.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_144.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_145.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_146.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_147.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_148.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_149.gif" width="69" height="25" border="0" /></a><a href="#"><img src="/images/index_153.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_154.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_155.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_156.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_157.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_158.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_159.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_160.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_161.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_162.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_141.gif" width="70" height="25" border="0" /></a><a href="#"><img src="/images/index_145.gif" width="70" height="25" border="0" /></a-->
+    </ul>
+  </div></div>

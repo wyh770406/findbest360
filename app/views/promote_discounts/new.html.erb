@@ -1,0 +1,35 @@
+<%#= render 'base' %>
+<% pagetitle("新增折扣促销广告") %>
+<div class="main">
+  <h2>新增折扣促销广告</h2>
+<div id="adminpanel_promote_discount" class="form">
+
+  <%= simple_form_for(@promote_discount,:url =>  promote_discounts_path) do |f| %>
+
+    <%= render "/shared/error_messages", :target => @promote_discount %>
+
+    <div class="inputs">
+      <%= f.label :title,"折扣促销广告标题" %><br/>
+      <%= f.text_field :title %><br/>
+
+      <%= f.label :link_to_url,"广告内容链接" %><br/>
+      <%= f.text_field :link_to_url %><br/>
+
+      <%= f.label :link_to_url,"广告图片链接" %><br/>
+      <%= f.text_field :image_url %><br/>
+      <%#= f.label :desc,"简介" %>
+      <%#=  f.ckeditor :desc, :label => false, :input_html => { :toolbar => 'Full' }%>
+      <%= f.label :top_product,"所属分类" %><br/>
+      <%= f.collection_select( :top_product,@top_products,:id,:name , {:include_blank => '请选择'})%><br/>
+
+      <%= f.label :merchant,"来源商家" %><br/>
+      <%= f.collection_select( :merchant,@merchants,:id,:name , {:include_blank => '请选择'})%><br/>
+
+    </div>
+    <div class="actions">
+      <button type="submit">提交</button>
+       <%#= link_to '返回', adminpanel_top_product_promote_discounts_path(@top_product_id) %>
+    </div>
+  <% end %>
+</div>
+</div>
